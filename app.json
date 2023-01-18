@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "61325d62-98f5-4ca7-983a-8deb262f6424"
+      }
+    },
+    "owner": "rom1code"
   }
 }
