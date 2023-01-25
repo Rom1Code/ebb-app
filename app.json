@@ -12,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/61325d62-98f5-4ca7-983a-8deb262f6424"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -34,6 +35,9 @@
         "projectId": "61325d62-98f5-4ca7-983a-8deb262f6424"
       }
     },
-    "owner": "rom1code"
+    "owner": "rom1code",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
   }
 }

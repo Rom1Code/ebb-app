@@ -1,0 +1,134 @@
+[
+    {
+        "Place": "1",
+        "Equipe": "W.O.S.B. - 2",
+        "Pts_equipe": "21",
+        "Nb_match": "11",
+        "Victoire": "10",
+        "Defaite": "1",
+        "Pts_marques": "927",
+        "Pts_encaisses": "694",
+        "Difference": "233"
+    },
+    {
+        "Place": "2",
+        "Equipe": "ECKBOLSHEIM BB - 1",
+        "Pts_equipe": "21",
+        "Nb_match": "11",
+        "Victoire": "10",
+        "Defaite": "1",
+        "Pts_marques": "777",
+        "Pts_encaisses": "665",
+        "Difference": "112"
+    },
+    {
+        "Place": "3",
+        "Equipe": "S.U. SCHILTIGHEIM BASKET BALL - 1",
+        "Pts_equipe": "21",
+        "Nb_match": "11",
+        "Victoire": "10",
+        "Defaite": "1",
+        "Pts_marques": "902",
+        "Pts_encaisses": "734",
+        "Difference": "168"
+    },
+    {
+        "Place": "4",
+        "Equipe": "SCHWEIGHOUSE/OHLUNGEN B.C. - 1",
+        "Pts_equipe": "17",
+        "Nb_match": "11",
+        "Victoire": "6",
+        "Defaite": "5",
+        "Pts_marques": "709",
+        "Pts_encaisses": "723",
+        "Difference": "-14"
+    },
+    {
+        "Place": "5",
+        "Equipe": "IE - CTC ALLIANCE SPORT ALSACE - WALBOURG ESCHBACH BASKET - 1",
+        "Pts_equipe": "17",
+        "Nb_match": "11",
+        "Victoire": "6",
+        "Defaite": "5",
+        "Pts_marques": "814",
+        "Pts_encaisses": "822",
+        "Difference": "-8"
+    },
+    {
+        "Place": "6",
+        "Equipe": "WANTZENAU (LA) A.S.C.SP",
+        "Pts_equipe": "16",
+        "Nb_match": "11",
+        "Victoire": "5",
+        "Defaite": "6",
+        "Pts_marques": "692",
+        "Pts_encaisses": "697",
+        "Difference": "-5"
+    },
+    {
+        "Place": "7",
+        "Equipe": "SOUFFELWEYERSHEIM BC - 2",
+        "Pts_equipe": "16",
+        "Nb_match": "11",
+        "Victoire": "5",
+        "Defaite": "6",
+        "Pts_marques": "733",
+        "Pts_encaisses": "758",
+        "Difference": "-25"
+    },
+    {
+        "Place": "8",
+        "Equipe": "STRASBOURG ELECTRICITE A.S. - 1",
+        "Pts_equipe": "16",
+        "Nb_match": "11",
+        "Victoire": "5",
+        "Defaite": "6",
+        "Pts_marques": "749",
+        "Pts_encaisses": "817",
+        "Difference": "-68"
+    },
+    {
+        "Place": "9",
+        "Equipe": "MORSCHWILLER FCJ - 1",
+        "Pts_equipe": "14",
+        "Nb_match": "11",
+        "Victoire": "3",
+        "Defaite": "8",
+        "Pts_marques": "714",
+        "Pts_encaisses": "776",
+        "Difference": "-62"
+    },
+    {
+        "Place": "10",
+        "Equipe": "SOUFFLENHEIM C.C.S.A - 1",
+        "Pts_equipe": "13",
+        "Nb_match": "11",
+        "Victoire": "2",
+        "Defaite": "9",
+        "Pts_marques": "658",
+        "Pts_encaisses": "744",
+        "Difference": "-86"
+    },
+    {
+        "Place": "11",
+        "Equipe": "WEITBRUCH A.S.C.G - 3",
+        "Pts_equipe": "13",
+        "Nb_match": "11",
+        "Victoire": "2",
+        "Defaite": "9",
+        "Pts_marques": "734",
+        "Pts_encaisses": "844",
+        "Difference": "-110"
+    },
+    {
+        "Place": "12",
+        "Equipe": "NIEDERSCHAEFFOLSHEIM C.S.M. - 1",
+        "Pts_equipe": "13",
+        "Nb_match": "11",
+        "Victoire": "2",
+        "Defaite": "9",
+        "Pts_marques": "666",
+        "Pts_encaisses": "801",
+        "Difference": "-135"
+    }
+]
