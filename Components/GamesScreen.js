@@ -1,4 +1,5 @@
 import { StyleSheet, FlatList, Text, View, TouchableOpacity, Button } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 const list = [{dom:'Eckbo', ext:'SUS', score_dom:'99', score_ext:'55'},{dom:'Eckbo', ext:'SUS', score_dom:'99', score_ext:'55'}]
 
 
@@ -7,7 +8,7 @@ function GamesScreen({navigation}) {
   console.log(gamesList)
 
     return (
-      <View style={{ flex: 1, }}>
+      <SafeAreaView style={{ flex: 1, }}>
         <FlatList style={{ width: '100%' }}
         data={gamesList}
         renderItem={({item}) => 
@@ -15,7 +16,7 @@ function GamesScreen({navigation}) {
             <Text style={styles.item}>{item.equipe_dom} vs {item.equipe_ext} :  {item.score_dom} - {item.score_ext}</Text>
           </TouchableOpacity>}
       />      
-      </View>
+      </SafeAreaView>
     );
   }
 

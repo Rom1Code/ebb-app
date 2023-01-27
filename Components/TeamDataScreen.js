@@ -1,20 +1,11 @@
 import { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, SectionList, FlatList, ScrollView } from 'react-native';
-import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+import TeamCalendarComponent from './TeamCalendarComponent'
+import TeamClassementComponent from './TeamClassementComponent'
 
 
-
- function TeamClassementScreen({route}) {
+ function TeamDataScreen({route}) {
   const [tabPressed, setTabPressed] = useState(1);
-  const tableHead =['Place','Equipe', 'Pts', 'NB match', 'Victoire', 'Défaite', 'Pts marqués', 'Pts encaissés', 'Différence']
-  const classementData = require('../Helper/classement_SM1.json');
-
-  const equipe = route.params.equipe.item
-  console.log(classementData[0].Equipe)
-  const tableData= classementData.map((row) => [row.Place,row.Equipe,row.Pts_equipe, row.Nb_match, row.Victoire, row.Defaite, row.Pts_marques, row.Pts_encaisses, row.Difference])
-  
-
-
 
 
     return (
@@ -29,16 +20,10 @@ import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-ta
         </View>
         <ScrollView>
         {tabPressed == 1 ? 
-        <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff' }}>
-          <Row data={tableHead} style={styles.head} textStyle={styles.text}/>
-            <Rows data={tableData} textStyle={styles.text}/>
-        </Table>
+          <TeamCalendarComponent/>
         :
-        <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff' }}>
-        <Row data={tableHead} style={styles.head} textStyle={styles.text}/>
-        <Rows data={tableData} textStyle={styles.text}/>
-      </Table>}
-      </ScrollView>
+          <TeamClassementComponent/>}
+        </ScrollView>
       </View>
     );
 }
@@ -80,14 +65,22 @@ const styles = StyleSheet.create({
     color: '#00A400'
   },
   head: { 
-    height: 40, 
-    backgroundColor: '#f1f8ff'
-},
+    flex: 1, 
+    backgroundColor: '#00A400',
+    textAlign: 'center',
+    color: 'white'
+  },
+  row: {  
+    height: 35  }
+    ,
   text: { 
-    margin: 6, 
-    textAlign: 'center' }
-},
+    textAlign: 'center',
+    fontSize: 10
+  },
+  textHead: { 
+    textAlign: 'center',
+    color: 'white'
+  }
+})
 
-)
-
-export default TeamClassementScreen
+export default TeamDataScreen

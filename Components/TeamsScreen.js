@@ -1,4 +1,5 @@
 import { StyleSheet, Button, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 function TeamsScreen({navigation}) {
     teams = ['SM1']
@@ -10,7 +11,7 @@ function TeamsScreen({navigation}) {
           <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
             <Text style={styles.item}>{item}</Text>
           </TouchableOpacity>}
-      />      
+      /> 
         <Button
       title="Go Home"
       onPress={() =>
@@ -23,7 +24,6 @@ function TeamsScreen({navigation}) {
 
   const styles = StyleSheet.create({
     touch: {
-      verticalAlign: 'center',
       justifyContent: 'center',
   
     },

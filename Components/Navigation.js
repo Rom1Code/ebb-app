@@ -25,7 +25,7 @@ function Navigation() {
       <Tab.Screen name="Accueil" component={HomeScreen} options={{
           tabBarLabel: 'Accueil',
           headerTintColor:'#00A400',
-          headerShown:true,
+          headerShown:false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
@@ -33,15 +33,15 @@ function Navigation() {
       <Tab.Screen name="MatchsStack" component={GamesStackScreen} options={{
           tabBarLabel: 'Matchs',
           headerTintColor:'#00A400',
-          headerShown:true,
+          headerShown:false,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="basketball-ball" color={color} size={size} />
           ),
         }}
       />
-      <Tab.Screen name="Equipes" component={TeamsStackScreen} options={{
+      <Tab.Screen name="EquipesStack" component={TeamsStackScreen} options={{
           tabBarLabel: 'Equipes',
-          headerShown:true,
+          headerShown:false,
           headerTintColor:'#00A400',
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="team" color={color} size={size} />

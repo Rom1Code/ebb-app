@@ -19,13 +19,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rom1code.ebbapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./Ressources/ebb-logo.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.rom1code.ebbapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -37,7 +39,7 @@
     },
     "owner": "rom1code",
     "runtimeVersion": {
-      "policy": "appVersion"
+      "policy": "sdkVersion"
     }
   }
 }
