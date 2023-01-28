@@ -4,7 +4,7 @@ import TeamCalendarComponent from './TeamCalendarComponent'
 import TeamClassementComponent from './TeamClassementComponent'
 
 
- function TeamDataScreen({route}) {
+ function TeamDataScreen({navigation}) {
   const [tabPressed, setTabPressed] = useState(1);
 
 
@@ -20,7 +20,7 @@ import TeamClassementComponent from './TeamClassementComponent'
         </View>
         <ScrollView>
         {tabPressed == 1 ? 
-          <TeamCalendarComponent/>
+          <TeamCalendarComponent navigation={navigation}/>
         :
           <TeamClassementComponent/>}
         </ScrollView>

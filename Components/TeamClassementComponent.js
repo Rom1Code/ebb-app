@@ -1,12 +1,35 @@
-import { StyleSheet, TouchableOpacity, Text, View, SectionList, FlatList, ScrollView } from 'react-native';
-import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
+import { Table, Row, Rows } from 'react-native-table-component';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
- function TeamClassementComponent({route}) {
+ function TeamClassementComponent({}) {
   const tableHead =['#','Equipe', 'Pts', 'NB match', 'V', 'D', 'Marqués', 'Encaissés', 'Diff']
   const classementData = require('../Helper/classement_SM1.json');
+  const offenseData= classementData.map((item) => item.Pts_marques)
+  const defenseData= classementData.map((item) => item.Pts_encaisses)
 
-  const tableData= classementData.map((row) => [row.Place,row.Equipe,row.Pts_equipe, row.Nb_match, row.Victoire, row.Defaite, row.Pts_marques, row.Pts_encaisses, row.Difference])
+  const teamIcon = (team, offense, defense) => {
+    const offenseIcon = bestOffense(team, offense)
+    const defenseIcon = bestDefense(team, defense)
+
+    return <Text style={styles.text}> {offenseIcon} {defenseIcon} {team}</Text>
+
+  }
+  const bestOffense = (team, pts) => {
+    if(pts == Math.max(...offenseData)){
+      return <FontAwesome name="fire" color='orange'  />
+    }
+  }
+
+  const bestDefense = (team, pts) => {
+    if(pts == Math.min(...defenseData)){
+      return <FontAwesome name="lock" color='black'  />
+    }
+  }
+
+
+  const tableData= classementData.map((row) => [row.Place,teamIcon(row.Equipe,row.Pts_marques, row.Pts_encaisses) ,row.Pts_equipe, row.Nb_match, row.Victoire, row.Defaite, row.Pts_marques, row.Pts_encaisses, row.Difference])
 
     return (
     <View style={{ flex: 1 }}>
@@ -72,6 +95,10 @@ const styles = StyleSheet.create({
   textHead: { 
     textAlign: 'center',
     color: 'white'
+  },
+  icon: {
+    height:5,
+    width:5
   }
 })
 

@@ -1,5 +1,4 @@
 import { StyleSheet, Button, Text, View, FlatList, TouchableOpacity } from 'react-native';
-import { TouchableHighlight } from 'react-native-gesture-handler';
 
 function TeamsScreen({navigation}) {
     teams = ['SM1']
