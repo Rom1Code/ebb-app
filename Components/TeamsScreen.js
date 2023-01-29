@@ -1,7 +1,7 @@
 import { StyleSheet, Button, Text, View, FlatList, TouchableOpacity } from 'react-native';
 
 function TeamsScreen({navigation}) {
-    teams = ['SM1']
+    const teams = ['SM1','SM2']
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <FlatList style={{ width: '100%' }}

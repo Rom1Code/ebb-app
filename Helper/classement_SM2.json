@@ -1,0 +1,134 @@
+[
+    {
+        "Place": "1",
+        "Equipe": "ECKBOLSHEIM BB - 2",
+        "Pts_equipe": "22",
+        "Nb_match": "12",
+        "Victoire": "10",
+        "Defaite": "2",
+        "Pts_marques": "903",
+        "Pts_encaisses": "674",
+        "Difference": "229"
+    },
+    {
+        "Place": "2",
+        "Equipe": "GEISPOLSHEIM C.J.S. - 4",
+        "Pts_equipe": "21",
+        "Nb_match": "12",
+        "Victoire": "9",
+        "Defaite": "3",
+        "Pts_marques": "815",
+        "Pts_encaisses": "641",
+        "Difference": "174"
+    },
+    {
+        "Place": "3",
+        "Equipe": "ERSTEIN BC - 2",
+        "Pts_equipe": "21",
+        "Nb_match": "12",
+        "Victoire": "9",
+        "Defaite": "3",
+        "Pts_marques": "880",
+        "Pts_encaisses": "696",
+        "Difference": "184"
+    },
+    {
+        "Place": "4",
+        "Equipe": "BISCHHEIM BS - 1",
+        "Pts_equipe": "20",
+        "Nb_match": "12",
+        "Victoire": "8",
+        "Defaite": "4",
+        "Pts_marques": "791",
+        "Pts_encaisses": "643",
+        "Difference": "148"
+    },
+    {
+        "Place": "5",
+        "Equipe": "MUNDOLSHEIM B.C. - 1",
+        "Pts_equipe": "20",
+        "Nb_match": "12",
+        "Victoire": "8",
+        "Defaite": "4",
+        "Pts_marques": "780",
+        "Pts_encaisses": "676",
+        "Difference": "104"
+    },
+    {
+        "Place": "6",
+        "Equipe": "ESCHAU BC - 2",
+        "Pts_equipe": "20",
+        "Nb_match": "12",
+        "Victoire": "8",
+        "Defaite": "4",
+        "Pts_marques": "818",
+        "Pts_encaisses": "690",
+        "Difference": "128"
+    },
+    {
+        "Place": "7",
+        "Equipe": "EN - CTC M2B - MOLSHEIM CSTG - 2",
+        "Pts_equipe": "18",
+        "Nb_match": "12",
+        "Victoire": "6",
+        "Defaite": "6",
+        "Pts_marques": "792",
+        "Pts_encaisses": "667",
+        "Difference": "125"
+    },
+    {
+        "Place": "8",
+        "Equipe": "OSTWALD C.S.S.O. - 1",
+        "Pts_equipe": "18",
+        "Nb_match": "12",
+        "Victoire": "6",
+        "Defaite": "6",
+        "Pts_marques": "796",
+        "Pts_encaisses": "822",
+        "Difference": "-26"
+    },
+    {
+        "Place": "9",
+        "Equipe": "EN - CTC MARLE-SOULTZ - MARLENHEIM BC - 2",
+        "Pts_equipe": "16",
+        "Nb_match": "12",
+        "Victoire": "4",
+        "Defaite": "8",
+        "Pts_marques": "724",
+        "Pts_encaisses": "756",
+        "Difference": "-32"
+    },
+    {
+        "Place": "10",
+        "Equipe": "STRASBOURG ASS - 1",
+        "Pts_equipe": "15",
+        "Nb_match": "12",
+        "Victoire": "3",
+        "Defaite": "9",
+        "Pts_marques": "632",
+        "Pts_encaisses": "854",
+        "Difference": "-222"
+    },
+    {
+        "Place": "11",
+        "Equipe": "BASK FURDENHEIM - 5",
+        "Pts_equipe": "13",
+        "Nb_match": "12",
+        "Victoire": "1",
+        "Defaite": "11",
+        "Pts_marques": "522",
+        "Pts_encaisses": "951",
+        "Difference": "-429"
+    },
+    {
+        "Place": "12",
+        "Equipe": "STRASBOURG JS KOENIGSHOFFEN - 1",
+        "Pts_equipe": "12",
+        "Nb_match": "12",
+        "Victoire": "0",
+        "Defaite": "12",
+        "Pts_marques": "587",
+        "Pts_encaisses": "970",
+        "Difference": "-383"
+    }
+]

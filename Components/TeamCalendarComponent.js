@@ -5,11 +5,13 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 
- function TeamCalendarComponent({navigation}) {
+ function TeamCalendarComponent({navigation, team}) {
   const tableHead =['#','Date', 'Heure', 'Dom', 'Ext', 'Score']
-  const classementData = require('../Helper/calendrier_SM1.json');
+  const calendarSM1 = require('../Helper/calendrier_SM1.json');
+  const calendarSM2 = require('../Helper/calendrier_SM2.json');
+  const calendarData = team == "SM1" ? calendarSM1 : calendarSM2
 
-  const feuilleMatch = require('../Helper/feuille_match_SM1.json')
+  const feuilleMatch = team == "SM1" ? require('../Helper/feuille_match_SM1.json') : []
 
   const statsExist = (item) => {
     const exist = feuilleMatch.filter((item2) => item2.match == item.Match )
@@ -21,8 +23,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
     }
   }
 
-  const tableData= classementData.map((row) => [row.Match,row.Date,row.Heure, row.Dom, row.Ext, statsExist(row)])
-  
+  const tableData= calendarData.map((row) => [row.Match,row.Date,row.Heure, row.Dom, row.Ext, statsExist(row)])
+  console.log(calendarData)
     return (
       <View style={{ flex: 1 }}>
         <ScrollView>

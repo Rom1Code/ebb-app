@@ -1,0 +1,178 @@
+[
+    {
+        "Match": "1",
+        "Date": "25/09/2022",
+        "Heure": "17:30",
+        "Dom": "STRASBOURG ASS - 1",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "37 - 81"
+    },
+    {
+        "Match": "2",
+        "Date": "02/10/2022",
+        "Heure": "15:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "ERSTEIN BC - 2",
+        "Score": "67 - 46"
+    },
+    {
+        "Match": "3",
+        "Date": "09/10/2022",
+        "Heure": "17:00",
+        "Dom": "EN - CTC MARLE-SOULTZ - MARLENHEIM BC - 2",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "58 - 68"
+    },
+    {
+        "Match": "4",
+        "Date": "16/10/2022",
+        "Heure": "15:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "MUNDOLSHEIM B.C. - 1",
+        "Score": "77 - 51"
+    },
+    {
+        "Match": "5",
+        "Date": "12/11/2022",
+        "Heure": "20:00",
+        "Dom": "EN - CTC M2B - MOLSHEIM CSTG - 2",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "77 - 45"
+    },
+    {
+        "Match": "6",
+        "Date": "19/11/2022",
+        "Heure": "20:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "BISCHHEIM BS - 1",
+        "Score": "54 - 49"
+    },
+    {
+        "Match": "7",
+        "Date": "27/11/2022",
+        "Heure": "10:30",
+        "Dom": "BASK FURDENHEIM - 5",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "65 - 69"
+    },
+    {
+        "Match": "8",
+        "Date": "04/12/2022",
+        "Heure": "10:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "ESCHAU BC - 2",
+        "Score": "56 - 89"
+    },
+    {
+        "Match": "9",
+        "Date": "11/12/2022",
+        "Heure": "13:30",
+        "Dom": "STRASBOURG JS KOENIGSHOFFEN - 1",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "38 - 110"
+    },
+    {
+        "Match": "10",
+        "Date": "08/01/2023",
+        "Heure": "15:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "GEISPOLSHEIM C.J.S. - 4",
+        "Score": "56 - 47"
+    },
+    {
+        "Match": "11",
+        "Date": "21/05/2023",
+        "Heure": "13:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "OSTWALD C.S.S.O. - 1",
+        "Score": "-"
+    },
+    {
+        "Match": "12",
+        "Date": "28/01/2023",
+        "Heure": "20:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "STRASBOURG ASS - 1",
+        "Score": "105 - 68"
+    },
+    {
+        "Match": "13",
+        "Date": "04/02/2023",
+        "Heure": "18:30",
+        "Dom": "ERSTEIN BC - 2",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "-"
+    },
+    {
+        "Match": "14",
+        "Date": "05/03/2023",
+        "Heure": "17:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "EN - CTC MARLE-SOULTZ - MARLENHEIM BC - 2",
+        "Score": "-"
+    },
+    {
+        "Match": "15",
+        "Date": "11/03/2023",
+        "Heure": "20:30",
+        "Dom": "MUNDOLSHEIM B.C. - 1",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "-"
+    },
+    {
+        "Match": "16",
+        "Date": "19/03/2023",
+        "Heure": "15:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "EN - CTC M2B - MOLSHEIM CSTG - 2",
+        "Score": "-"
+    },
+    {
+        "Match": "17",
+        "Date": "25/03/2023",
+        "Heure": "18:30",
+        "Dom": "BISCHHEIM BS - 1",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "-"
+    },
+    {
+        "Match": "18",
+        "Date": "02/04/2023",
+        "Heure": "15:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "BASK FURDENHEIM - 5",
+        "Score": "-"
+    },
+    {
+        "Match": "19",
+        "Date": "09/04/2023",
+        "Heure": "10:30",
+        "Dom": "ESCHAU BC - 2",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "-"
+    },
+    {
+        "Match": "20",
+        "Date": "30/04/2023",
+        "Heure": "17:30",
+        "Dom": "ECKBOLSHEIM BB - 2",
+        "Ext": "STRASBOURG JS KOENIGSHOFFEN - 1",
+        "Score": "-"
+    },
+    {
+        "Match": "21",
+        "Date": "12/05/2023",
+        "Heure": "20:30",
+        "Dom": "GEISPOLSHEIM C.J.S. - 4",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "-"
+    },
+    {
+        "Match": "22",
+        "Date": "22/01/2023",
+        "Heure": "14:00",
+        "Dom": "OSTWALD C.S.S.O. - 1",
+        "Ext": "ECKBOLSHEIM BB - 2",
+        "Score": "49 - 115"
+    }
+]

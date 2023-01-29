@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, SectionList, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, ScrollView } from 'react-native';
 import TeamCalendarComponent from './TeamCalendarComponent'
 import TeamClassementComponent from './TeamClassementComponent'
 
 
- function TeamDataScreen({navigation}) {
+ function TeamDataScreen({navigation, route}) {
   const [tabPressed, setTabPressed] = useState(1);
-
-
+  //console.log(route.params.equipe.item)
+  const team = route.params.equipe.item
+  //console.log(team)
     return (
       <View style={{ flex: 1 }}>
         <View  style={styles.tabContainer}> 
@@ -20,9 +21,9 @@ import TeamClassementComponent from './TeamClassementComponent'
         </View>
         <ScrollView>
         {tabPressed == 1 ? 
-          <TeamCalendarComponent navigation={navigation}/>
+          <TeamCalendarComponent navigation={navigation} team={team}/>
         :
-          <TeamClassementComponent/>}
+          <TeamClassementComponent team={team}/>}
         </ScrollView>
       </View>
     );

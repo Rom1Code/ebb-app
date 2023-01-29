@@ -3,12 +3,17 @@ import { Table, Row, Rows } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
- function TeamClassementComponent({}) {
+
+ function TeamClassementComponent({team}) {
+
   const tableHead =['#','Equipe', 'Pts', 'NB match', 'V', 'D', 'Marqués', 'Encaissés', 'Diff']
-  const classementData = require('../Helper/classement_SM1.json');
+  const classementSM1 = require('../Helper/classement_SM1.json');
+  const classementSM2 = require('../Helper/classement_SM2.json');
+  const classementData = team == "SM1" ? classementSM1 : classementSM2
+  
   const offenseData= classementData.map((item) => item.Pts_marques)
   const defenseData= classementData.map((item) => item.Pts_encaisses)
-
+  console.log(team)
   const teamIcon = (team, offense, defense) => {
     const offenseIcon = bestOffense(team, offense)
     const defenseIcon = bestDefense(team, defense)
