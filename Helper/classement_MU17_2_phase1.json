@@ -1,0 +1,90 @@
+[
+    {
+        "place": "1",
+        "equipe": "MORSCHWILLER FCJ",
+        "pts_equipe": "14",
+        "nb_match": "7",
+        "victoire": "7",
+        "defaite": "0",
+        "pts_marques": "583",
+        "pts_encaisses": "274",
+        "difference": "309"
+    },
+    {
+        "place": "2",
+        "equipe": "KESKASTEL BC",
+        "pts_equipe": "13",
+        "nb_match": "7",
+        "victoire": "6",
+        "defaite": "1",
+        "pts_marques": "542",
+        "pts_encaisses": "273",
+        "difference": "269"
+    },
+    {
+        "place": "3",
+        "equipe": "EN - CTC MARLE-SOULTZ - MARLENHEIM BC",
+        "pts_equipe": "11",
+        "nb_match": "7",
+        "victoire": "4",
+        "defaite": "3",
+        "pts_marques": "357",
+        "pts_encaisses": "406",
+        "difference": "-49"
+    },
+    {
+        "place": "4",
+        "equipe": "ECKBOLSHEIM BB - 2",
+        "pts_equipe": "11",
+        "nb_match": "7",
+        "victoire": "4",
+        "defaite": "3",
+        "pts_marques": "371",
+        "pts_encaisses": "349",
+        "difference": "22"
+    },
+    {
+        "place": "5",
+        "equipe": "W.O.S.B. - 2",
+        "pts_equipe": "11",
+        "nb_match": "7",
+        "victoire": "4",
+        "defaite": "3",
+        "pts_marques": "389",
+        "pts_encaisses": "419",
+        "difference": "-30"
+    },
+    {
+        "place": "6",
+        "equipe": "WALBOURG ESCHBACH BASKET - 2",
+        "pts_equipe": "9",
+        "nb_match": "7",
+        "victoire": "2",
+        "defaite": "5",
+        "pts_marques": "385",
+        "pts_encaisses": "422",
+        "difference": "-37"
+    },
+    {
+        "place": "7",
+        "equipe": "SOUFFLENHEIM C.C.S.A",
+        "pts_equipe": "8",
+        "nb_match": "7",
+        "victoire": "1",
+        "defaite": "6",
+        "pts_marques": "298",
+        "pts_encaisses": "472",
+        "difference": "-174"
+    },
+    {
+        "place": "8",
+        "equipe": "HATTMATT SS",
+        "pts_equipe": "7",
+        "nb_match": "7",
+        "victoire": "0",
+        "defaite": "7",
+        "pts_marques": "281",
+        "pts_encaisses": "591",
+        "difference": "-310"
+    }
+]

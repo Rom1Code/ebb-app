@@ -1,0 +1,128 @@
+[
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "1",
+        "date": "14/01/2023",
+        "heure": "15:00",
+        "dom": "GEISPOLSHEIM C.J.S.",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "54 - 93"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "2",
+        "date": "22/01/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "EPFIG UNITAS",
+        "score": "72 - 62"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "3",
+        "date": "29/01/2023",
+        "heure": "16:45",
+        "dom": "MARLENHEIM BC",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "35 - 91"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "4",
+        "date": "04/02/2023",
+        "heure": "19:00",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "GRIESHEIM/DINGSHEIM B.C.",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "5",
+        "date": "11/02/2023",
+        "heure": "14:30",
+        "dom": "STRASBOURG ELECTRICITE A.S. - 2",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "6",
+        "date": "05/03/2023",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "WANTZENAU (LA) A.S.C.SP",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "7",
+        "date": "11/03/2023",
+        "heure": "16:30",
+        "dom": "DUTTLENHEIM LC",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "8",
+        "date": "19/03/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "GEISPOLSHEIM C.J.S.",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "9",
+        "date": "26/03/2023",
+        "heure": "14:00",
+        "dom": "EPFIG UNITAS",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "10",
+        "date": "01/04/2023",
+        "heure": "16:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "MARLENHEIM BC",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "11",
+        "date": "15/04/2023",
+        "heure": "14:00",
+        "dom": "GRIESHEIM/DINGSHEIM B.C.",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "12",
+        "date": "07/05/2023",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "STRASBOURG ELECTRICITE A.S. - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "13",
+        "date": "13/05/2023",
+        "heure": "18:30",
+        "dom": "WANTZENAU (LA) A.S.C.SP",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_2_phase2",
+        "match": "14",
+        "date": "20/05/2023",
+        "heure": "18:00",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "DUTTLENHEIM LC",
+        "score": "-"
+    }
+]

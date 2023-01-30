@@ -1,0 +1,47 @@
+[
+    {
+        "equipe": "MU13_2_phase2",
+        "match": "1",
+        "date": "12/11/2022",
+        "heure": "16:30",
+        "dom": "DUTTLENHEIM LC - 2",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "31 - 42"
+    },
+    {
+        "equipe": "MU13_2_phase2",
+        "match": "2",
+        "date": "17/12/2022",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "BASK FURDENHEIM",
+        "score": "32 - 39"
+    },
+    {
+        "equipe": "MU13_2_phase2",
+        "match": "3",
+        "date": "26/11/2022",
+        "heure": "14:30",
+        "dom": "BINDERNHEIM C.S.U.",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "56 - 28"
+    },
+    {
+        "equipe": "MU13_2_phase2",
+        "match": "4",
+        "date": "03/12/2022",
+        "heure": "15:00",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "WALBOURG ESCHBACH BASKET",
+        "score": "26 - 27"
+    },
+    {
+        "equipe": "MU13_2_phase2",
+        "match": "5",
+        "date": "10/12/2022",
+        "heure": "14:00",
+        "dom": "WEYERSHEIM BB - 2",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "14 - 61"
+    }
+]

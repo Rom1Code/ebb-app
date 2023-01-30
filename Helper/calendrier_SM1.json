@@ -1,178 +1,200 @@
 [
     {
-        "Match": "1",
-        "Date": "24/09/2022",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "SOUFFELWEYERSHEIM BC - 2",
-        "Score": "63 - 55"
+        "equipe": "SM1",
+        "match": "1",
+        "date": "24/09/2022",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "SOUFFELWEYERSHEIM BC - 2",
+        "score": "63 - 55"
     },
     {
-        "Match": "2",
-        "Date": "01/10/2022",
-        "Heure": "20:30",
-        "Dom": "SCHWEIGHOUSE/OHLUNGEN B.C. - 1",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "44 - 65"
+        "equipe": "SM1",
+        "match": "2",
+        "date": "01/10/2022",
+        "heure": "20:30",
+        "dom": "SCHWEIGHOUSE/OHLUNGEN B.C. - 1",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "44 - 65"
     },
     {
-        "Match": "3",
-        "Date": "08/10/2022",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "S.U. SCHILTIGHEIM BASKET BALL - 1",
-        "Score": "77 - 65"
+        "equipe": "SM1",
+        "match": "3",
+        "date": "08/10/2022",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "S.U. SCHILTIGHEIM BASKET BALL - 1",
+        "score": "77 - 65"
     },
     {
-        "Match": "4",
-        "Date": "15/10/2022",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "W.O.S.B. - 2",
-        "Score": "71 - 83"
+        "equipe": "SM1",
+        "match": "4",
+        "date": "15/10/2022",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "W.O.S.B. - 2",
+        "score": "71 - 83"
     },
     {
-        "Match": "5",
-        "Date": "12/11/2022",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "MORSCHWILLER FCJ - 1",
-        "Score": "66 - 58"
+        "equipe": "SM1",
+        "match": "5",
+        "date": "12/11/2022",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "MORSCHWILLER FCJ - 1",
+        "score": "66 - 58"
     },
     {
-        "Match": "6",
-        "Date": "20/11/2022",
-        "Heure": "16:30",
-        "Dom": "NIEDERSCHAEFFOLSHEIM C.S.M. - 1",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "64 - 72"
+        "equipe": "SM1",
+        "match": "6",
+        "date": "20/11/2022",
+        "heure": "16:30",
+        "dom": "NIEDERSCHAEFFOLSHEIM C.S.M. - 1",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "64 - 72"
     },
     {
-        "Match": "7",
-        "Date": "26/11/2022",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "SOUFFLENHEIM C.C.S.A - 1",
-        "Score": "63 - 51"
+        "equipe": "SM1",
+        "match": "7",
+        "date": "26/11/2022",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "SOUFFLENHEIM C.C.S.A - 1",
+        "score": "63 - 51"
     },
     {
-        "Match": "8",
-        "Date": "03/12/2022",
-        "Heure": "20:00",
-        "Dom": "IE - CTC ALLIANCE SPORT ALSACE - WALBOURG ESCHBACH BASKET - 1",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "66 - 76"
+        "equipe": "SM1",
+        "match": "8",
+        "date": "03/12/2022",
+        "heure": "20:00",
+        "dom": "IE - CTC ALLIANCE SPORT ALSACE - WALBOURG ESCHBACH BASKET - 1",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "66 - 76"
     },
     {
-        "Match": "9",
-        "Date": "10/12/2022",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "WANTZENAU (LA) A.S.C.SP",
-        "Score": "67 - 56"
+        "equipe": "SM1",
+        "match": "9",
+        "date": "10/12/2022",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "WANTZENAU (LA) A.S.C.SP",
+        "score": "67 - 56"
     },
     {
-        "Match": "10",
-        "Date": "07/01/2023",
-        "Heure": "20:30",
-        "Dom": "STRASBOURG ELECTRICITE A.S. - 1",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "65 - 66"
+        "equipe": "SM1",
+        "match": "10",
+        "date": "07/01/2023",
+        "heure": "20:30",
+        "dom": "STRASBOURG ELECTRICITE A.S. - 1",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "65 - 66"
     },
     {
-        "Match": "11",
-        "Date": "21/01/2023",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "WEITBRUCH A.S.C.G - 3",
-        "Score": "91 - 58"
+        "equipe": "SM1",
+        "match": "11",
+        "date": "21/01/2023",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "WEITBRUCH A.S.C.G - 3",
+        "score": "91 - 58"
     },
     {
-        "Match": "12",
-        "Date": "29/01/2023",
-        "Heure": "15:30",
-        "Dom": "SOUFFELWEYERSHEIM BC - 2",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "12",
+        "date": "29/01/2023",
+        "heure": "15:30",
+        "dom": "SOUFFELWEYERSHEIM BC - 2",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "54 - 62"
     },
     {
-        "Match": "13",
-        "Date": "04/02/2023",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "SCHWEIGHOUSE/OHLUNGEN B.C. - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "13",
+        "date": "04/02/2023",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "SCHWEIGHOUSE/OHLUNGEN B.C. - 1",
+        "score": "-"
     },
     {
-        "Match": "14",
-        "Date": "11/02/2023",
-        "Heure": "20:30",
-        "Dom": "S.U. SCHILTIGHEIM BASKET BALL - 1",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "14",
+        "date": "11/02/2023",
+        "heure": "20:30",
+        "dom": "S.U. SCHILTIGHEIM BASKET BALL - 1",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "-"
     },
     {
-        "Match": "15",
-        "Date": "12/03/2023",
-        "Heure": "17:30",
-        "Dom": "W.O.S.B. - 2",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "15",
+        "date": "12/03/2023",
+        "heure": "17:30",
+        "dom": "W.O.S.B. - 2",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "-"
     },
     {
-        "Match": "16",
-        "Date": "19/03/2023",
-        "Heure": "17:30",
-        "Dom": "MORSCHWILLER FCJ - 1",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "16",
+        "date": "19/03/2023",
+        "heure": "17:30",
+        "dom": "MORSCHWILLER FCJ - 1",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "-"
     },
     {
-        "Match": "17",
-        "Date": "25/03/2023",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "NIEDERSCHAEFFOLSHEIM C.S.M. - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "17",
+        "date": "25/03/2023",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "NIEDERSCHAEFFOLSHEIM C.S.M. - 1",
+        "score": "-"
     },
     {
-        "Match": "18",
-        "Date": "01/04/2023",
-        "Heure": "20:30",
-        "Dom": "SOUFFLENHEIM C.C.S.A - 1",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "18",
+        "date": "01/04/2023",
+        "heure": "20:30",
+        "dom": "SOUFFLENHEIM C.C.S.A - 1",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "-"
     },
     {
-        "Match": "19",
-        "Date": "08/04/2023",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "IE - CTC ALLIANCE SPORT ALSACE - WALBOURG ESCHBACH BASKET - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "19",
+        "date": "08/04/2023",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "IE - CTC ALLIANCE SPORT ALSACE - WALBOURG ESCHBACH BASKET - 1",
+        "score": "-"
     },
     {
-        "Match": "20",
-        "Date": "06/05/2023",
-        "Heure": "20:30",
-        "Dom": "WANTZENAU (LA) A.S.C.SP",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "20",
+        "date": "06/05/2023",
+        "heure": "20:30",
+        "dom": "WANTZENAU (LA) A.S.C.SP",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "-"
     },
     {
-        "Match": "21",
-        "Date": "13/05/2023",
-        "Heure": "20:30",
-        "Dom": "ECKBOLSHEIM BB - 1",
-        "Ext": "STRASBOURG ELECTRICITE A.S. - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "21",
+        "date": "13/05/2023",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 1",
+        "ext": "STRASBOURG ELECTRICITE A.S. - 1",
+        "score": "-"
     },
     {
-        "Match": "22",
-        "Date": "21/05/2023",
-        "Heure": "14:30",
-        "Dom": "WEITBRUCH A.S.C.G - 3",
-        "Ext": "ECKBOLSHEIM BB - 1",
-        "Score": "-"
+        "equipe": "SM1",
+        "match": "22",
+        "date": "21/05/2023",
+        "heure": "14:30",
+        "dom": "WEITBRUCH A.S.C.G - 3",
+        "ext": "ECKBOLSHEIM BB - 1",
+        "score": "-"
     }
 ]

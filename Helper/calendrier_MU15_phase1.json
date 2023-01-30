@@ -1,0 +1,47 @@
+[
+    {
+        "equipe": "MU15_phase1",
+        "match": "1",
+        "date": "12/11/2022",
+        "heure": "16:30",
+        "dom": "DUTTLENHEIM LC",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "26 - 51"
+    },
+    {
+        "equipe": "MU15_phase1",
+        "match": "2",
+        "date": "18/12/2022",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "S.U. SCHILTIGHEIM BASKET BALL",
+        "score": "76 - 72"
+    },
+    {
+        "equipe": "MU15_phase1",
+        "match": "3",
+        "date": "27/11/2022",
+        "heure": "10:30",
+        "dom": "STRASBOURG SAINT JOSEPH - 3",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "24 - 80"
+    },
+    {
+        "equipe": "MU15_phase1",
+        "match": "4",
+        "date": "04/12/2022",
+        "heure": "09:00",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "GRIESHEIM/DINGSHEIM B.C.",
+        "score": "57 - 36"
+    },
+    {
+        "equipe": "MU15_phase1",
+        "match": "5",
+        "date": "10/12/2022",
+        "heure": "15:15",
+        "dom": "BASK FURDENHEIM - 2",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "63 - 47"
+    }
+]

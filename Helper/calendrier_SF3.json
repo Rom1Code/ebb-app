@@ -1,0 +1,182 @@
+[
+    {
+        "equipe": "SF3",
+        "match": "1",
+        "date": "25/09/2022",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "EN - CTC MARLE-SOULTZ - MARLENHEIM BC - 2",
+        "score": "29 - 42"
+    },
+    {
+        "equipe": "SF3",
+        "match": "2",
+        "date": "21/10/2022",
+        "heure": "20:30",
+        "dom": "BINDERNHEIM C.S.U. - 2",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "39 - 54"
+    },
+    {
+        "equipe": "SF3",
+        "match": "3",
+        "date": "09/10/2022",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "GRIESHEIM/DINGSHEIM B.C. - 1",
+        "score": "38 - 28"
+    },
+    {
+        "equipe": "SF3",
+        "match": "4",
+        "date": "13/10/2022",
+        "heure": "20:30",
+        "dom": "LINGOLSHEIM C.C.S.S. - 1",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "51 - 41"
+    },
+    {
+        "equipe": "SF3",
+        "match": "5",
+        "date": "13/11/2022",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "ESCHAU BC - 3",
+        "score": "42 - 51"
+    },
+    {
+        "equipe": "SF3",
+        "match": "7",
+        "date": "25/11/2022",
+        "heure": "20:30",
+        "dom": "DUTTLENHEIM LC - 3",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "53 - 37"
+    },
+    {
+        "equipe": "SF3",
+        "match": "8",
+        "date": "15/01/2023",
+        "heure": "10:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "STRASBOURG ELECTRICITE A.S. - 2",
+        "score": "37 - 41"
+    },
+    {
+        "equipe": "SF3",
+        "match": "9",
+        "date": "10/12/2022",
+        "heure": "20:00",
+        "dom": "ENT Wangenbourg/Saverne - Wangenbourg - 1",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "41 - 33"
+    },
+    {
+        "equipe": "SF3",
+        "match": "10",
+        "date": "08/01/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "SOUFFELWEYERSHEIM BC - 2",
+        "score": "41 - 46"
+    },
+    {
+        "equipe": "SF3",
+        "match": "11",
+        "date": "22/01/2023",
+        "heure": "10:30",
+        "dom": "S.U. SCHILTIGHEIM BASKET BALL - 2",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "34 - 48"
+    },
+    {
+        "equipe": "SF3",
+        "match": "12",
+        "date": "08/03/2023",
+        "heure": "20:00",
+        "dom": "EN - CTC MARLE-SOULTZ - MARLENHEIM BC - 2",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "SF3",
+        "match": "13",
+        "date": "05/02/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "BINDERNHEIM C.S.U. - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SF3",
+        "match": "14",
+        "date": "10/02/2023",
+        "heure": "20:30",
+        "dom": "GRIESHEIM/DINGSHEIM B.C. - 1",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "SF3",
+        "match": "15",
+        "date": "12/03/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "LINGOLSHEIM C.C.S.S. - 1",
+        "score": "-"
+    },
+    {
+        "equipe": "SF3",
+        "match": "16",
+        "date": "18/03/2023",
+        "heure": "20:30",
+        "dom": "ESCHAU BC - 3",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "SF3",
+        "match": "18",
+        "date": "02/04/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "DUTTLENHEIM LC - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "SF3",
+        "match": "19",
+        "date": "14/04/2023",
+        "heure": "20:30",
+        "dom": "STRASBOURG ELECTRICITE A.S. - 2",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "SF3",
+        "match": "20",
+        "date": "07/05/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "ENT Wangenbourg/Saverne - Wangenbourg - 1",
+        "score": "-"
+    },
+    {
+        "equipe": "SF3",
+        "match": "21",
+        "date": "14/05/2023",
+        "heure": "10:30",
+        "dom": "SOUFFELWEYERSHEIM BC - 2",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "SF3",
+        "match": "22",
+        "date": "21/05/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "S.U. SCHILTIGHEIM BASKET BALL - 2",
+        "score": "-"
+    }
+]

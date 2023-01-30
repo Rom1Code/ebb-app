@@ -1,0 +1,134 @@
+[
+    {
+        "place": "1",
+        "equipe": "HOLTZHEIM VOGESIA - 1",
+        "pts_equipe": "23",
+        "nb_match": "12",
+        "victoire": "11",
+        "defaite": "1",
+        "pts_marques": "1037",
+        "pts_encaisses": "672",
+        "difference": "365"
+    },
+    {
+        "place": "2",
+        "equipe": "VAL DE VILLE B.C. - 1",
+        "pts_equipe": "23",
+        "nb_match": "12",
+        "victoire": "11",
+        "defaite": "1",
+        "pts_marques": "846",
+        "pts_encaisses": "679",
+        "difference": "167"
+    },
+    {
+        "place": "3",
+        "equipe": "OHNHEIM C.S.S.A. - 2",
+        "pts_equipe": "20",
+        "nb_match": "11",
+        "victoire": "9",
+        "defaite": "2",
+        "pts_marques": "668",
+        "pts_encaisses": "599",
+        "difference": "69"
+    },
+    {
+        "place": "4",
+        "equipe": "SELESTAT BC - 1",
+        "pts_equipe": "19",
+        "nb_match": "11",
+        "victoire": "8",
+        "defaite": "3",
+        "pts_marques": "687",
+        "pts_encaisses": "614",
+        "difference": "73"
+    },
+    {
+        "place": "5",
+        "equipe": "SOUFFELWEYERSHEIM BC - 1",
+        "pts_equipe": "18",
+        "nb_match": "12",
+        "victoire": "6",
+        "defaite": "6",
+        "pts_marques": "588",
+        "pts_encaisses": "636",
+        "difference": "-48"
+    },
+    {
+        "place": "6",
+        "equipe": "ROSHEIM CA - 1",
+        "pts_equipe": "18",
+        "nb_match": "12",
+        "victoire": "6",
+        "defaite": "6",
+        "pts_marques": "703",
+        "pts_encaisses": "712",
+        "difference": "-9"
+    },
+    {
+        "place": "7",
+        "equipe": "ECKBOLSHEIM BB - 2",
+        "pts_equipe": "17",
+        "nb_match": "12",
+        "victoire": "5",
+        "defaite": "7",
+        "pts_marques": "631",
+        "pts_encaisses": "673",
+        "difference": "-42"
+    },
+    {
+        "place": "8",
+        "equipe": "SCHAEFFERSHEIM A.S.L.C. - 2",
+        "pts_equipe": "15",
+        "nb_match": "12",
+        "victoire": "3",
+        "defaite": "9",
+        "pts_marques": "690",
+        "pts_encaisses": "798",
+        "difference": "-108"
+    },
+    {
+        "place": "9",
+        "equipe": "HAMBACH BC - 1",
+        "pts_equipe": "15",
+        "nb_match": "12",
+        "victoire": "3",
+        "defaite": "9",
+        "pts_marques": "693",
+        "pts_encaisses": "783",
+        "difference": "-90"
+    },
+    {
+        "place": "10",
+        "equipe": "SCHIRRHEIN C.S.C.SN - 2",
+        "pts_equipe": "14",
+        "nb_match": "11",
+        "victoire": "3",
+        "defaite": "8",
+        "pts_marques": "624",
+        "pts_encaisses": "646",
+        "difference": "-22"
+    },
+    {
+        "place": "11",
+        "equipe": "WEITBRUCH A.S.C.G - 1",
+        "pts_equipe": "14",
+        "nb_match": "11",
+        "victoire": "3",
+        "defaite": "8",
+        "pts_marques": "579",
+        "pts_encaisses": "670",
+        "difference": "-91"
+    },
+    {
+        "place": "12",
+        "equipe": "STRASBOURG LIBELLULES B.C. - 2",
+        "pts_equipe": "14",
+        "nb_match": "12",
+        "victoire": "2",
+        "defaite": "10",
+        "pts_marques": "564",
+        "pts_encaisses": "828",
+        "difference": "-264"
+    }
+]

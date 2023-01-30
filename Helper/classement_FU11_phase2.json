@@ -1,0 +1,68 @@
+[
+    {
+        "place": "1",
+        "equipe": "BASK FURDENHEIM",
+        "pts_equipe": "6",
+        "nb_match": "3",
+        "victoire": "3",
+        "defaite": "0",
+        "pts_marques": "114",
+        "pts_encaisses": "82",
+        "difference": "1.390244"
+    },
+    {
+        "place": "2",
+        "equipe": "HOLTZHEIM VOGESIA",
+        "pts_equipe": "6",
+        "nb_match": "3",
+        "victoire": "3",
+        "defaite": "0",
+        "pts_marques": "118",
+        "pts_encaisses": "91",
+        "difference": "1.296703"
+    },
+    {
+        "place": "3",
+        "equipe": "ECKBOLSHEIM BB",
+        "pts_equipe": "4",
+        "nb_match": "3",
+        "victoire": "1",
+        "defaite": "2",
+        "pts_marques": "86",
+        "pts_encaisses": "106",
+        "difference": "0.811321"
+    },
+    {
+        "place": "4",
+        "equipe": "SOUFFELWEYERSHEIM BC",
+        "pts_equipe": "4",
+        "nb_match": "3",
+        "victoire": "1",
+        "defaite": "2",
+        "pts_marques": "105",
+        "pts_encaisses": "97",
+        "difference": "1.082474"
+    },
+    {
+        "place": "5",
+        "equipe": "SCHIRRHEIN C.S.C.SN",
+        "pts_equipe": "4",
+        "nb_match": "3",
+        "victoire": "1",
+        "defaite": "2",
+        "pts_marques": "97",
+        "pts_encaisses": "101",
+        "difference": "0.960396"
+    },
+    {
+        "place": "6",
+        "equipe": "S.I. GRAFFENSTADEN",
+        "pts_equipe": "3",
+        "nb_match": "3",
+        "victoire": "0",
+        "defaite": "3",
+        "pts_marques": "101",
+        "pts_encaisses": "144",
+        "difference": "0.701389"
+    }
+]

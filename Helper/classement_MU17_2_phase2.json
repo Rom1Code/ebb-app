@@ -1,0 +1,90 @@
+[
+    {
+        "place": "1",
+        "equipe": "ECKBOLSHEIM BB",
+        "pts_equipe": "6",
+        "nb_match": "3",
+        "victoire": "3",
+        "defaite": "0",
+        "pts_marques": "256",
+        "pts_encaisses": "151",
+        "difference": "105"
+    },
+    {
+        "place": "2",
+        "equipe": "STRASBOURG ELECTRICITE A.S. - 2",
+        "pts_equipe": "5",
+        "nb_match": "3",
+        "victoire": "2",
+        "defaite": "1",
+        "pts_marques": "180",
+        "pts_encaisses": "178",
+        "difference": "2"
+    },
+    {
+        "place": "3",
+        "equipe": "GRIESHEIM/DINGSHEIM B.C.",
+        "pts_equipe": "5",
+        "nb_match": "3",
+        "victoire": "2",
+        "defaite": "1",
+        "pts_marques": "171",
+        "pts_encaisses": "155",
+        "difference": "16"
+    },
+    {
+        "place": "4",
+        "equipe": "WANTZENAU (LA) A.S.C.SP",
+        "pts_equipe": "4",
+        "nb_match": "2",
+        "victoire": "2",
+        "defaite": "0",
+        "pts_marques": "111",
+        "pts_encaisses": "72",
+        "difference": "39"
+    },
+    {
+        "place": "5",
+        "equipe": "EPFIG UNITAS",
+        "pts_equipe": "4",
+        "nb_match": "3",
+        "victoire": "1",
+        "defaite": "2",
+        "pts_marques": "172",
+        "pts_encaisses": "182",
+        "difference": "-10"
+    },
+    {
+        "place": "6",
+        "equipe": "GEISPOLSHEIM C.J.S.",
+        "pts_equipe": "4",
+        "nb_match": "3",
+        "victoire": "1",
+        "defaite": "2",
+        "pts_marques": "167",
+        "pts_encaisses": "196",
+        "difference": "-29"
+    },
+    {
+        "place": "7",
+        "equipe": "MARLENHEIM BC",
+        "pts_equipe": "3",
+        "nb_match": "3",
+        "victoire": "0",
+        "defaite": "3",
+        "pts_marques": "97",
+        "pts_encaisses": "198",
+        "difference": "-101"
+    },
+    {
+        "place": "8",
+        "equipe": "DUTTLENHEIM LC",
+        "pts_equipe": "2",
+        "nb_match": "2",
+        "victoire": "0",
+        "defaite": "2",
+        "pts_marques": "82",
+        "pts_encaisses": "104",
+        "difference": "-22"
+    }
+]

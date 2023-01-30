@@ -1,0 +1,74 @@
+[
+    {
+        "equipe": "MU17_phase1",
+        "match": "1",
+        "date": "25/09/2022",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "SCHILTIGHEIM AU",
+        "score": "66 - 55"
+    },
+    {
+        "equipe": "MU17_phase1",
+        "match": "3",
+        "date": "08/10/2022",
+        "heure": "16:00",
+        "dom": "STRASBOURG SAINT JOSEPH - 2",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "72 - 50"
+    },
+    {
+        "equipe": "MU17_phase1",
+        "match": "4",
+        "date": "16/10/2022",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "STRASBOURG ELECTRICITE A.S.",
+        "score": "62 - 36"
+    },
+    {
+        "equipe": "MU17_phase1",
+        "match": "5",
+        "date": "12/11/2022",
+        "heure": "16:00",
+        "dom": "STRASBOURG ASS",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "29 - 105"
+    },
+    {
+        "equipe": "MU17_phase1",
+        "match": "6",
+        "date": "17/12/2022",
+        "heure": "15:00",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "SOUFFELWEYERSHEIM BC - 2",
+        "score": "65 - 86"
+    },
+    {
+        "equipe": "MU17_phase1",
+        "match": "7",
+        "date": "27/11/2022",
+        "heure": "13:30",
+        "dom": "WALBOURG ESCHBACH BASKET",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "89 - 79"
+    },
+    {
+        "equipe": "MU17_phase1",
+        "match": "8",
+        "date": "06/11/2022",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "SCHIRRHEIN C.S.C.SN",
+        "score": "61 - 70"
+    },
+    {
+        "equipe": "MU17_phase1",
+        "match": "9",
+        "date": "10/12/2022",
+        "heure": "16:30",
+        "dom": "BISCHHEIM BS",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "64 - 75"
+    }
+]

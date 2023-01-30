@@ -1,0 +1,68 @@
+[
+    {
+        "place": "1",
+        "equipe": "BARR/GERTWILLER",
+        "pts_equipe": "8",
+        "nb_match": "4",
+        "victoire": "4",
+        "defaite": "0",
+        "pts_marques": "235",
+        "pts_encaisses": "76",
+        "difference": "159"
+    },
+    {
+        "place": "2",
+        "equipe": "EN - CTC ROSENMEER - ROSHEIM CA",
+        "pts_equipe": "7",
+        "nb_match": "4",
+        "victoire": "3",
+        "defaite": "1",
+        "pts_marques": "222",
+        "pts_encaisses": "93",
+        "difference": "129"
+    },
+    {
+        "place": "3",
+        "equipe": "OHNHEIM C.S.S.A.",
+        "pts_equipe": "6",
+        "nb_match": "4",
+        "victoire": "2",
+        "defaite": "2",
+        "pts_marques": "206",
+        "pts_encaisses": "140",
+        "difference": "66"
+    },
+    {
+        "place": "4",
+        "equipe": "ECKBOLSHEIM BB",
+        "pts_equipe": "5",
+        "nb_match": "4",
+        "victoire": "1",
+        "defaite": "3",
+        "pts_marques": "111",
+        "pts_encaisses": "197",
+        "difference": "-86"
+    },
+    {
+        "place": "5",
+        "equipe": "URMATT BC - 2",
+        "pts_equipe": "4",
+        "nb_match": "4",
+        "victoire": "0",
+        "defaite": "4",
+        "pts_marques": "65",
+        "pts_encaisses": "333",
+        "difference": "-268"
+    },
+    {
+        "place": "6",
+        "equipe": "Exempt",
+        "pts_equipe": "0",
+        "nb_match": "0",
+        "victoire": "0",
+        "defaite": "0",
+        "pts_marques": "0",
+        "pts_encaisses": "0",
+        "difference": "0"
+    }
+]

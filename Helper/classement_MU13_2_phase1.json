@@ -1,0 +1,68 @@
+[
+    {
+        "place": "1",
+        "equipe": "MOLSHEIM CSTG",
+        "pts_equipe": "9",
+        "nb_match": "5",
+        "victoire": "4",
+        "defaite": "1",
+        "pts_marques": "213",
+        "pts_encaisses": "104",
+        "difference": "109"
+    },
+    {
+        "place": "2",
+        "equipe": "STRASBOURG ELECTRICITE A.S. - 2",
+        "pts_equipe": "9",
+        "nb_match": "5",
+        "victoire": "4",
+        "defaite": "1",
+        "pts_marques": "193",
+        "pts_encaisses": "153",
+        "difference": "40"
+    },
+    {
+        "place": "3",
+        "equipe": "ECKBOLSHEIM BB",
+        "pts_equipe": "8",
+        "nb_match": "5",
+        "victoire": "3",
+        "defaite": "2",
+        "pts_marques": "139",
+        "pts_encaisses": "131",
+        "difference": "8"
+    },
+    {
+        "place": "4",
+        "equipe": "EN - CTC ROSENMEER - GRIESHEIM P/MOLSHEIM LS - 2",
+        "pts_equipe": "7",
+        "nb_match": "5",
+        "victoire": "2",
+        "defaite": "3",
+        "pts_marques": "136",
+        "pts_encaisses": "150",
+        "difference": "-14"
+    },
+    {
+        "place": "5",
+        "equipe": "VENDENHEIM BC - 2",
+        "pts_equipe": "6",
+        "nb_match": "5",
+        "victoire": "1",
+        "defaite": "4",
+        "pts_marques": "96",
+        "pts_encaisses": "188",
+        "difference": "-92"
+    },
+    {
+        "place": "6",
+        "equipe": "STRASBOURG LIBELLULES B.C. - 2",
+        "pts_equipe": "6",
+        "nb_match": "5",
+        "victoire": "1",
+        "defaite": "4",
+        "pts_marques": "120",
+        "pts_encaisses": "171",
+        "difference": "-51"
+    }
+]

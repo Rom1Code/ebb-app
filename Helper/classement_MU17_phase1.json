@@ -1,0 +1,112 @@
+[
+    {
+        "place": "1",
+        "equipe": "SCHIRRHEIN C.S.C.SN",
+        "pts_equipe": "16",
+        "nb_match": "8",
+        "victoire": "8",
+        "defaite": "0",
+        "pts_marques": "639",
+        "pts_encaisses": "493",
+        "difference": "146"
+    },
+    {
+        "place": "2",
+        "equipe": "SCHILTIGHEIM AU",
+        "pts_equipe": "14",
+        "nb_match": "8",
+        "victoire": "6",
+        "defaite": "2",
+        "pts_marques": "574",
+        "pts_encaisses": "440",
+        "difference": "134"
+    },
+    {
+        "place": "3",
+        "equipe": "WALBOURG ESCHBACH BASKET",
+        "pts_equipe": "14",
+        "nb_match": "8",
+        "victoire": "6",
+        "defaite": "2",
+        "pts_marques": "593",
+        "pts_encaisses": "488",
+        "difference": "105"
+    },
+    {
+        "place": "4",
+        "equipe": "SOUFFELWEYERSHEIM BC - 2",
+        "pts_equipe": "12",
+        "nb_match": "8",
+        "victoire": "4",
+        "defaite": "4",
+        "pts_marques": "528",
+        "pts_encaisses": "517",
+        "difference": "11"
+    },
+    {
+        "place": "5",
+        "equipe": "STRASBOURG SAINT JOSEPH - 2",
+        "pts_equipe": "12",
+        "nb_match": "8",
+        "victoire": "4",
+        "defaite": "4",
+        "pts_marques": "635",
+        "pts_encaisses": "473",
+        "difference": "162"
+    },
+    {
+        "place": "6",
+        "equipe": "ECKBOLSHEIM BB",
+        "pts_equipe": "12",
+        "nb_match": "8",
+        "victoire": "4",
+        "defaite": "4",
+        "pts_marques": "563",
+        "pts_encaisses": "501",
+        "difference": "62"
+    },
+    {
+        "place": "7",
+        "equipe": "STRASBOURG ELECTRICITE A.S.",
+        "pts_equipe": "11",
+        "nb_match": "8",
+        "victoire": "3",
+        "defaite": "5",
+        "pts_marques": "456",
+        "pts_encaisses": "486",
+        "difference": "-30"
+    },
+    {
+        "place": "8",
+        "equipe": "BISCHHEIM BS",
+        "pts_equipe": "9",
+        "nb_match": "8",
+        "victoire": "1",
+        "defaite": "7",
+        "pts_marques": "483",
+        "pts_encaisses": "557",
+        "difference": "-74"
+    },
+    {
+        "place": "9",
+        "equipe": "STRASBOURG ASS",
+        "pts_equipe": "8",
+        "nb_match": "8",
+        "victoire": "0",
+        "defaite": "8",
+        "pts_marques": "266",
+        "pts_encaisses": "782",
+        "difference": "-516"
+    },
+    {
+        "place": "10",
+        "equipe": "Exempt",
+        "pts_equipe": "0",
+        "nb_match": "0",
+        "victoire": "0",
+        "defaite": "0",
+        "pts_marques": "0",
+        "pts_encaisses": "0",
+        "difference": "0"
+    }
+]

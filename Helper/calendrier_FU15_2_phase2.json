@@ -1,0 +1,47 @@
+[
+    {
+        "equipe": "FU15_2_phase2",
+        "match": "1",
+        "date": "12/11/2022",
+        "heure": "16:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "UNITAS BRUMATH BASKET",
+        "score": "40 - 22"
+    },
+    {
+        "equipe": "FU15_2_phase2",
+        "match": "2",
+        "date": "20/11/2022",
+        "heure": "10:00",
+        "dom": "WALBOURG ESCHBACH BASKET",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "27 - 41"
+    },
+    {
+        "equipe": "FU15_2_phase2",
+        "match": "3",
+        "date": "26/11/2022",
+        "heure": "16:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "STRASBOURG LIBELLULES B.C.",
+        "score": "44 - 23"
+    },
+    {
+        "equipe": "FU15_2_phase2",
+        "match": "4",
+        "date": "04/12/2022",
+        "heure": "13:30",
+        "dom": "STRASBOURG SAINT JOSEPH - 2",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "34 - 32"
+    },
+    {
+        "equipe": "FU15_2_phase2",
+        "match": "5",
+        "date": "10/12/2022",
+        "heure": "14:30",
+        "dom": "SCHIRRHEIN C.S.C.SN",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "21 - 69"
+    }
+]

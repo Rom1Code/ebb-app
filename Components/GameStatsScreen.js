@@ -6,7 +6,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
  function GameStatsScreen({route}) {
   const feuilleMatch = require('../Helper/feuille_match_SM1.json')
-  const numMatch = route.params.match.item.Match 
+  const numMatch = route.params.match.item.match 
   const match = feuilleMatch.filter((item) => item.match == numMatch)
 
   const [tabPressed, setTabPressed] = useState(1);

@@ -1,0 +1,90 @@
+[
+    {
+        "place": "1",
+        "equipe": "ECKBOLSHEIM BB",
+        "pts_equipe": "21",
+        "nb_match": "11",
+        "victoire": "10",
+        "defaite": "1",
+        "pts_marques": "698",
+        "pts_encaisses": "610",
+        "difference": "88"
+    },
+    {
+        "place": "2",
+        "equipe": "AS HORBOURG-WIHR",
+        "pts_equipe": "20",
+        "nb_match": "11",
+        "victoire": "9",
+        "defaite": "2",
+        "pts_marques": "665",
+        "pts_encaisses": "600",
+        "difference": "65"
+    },
+    {
+        "place": "3",
+        "equipe": "GEISPOLSHEIM C.J.S. - 3",
+        "pts_equipe": "19",
+        "nb_match": "12",
+        "victoire": "7",
+        "defaite": "5",
+        "pts_marques": "713",
+        "pts_encaisses": "673",
+        "difference": "40"
+    },
+    {
+        "place": "4",
+        "equipe": "S.I. GRAFFENSTADEN - 3",
+        "pts_equipe": "17",
+        "nb_match": "11",
+        "victoire": "6",
+        "defaite": "5",
+        "pts_marques": "696",
+        "pts_encaisses": "638",
+        "difference": "58"
+    },
+    {
+        "place": "5",
+        "equipe": "BERRWILLER/STAFFELFELDEN BC - 2",
+        "pts_equipe": "16",
+        "nb_match": "12",
+        "victoire": "4",
+        "defaite": "8",
+        "pts_marques": "647",
+        "pts_encaisses": "733",
+        "difference": "-86"
+    },
+    {
+        "place": "6",
+        "equipe": "VENDENHEIM BC",
+        "pts_equipe": "15",
+        "nb_match": "11",
+        "victoire": "4",
+        "defaite": "7",
+        "pts_marques": "613",
+        "pts_encaisses": "638",
+        "difference": "-25"
+    },
+    {
+        "place": "7",
+        "equipe": "IE - CTC ALLIANCE SPORT ALSACE - BASKET CLUB NORD ALSACE - 2",
+        "pts_equipe": "15",
+        "nb_match": "11",
+        "victoire": "4",
+        "defaite": "7",
+        "pts_marques": "679",
+        "pts_encaisses": "742",
+        "difference": "-63"
+    },
+    {
+        "place": "8",
+        "equipe": "OHNHEIM C.S.S.A.",
+        "pts_equipe": "12",
+        "nb_match": "11",
+        "victoire": "1",
+        "defaite": "10",
+        "pts_marques": "632",
+        "pts_encaisses": "709",
+        "difference": "-77"
+    }
+]

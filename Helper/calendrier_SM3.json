@@ -1,0 +1,146 @@
+[
+    {
+        "equipe": "SM3",
+        "match": "1",
+        "date": "23/09/2022",
+        "heure": "20:30",
+        "dom": "OHNHEIM C.S.S.A. - 4",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "54 - 57"
+    },
+    {
+        "equipe": "SM3",
+        "match": "2",
+        "date": "02/10/2022",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "WOLFISHEIM BASKET CLUB - 1",
+        "score": "71 - 26"
+    },
+    {
+        "equipe": "SM3",
+        "match": "3",
+        "date": "09/10/2022",
+        "heure": "17:30",
+        "dom": "STRASBOURG LIBELLULES B.C. - 3",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "57 - 55"
+    },
+    {
+        "equipe": "SM3",
+        "match": "4",
+        "date": "16/10/2022",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "GEISPOLSHEIM C.J.S. - 5",
+        "score": "54 - 29"
+    },
+    {
+        "equipe": "SM3",
+        "match": "5",
+        "date": "17/12/2022",
+        "heure": "20:30",
+        "dom": "BISCHHEIM BS - 2",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "79 - 77"
+    },
+    {
+        "equipe": "SM3",
+        "match": "6",
+        "date": "20/11/2022",
+        "heure": "10:30",
+        "dom": "STRASBOURG ELECTRICITE A.S. - 4",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "45 - 78"
+    },
+    {
+        "equipe": "SM3",
+        "match": "8",
+        "date": "02/12/2022",
+        "heure": "20:30",
+        "dom": "STRASBOURG SAINT JOSEPH - 6",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "87 - 56"
+    },
+    {
+        "equipe": "SM3",
+        "match": "9",
+        "date": "11/12/2022",
+        "heure": "16:00",
+        "dom": "RACING CLUB DE STRASBOURG - 1",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "84 - 37"
+    },
+    {
+        "equipe": "SM3",
+        "match": "10",
+        "date": "08/01/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "OHNHEIM C.S.S.A. - 4",
+        "score": "58 - 52"
+    },
+    {
+        "equipe": "SM3",
+        "match": "11",
+        "date": "20/01/2023",
+        "heure": "20:30",
+        "dom": "WOLFISHEIM BASKET CLUB - 1",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "40 - 87"
+    },
+    {
+        "equipe": "SM3",
+        "match": "12",
+        "date": "28/01/2023",
+        "heure": "18:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "STRASBOURG LIBELLULES B.C. - 3",
+        "score": "54 - 59"
+    },
+    {
+        "equipe": "SM3",
+        "match": "13",
+        "date": "05/02/2023",
+        "heure": "10:00",
+        "dom": "GEISPOLSHEIM C.J.S. - 5",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "SM3",
+        "match": "14",
+        "date": "12/03/2023",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "BISCHHEIM BS - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SM3",
+        "match": "15",
+        "date": "19/03/2023",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "STRASBOURG ELECTRICITE A.S. - 4",
+        "score": "-"
+    },
+    {
+        "equipe": "SM3",
+        "match": "17",
+        "date": "02/04/2023",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "STRASBOURG SAINT JOSEPH - 6",
+        "score": "-"
+    },
+    {
+        "equipe": "SM3",
+        "match": "18",
+        "date": "14/05/2023",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "RACING CLUB DE STRASBOURG - 1",
+        "score": "-"
+    }
+]

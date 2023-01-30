@@ -1,0 +1,65 @@
+[
+    {
+        "equipe": "MU17_2_phase1",
+        "match": "1",
+        "date": "24/09/2022",
+        "heure": "18:00",
+        "dom": "MORSCHWILLER FCJ",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "65 - 49"
+    },
+    {
+        "equipe": "MU17_2_phase1",
+        "match": "2",
+        "date": "02/10/2022",
+        "heure": "17:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "EN - CTC MARLE-SOULTZ - MARLENHEIM BC",
+        "score": "44 - 69"
+    },
+    {
+        "equipe": "MU17_2_phase1",
+        "match": "3",
+        "date": "09/10/2022",
+        "heure": "14:00",
+        "dom": "KESKASTEL BC",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "51 - 28"
+    },
+    {
+        "equipe": "MU17_2_phase1",
+        "match": "4",
+        "date": "16/10/2022",
+        "heure": "10:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "HATTMATT SS",
+        "score": "72 - 44"
+    },
+    {
+        "equipe": "MU17_2_phase1",
+        "match": "5",
+        "date": "12/11/2022",
+        "heure": "13:30",
+        "dom": "SOUFFLENHEIM C.C.S.A",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "28 - 63"
+    },
+    {
+        "equipe": "MU17_2_phase1",
+        "match": "6",
+        "date": "22/10/2022",
+        "heure": "18:00",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "W.O.S.B. - 2",
+        "score": "62 - 40"
+    },
+    {
+        "equipe": "MU17_2_phase1",
+        "match": "7",
+        "date": "27/11/2022",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "WALBOURG ESCHBACH BASKET - 2",
+        "score": "53 - 52"
+    }
+]

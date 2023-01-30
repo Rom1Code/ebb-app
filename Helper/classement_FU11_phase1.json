@@ -1,0 +1,68 @@
+[
+    {
+        "place": "1",
+        "equipe": "ECKBOLSHEIM BB",
+        "pts_equipe": "10",
+        "nb_match": "5",
+        "victoire": "5",
+        "defaite": "0",
+        "pts_marques": "246",
+        "pts_encaisses": "73",
+        "difference": "3.369863"
+    },
+    {
+        "place": "2",
+        "equipe": "GEISPOLSHEIM C.J.S.",
+        "pts_equipe": "9",
+        "nb_match": "5",
+        "victoire": "4",
+        "defaite": "1",
+        "pts_marques": "233",
+        "pts_encaisses": "159",
+        "difference": "1.465409"
+    },
+    {
+        "place": "3",
+        "equipe": "STRASBOURG LIBELLULES B.C. - 1",
+        "pts_equipe": "7",
+        "nb_match": "5",
+        "victoire": "2",
+        "defaite": "3",
+        "pts_marques": "142",
+        "pts_encaisses": "135",
+        "difference": "1.051852"
+    },
+    {
+        "place": "4",
+        "equipe": "BASK FURDENHEIM - 2",
+        "pts_equipe": "7",
+        "nb_match": "5",
+        "victoire": "2",
+        "defaite": "3",
+        "pts_marques": "169",
+        "pts_encaisses": "186",
+        "difference": "0.908602"
+    },
+    {
+        "place": "5",
+        "equipe": "STRASBOURG ELECTRICITE A.S.",
+        "pts_equipe": "5",
+        "nb_match": "4",
+        "victoire": "1",
+        "defaite": "3",
+        "pts_marques": "106",
+        "pts_encaisses": "156",
+        "difference": "0.679487"
+    },
+    {
+        "place": "6",
+        "equipe": "STRASBOURG SAINT JOSEPH",
+        "pts_equipe": "4",
+        "nb_match": "4",
+        "victoire": "0",
+        "defaite": "4",
+        "pts_marques": "45",
+        "pts_encaisses": "232",
+        "difference": "0.193966"
+    }
+]

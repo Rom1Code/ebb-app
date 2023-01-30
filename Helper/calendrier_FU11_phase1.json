@@ -1,0 +1,92 @@
+[
+    {
+        "equipe": "FU11_phase1",
+        "match": "1",
+        "date": "14/01/2023",
+        "heure": "17:30",
+        "dom": "SOUFFELWEYERSHEIM BC",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "21 - 36"
+    },
+    {
+        "equipe": "FU11_phase1",
+        "match": "2",
+        "date": "21/01/2023",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "HOLTZHEIM VOGESIA",
+        "score": "26 - 42"
+    },
+    {
+        "equipe": "FU11_phase1",
+        "match": "3",
+        "date": "29/01/2023",
+        "heure": "14:00",
+        "dom": "BASK FURDENHEIM",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "43 - 24"
+    },
+    {
+        "equipe": "FU11_phase1",
+        "match": "4",
+        "date": "04/02/2023",
+        "heure": "15:00",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "SCHIRRHEIN C.S.C.SN",
+        "score": "-"
+    },
+    {
+        "equipe": "FU11_phase1",
+        "match": "5",
+        "date": "04/03/2023",
+        "heure": "11:00",
+        "dom": "S.I. GRAFFENSTADEN",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "FU11_phase1",
+        "match": "6",
+        "date": "18/03/2023",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "SOUFFELWEYERSHEIM BC",
+        "score": "-"
+    },
+    {
+        "equipe": "FU11_phase1",
+        "match": "7",
+        "date": "25/03/2023",
+        "heure": "13:30",
+        "dom": "HOLTZHEIM VOGESIA",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "FU11_phase1",
+        "match": "8",
+        "date": "01/04/2023",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "BASK FURDENHEIM",
+        "score": "-"
+    },
+    {
+        "equipe": "FU11_phase1",
+        "match": "9",
+        "date": "06/05/2023",
+        "heure": "16:00",
+        "dom": "SCHIRRHEIN C.S.C.SN",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "FU11_phase1",
+        "match": "10",
+        "date": "21/05/2023",
+        "heure": "09:00",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "S.I. GRAFFENSTADEN",
+        "score": "-"
+    }
+]

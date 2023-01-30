@@ -1,0 +1,200 @@
+[
+    {
+        "equipe": "SF2",
+        "match": "1",
+        "date": "25/09/2022",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "SOUFFELWEYERSHEIM BC - 1",
+        "score": "35 - 42"
+    },
+    {
+        "equipe": "SF2",
+        "match": "2",
+        "date": "01/10/2022",
+        "heure": "20:30",
+        "dom": "STRASBOURG LIBELLULES B.C. - 2",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "46 - 54"
+    },
+    {
+        "equipe": "SF2",
+        "match": "3",
+        "date": "09/10/2022",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "ROSHEIM CA - 1",
+        "score": "52 - 55"
+    },
+    {
+        "equipe": "SF2",
+        "match": "4",
+        "date": "16/10/2022",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "OHNHEIM C.S.S.A. - 2",
+        "score": "52 - 59"
+    },
+    {
+        "equipe": "SF2",
+        "match": "5",
+        "date": "16/12/2022",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "HAMBACH BC - 1",
+        "score": "53 - 48"
+    },
+    {
+        "equipe": "SF2",
+        "match": "6",
+        "date": "22/10/2022",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "WEITBRUCH A.S.C.G - 1",
+        "score": "47 - 39"
+    },
+    {
+        "equipe": "SF2",
+        "match": "7",
+        "date": "26/11/2022",
+        "heure": "18:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "SCHIRRHEIN C.S.C.SN - 2",
+        "score": "34 - 58"
+    },
+    {
+        "equipe": "SF2",
+        "match": "8",
+        "date": "04/12/2022",
+        "heure": "15:00",
+        "dom": "SCHAEFFERSHEIM A.S.L.C. - 2",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "70 - 75"
+    },
+    {
+        "equipe": "SF2",
+        "match": "9",
+        "date": "11/12/2022",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "SELESTAT BC - 1",
+        "score": "54 - 66"
+    },
+    {
+        "equipe": "SF2",
+        "match": "10",
+        "date": "08/01/2023",
+        "heure": "17:30",
+        "dom": "HOLTZHEIM VOGESIA - 1",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "83 - 53"
+    },
+    {
+        "equipe": "SF2",
+        "match": "11",
+        "date": "22/01/2023",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "VAL DE VILLE B.C. - 1",
+        "score": "57 - 60"
+    },
+    {
+        "equipe": "SF2",
+        "match": "12",
+        "date": "29/01/2023",
+        "heure": "17:30",
+        "dom": "SOUFFELWEYERSHEIM BC - 1",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "47 - 65"
+    },
+    {
+        "equipe": "SF2",
+        "match": "13",
+        "date": "05/02/2023",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "STRASBOURG LIBELLULES B.C. - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SF2",
+        "match": "14",
+        "date": "11/02/2023",
+        "heure": "18:30",
+        "dom": "ROSHEIM CA - 1",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SF2",
+        "match": "15",
+        "date": "12/03/2023",
+        "heure": "13:30",
+        "dom": "OHNHEIM C.S.S.A. - 2",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SF2",
+        "match": "16",
+        "date": "18/03/2023",
+        "heure": "20:30",
+        "dom": "HAMBACH BC - 1",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SF2",
+        "match": "17",
+        "date": "26/03/2023",
+        "heure": "16:30",
+        "dom": "WEITBRUCH A.S.C.G - 1",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SF2",
+        "match": "18",
+        "date": "02/04/2023",
+        "heure": "15:15",
+        "dom": "SCHIRRHEIN C.S.C.SN - 2",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SF2",
+        "match": "19",
+        "date": "27/04/2023",
+        "heure": "20:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "SCHAEFFERSHEIM A.S.L.C. - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SF2",
+        "match": "20",
+        "date": "07/05/2023",
+        "heure": "17:30",
+        "dom": "SELESTAT BC - 1",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "SF2",
+        "match": "21",
+        "date": "14/05/2023",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB - 2",
+        "ext": "HOLTZHEIM VOGESIA - 1",
+        "score": "-"
+    },
+    {
+        "equipe": "SF2",
+        "match": "22",
+        "date": "21/05/2023",
+        "heure": "16:30",
+        "dom": "VAL DE VILLE B.C. - 1",
+        "ext": "ECKBOLSHEIM BB - 2",
+        "score": "-"
+    }
+]

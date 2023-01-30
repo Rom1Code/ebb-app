@@ -1,0 +1,92 @@
+[
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "1",
+        "date": "15/01/2023",
+        "heure": "17:30",
+        "dom": "STRASBOURG JS KOENIGSHOFFEN",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "30 - 22"
+    },
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "2",
+        "date": "22/01/2023",
+        "heure": "15:30",
+        "dom": "GRIESHEIM/DINGSHEIM B.C. - 2",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "48 - 39"
+    },
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "3",
+        "date": "29/01/2023",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "LINGOLSHEIM C.C.S.S.",
+        "score": "64 - 3"
+    },
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "4",
+        "date": "04/02/2023",
+        "heure": "15:15",
+        "dom": "WANTZENAU (LA) A.S.C.SP",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "5",
+        "date": "05/03/2023",
+        "heure": "17:00",
+        "dom": "RACING CLUB DE STRASBOURG",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "6",
+        "date": "18/03/2023",
+        "heure": "18:00",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "STRASBOURG JS KOENIGSHOFFEN",
+        "score": "-"
+    },
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "7",
+        "date": "26/03/2023",
+        "heure": "10:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "GRIESHEIM/DINGSHEIM B.C. - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "8",
+        "date": "01/04/2023",
+        "heure": "14:00",
+        "dom": "LINGOLSHEIM C.C.S.S.",
+        "ext": "ECKBOLSHEIM BB - 3",
+        "score": "-"
+    },
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "9",
+        "date": "06/05/2023",
+        "heure": "16:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "WANTZENAU (LA) A.S.C.SP",
+        "score": "-"
+    },
+    {
+        "equipe": "MU15_3_phase1",
+        "match": "10",
+        "date": "21/05/2023",
+        "heure": "10:30",
+        "dom": "ECKBOLSHEIM BB - 3",
+        "ext": "RACING CLUB DE STRASBOURG",
+        "score": "-"
+    }
+]

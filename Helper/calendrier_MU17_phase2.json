@@ -1,0 +1,146 @@
+[
+    {
+        "equipe": "MU17_phase2",
+        "match": "1",
+        "date": "08/01/2023",
+        "heure": "10:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "HAMBACH BC",
+        "score": "79 - 46"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "2",
+        "date": "26/02/2023",
+        "heure": "16:00",
+        "dom": "STRASBOURG ELECTRICITE A.S.",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "3",
+        "date": "22/01/2023",
+        "heure": "10:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "EN - CTC BRUMATH-KRIEGSHEIM ROTTELSHEIM - UNITAS BRUMATH BASKET",
+        "score": "80 - 42"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "4",
+        "date": "29/01/2023",
+        "heure": "09:00",
+        "dom": "STRASBOURG SAINT JOSEPH - 2",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "65 - 54"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "5",
+        "date": "04/02/2023",
+        "heure": "15:00",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "OHNHEIM C.S.S.A.",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "7",
+        "date": "25/02/2023",
+        "heure": "15:00",
+        "dom": "NBC SARREBOURG",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "8",
+        "date": "04/03/2023",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "WEITBRUCH A.S.C.G",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "9",
+        "date": "12/03/2023",
+        "heure": "13:30",
+        "dom": "SOUFFELWEYERSHEIM BC - 2",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "10",
+        "date": "19/03/2023",
+        "heure": "16:00",
+        "dom": "HAMBACH BC",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "11",
+        "date": "25/03/2023",
+        "heure": "18:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "STRASBOURG ELECTRICITE A.S.",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "12",
+        "date": "29/03/2023",
+        "heure": "19:15",
+        "dom": "EN - CTC BRUMATH-KRIEGSHEIM ROTTELSHEIM - UNITAS BRUMATH BASKET",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "13",
+        "date": "08/04/2023",
+        "heure": "18:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "STRASBOURG SAINT JOSEPH - 2",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "14",
+        "date": "16/04/2023",
+        "heure": "13:30",
+        "dom": "OHNHEIM C.S.S.A.",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "16",
+        "date": "06/05/2023",
+        "heure": "15:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "NBC SARREBOURG",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "17",
+        "date": "13/05/2023",
+        "heure": "15:00",
+        "dom": "WEITBRUCH A.S.C.G",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    },
+    {
+        "equipe": "MU17_phase2",
+        "match": "18",
+        "date": "21/05/2023",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "SOUFFELWEYERSHEIM BC - 2",
+        "score": "-"
+    }
+]

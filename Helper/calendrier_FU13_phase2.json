@@ -1,0 +1,47 @@
+[
+    {
+        "equipe": "FU13_phase2",
+        "match": "1",
+        "date": "23/11/2022",
+        "heure": "14:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "BASK FURDENHEIM - 2",
+        "score": "52 - 11"
+    },
+    {
+        "equipe": "FU13_phase2",
+        "match": "2",
+        "date": "20/11/2022",
+        "heure": "10:30",
+        "dom": "GEISPOLSHEIM C.J.S.",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "22 - 60"
+    },
+    {
+        "equipe": "FU13_phase2",
+        "match": "3",
+        "date": "26/11/2022",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "STRASBOURG ELECTRICITE A.S.",
+        "score": "56 - 23"
+    },
+    {
+        "equipe": "FU13_phase2",
+        "match": "4",
+        "date": "03/12/2022",
+        "heure": "16:30",
+        "dom": "STRASBOURG LIBELLULES B.C. - 1",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "9 - 37"
+    },
+    {
+        "equipe": "FU13_phase2",
+        "match": "5",
+        "date": "10/12/2022",
+        "heure": "13:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "STRASBOURG SAINT JOSEPH",
+        "score": "41 - 8"
+    }
+]

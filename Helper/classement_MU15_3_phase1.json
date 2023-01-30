@@ -1,0 +1,68 @@
+[
+    {
+        "place": "1",
+        "equipe": "STRASBOURG JS KOENIGSHOFFEN",
+        "pts_equipe": "6",
+        "nb_match": "3",
+        "victoire": "3",
+        "defaite": "0",
+        "pts_marques": "134",
+        "pts_encaisses": "108",
+        "difference": "26"
+    },
+    {
+        "place": "2",
+        "equipe": "WANTZENAU (LA) A.S.C.SP",
+        "pts_equipe": "5",
+        "nb_match": "3",
+        "victoire": "2",
+        "defaite": "1",
+        "pts_marques": "236",
+        "pts_encaisses": "79",
+        "difference": "157"
+    },
+    {
+        "place": "3",
+        "equipe": "GRIESHEIM/DINGSHEIM B.C. - 2",
+        "pts_equipe": "4",
+        "nb_match": "2",
+        "victoire": "2",
+        "defaite": "0",
+        "pts_marques": "86",
+        "pts_encaisses": "76",
+        "difference": "10"
+    },
+    {
+        "place": "4",
+        "equipe": "ECKBOLSHEIM BB - 3",
+        "pts_equipe": "4",
+        "nb_match": "3",
+        "victoire": "1",
+        "defaite": "2",
+        "pts_marques": "125",
+        "pts_encaisses": "81",
+        "difference": "44"
+    },
+    {
+        "place": "5",
+        "equipe": "RACING CLUB DE STRASBOURG",
+        "pts_equipe": "3",
+        "nb_match": "3",
+        "victoire": "0",
+        "defaite": "3",
+        "pts_marques": "83",
+        "pts_encaisses": "129",
+        "difference": "-46"
+    },
+    {
+        "place": "6",
+        "equipe": "LINGOLSHEIM C.C.S.S.",
+        "pts_equipe": "2",
+        "nb_match": "2",
+        "victoire": "0",
+        "defaite": "2",
+        "pts_marques": "7",
+        "pts_encaisses": "198",
+        "difference": "-191"
+    }
+]

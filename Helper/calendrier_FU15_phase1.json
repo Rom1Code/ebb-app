@@ -1,0 +1,47 @@
+[
+    {
+        "equipe": "FU15_phase1",
+        "match": "1",
+        "date": "13/11/2022",
+        "heure": "13:30",
+        "dom": "BRUCHE SPORTS ACADEMY",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "44 - 71"
+    },
+    {
+        "equipe": "FU15_phase1",
+        "match": "2",
+        "date": "19/11/2022",
+        "heure": "16:00",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "HOLTZHEIM VOGESIA",
+        "score": "20 - 47"
+    },
+    {
+        "equipe": "FU15_phase1",
+        "match": "3",
+        "date": "27/11/2022",
+        "heure": "15:30",
+        "dom": "GEISPOLSHEIM C.J.S.",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "41 - 46"
+    },
+    {
+        "equipe": "FU15_phase1",
+        "match": "4",
+        "date": "03/12/2022",
+        "heure": "16:30",
+        "dom": "ECKBOLSHEIM BB",
+        "ext": "STRASBOURG SAINT JOSEPH",
+        "score": "50 - 45"
+    },
+    {
+        "equipe": "FU15_phase1",
+        "match": "5",
+        "date": "14/12/2022",
+        "heure": "18:30",
+        "dom": "HAMBACH BC",
+        "ext": "ECKBOLSHEIM BB",
+        "score": "-"
+    }
+]
