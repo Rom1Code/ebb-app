@@ -1,85 +1,134 @@
-import { StyleSheet, FlatList, Text, View, TouchableOpacity, SectionList } from 'react-native';
-import { and } from 'react-native-reanimated';
+import { StyleSheet, FlatList, Text, View, TouchableOpacity } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { SM1_calendrier, SM2_calendrier, SM3_calendrier, SF1_calendrier, SF2_calendrier, SF3_calendrier, MU17_phase1_calendrier, MU17_phase2_calendrier, 
-  MU17_2_phase1_calendrier, MU17_2_phase2_calendrier, FU18_phase1_calendrier, FU18_phase2_calendrier, MU15_phase1_calendrier, MU15_phase2_calendrier, 
-  MU15_2_phase1_calendrier, MU15_2_phase2_calendrier, MU15_3_phase1_calendrier , FU15_phase1_calendrier, FU15_phase2_calendrier, FU15_2_phase1_calendrier, 
-  FU15_2_phase2_calendrier, MU13_phase1_calendrier, MU13_phase2_calendrier, MU13_2_phase1_calendrier, MU13_2_phase2_calendrier, FU13_phase1_calendrier, 
-  FU13_phase2_calendrier, FU11_phase1_calendrier } from './Datas'
-
-
+import { calendarList } from './Datas';
+import React, { useState } from 'react';
+import { getDateWeek, dateArray } from './getDate';
+import GameItem from './GameItem';
+import GameDateBar from './GameDateBar';
 
 function GamesScreen({navigation}) {
 
-  const calendarAll = [SM1_calendrier, SM2_calendrier, SM3_calendrier, SF1_calendrier, SF2_calendrier, SF3_calendrier, MU17_phase1_calendrier, MU17_phase2_calendrier, 
-    MU17_2_phase1_calendrier, MU17_2_phase2_calendrier, FU18_phase1_calendrier, FU18_phase2_calendrier, MU15_phase1_calendrier, MU15_phase2_calendrier, 
-    MU15_2_phase1_calendrier, MU15_2_phase2_calendrier, MU15_3_phase1_calendrier , FU15_phase1_calendrier, FU15_phase2_calendrier, FU15_2_phase1_calendrier, 
-    FU15_2_phase2_calendrier, MU13_phase1_calendrier, MU13_phase2_calendrier, MU13_2_phase1_calendrier, MU13_2_phase2_calendrier, FU13_phase1_calendrier, 
-    FU13_phase2_calendrier, FU11_phase1_calendrier]
-  const finalCalendrier = []
-  calendarAll.map((item)=> item.map((item2) => finalCalendrier.push(item2)))
-  console.log(finalCalendrier)
-  const gameListPlayed = finalCalendrier.filter((item) => item.score != "-")
-  const feuilleMatch = require('../Helper/feuille_match_SM1.json')
+  const [selectedDate, setSelectedDate] = useState(getDateWeek(0))
 
-  const statsIcon = (match) => {
-    return (
-      feuilleMatch.map((item) => item.match == match  ? <View><Text style={styles.text}><FontAwesome name="table" color='black'/></Text></View> : <Text></Text>)
-    )
+  const finalCalendrier = []
+  
+  calendarList.map((item)=> item.map((item2) => finalCalendrier.push(item2)))
+  const gameListPlayed = finalCalendrier.filter((item) => item.date == selectedDate)
+
+  const nbGame = (date) => {
+    const gamesList = finalCalendrier.filter((item) => item.date == date)
+  return gamesList.length
   }
 
-  const statsExist = (match) => {
-    const exist = feuilleMatch.filter((item) => item.match == match.match )
-    return exist.length
+  const dateTrigger = (date) => {
+    setSelectedDate(date)
   }
 
     return (
       <SafeAreaView style={{ width: '100%'}}>
+        <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame}/>
+        {nbGame(selectedDate) != 0 ?
         <FlatList style={{ width: '100%' }}
-        data={gameListPlayed}
-        renderItem={({item}) => 
-          <TouchableOpacity onPress={() => statsExist(item) == 1 ? navigation.navigate('Stats Match', {match: {item}}) : null}>
-            <View style={styles.gameContainer}>
-              <Text style={styles.team}>{item.equipe}</Text>
-              <Text style={styles.game}>{item.dom} vs {item.ext} :</Text>
-              <Text style={styles.score}> {statsIcon(item.match)} {item.score}</Text>
-            </View>
-          </TouchableOpacity>}
+          data={gameListPlayed}
+          renderItem={({item}) =>
+          <GameItem navigation={navigation} item={item} nbGame={nbGame}/>}
         />      
-    </SafeAreaView>
+      :
+      <Text style={styles.noGame}>Pas de match</Text>}
+
+      </SafeAreaView>
     );
   }
 
   const styles = StyleSheet.create({
+    noGame: {
+      textAlign: 'center',
+      fontSize: 26,
+      marginTop: 20
+    },
+    dateContainer: {
+      padding: 2,
+      borderWidth: 0.5,
+      height:40,
+      justifyContent: 'center'
+    },
+    text: {
+      color: 'black',
+      fontSize: 12,
+      textAlign: 'center'
+    },
+    dateContainerSelected: {
+      padding: 2,
+      borderWidth: 0.5,
+      height:40,
+      backgroundColor: '#00A400',
+      justifyContent: 'center',
+      borderBottomRightRadius: 10,
+      borderBottomLeftRadius: 10
+    },
+    textSelected: {
+      color: 'white',
+      fontSize: 12,
+      textAlign: 'center',
+    },
     gameContainer: {
       flexDirection: 'row',
       flex:1,
       backgroundColor: 'white',
-      borderBottomWidth:2,
-      borderBottomColor: '#00A400',
       elevation: 24,
-      alignItems: 'center', //Centered vertically
-      height: 40
+      height: 50,
+      marginTop: 5
+    },
+    gameContainerLeft: {
+      flex:1.5,
+      backgroundColor: '#00A400',
+    },
+    gameContainerMiddle: {
+      flex:4,
+      paddingLeft: 5
+    },
+    gameContainerRight: {
+      justifyContent: 'center', //Centered horizontally
+      flex:1,
+      borderLeftWidth: 2,
+      borderLeftColor: '#00A400'    
+    },
+    teamContainer: {
+      flex: 1,
+      justifyContent: 'center', //Centered horizontally
+
+    },
+    hourContainer: {
+      justifyContent: 'center', //Centered horizontally
+      flex: 1,
+      borderTopColor: 'white',
+      borderTopWidth: 1,
     },
     team: {
-      flex:1,
       textAlign: 'center',
-      backgroundColor: '#00A400',
       color: 'white',
-      marginRight: 5
+      fontSize: 12,
+    },
+    hour: {
+      color: 'white',
+      fontSize: 12,
+      textAlign: 'center',
     },
     game: {
-      padding: 2,
-      flex:5,
-      fontSize: 11,
+      fontSize: 12,
+      textAlign: 'center'
     },
     score: {
-      flex:1,
       color: 'green',
-      textAlign: 'center',
-      fontSize: 11,
-    }  
+      fontSize: 13,
+      textAlign: 'center'
+    },
+    vs: {
+      textAlign: 'center'
+    }
+
   });
 
 

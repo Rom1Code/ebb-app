@@ -8,11 +8,11 @@ import { teamList, calendarList } from './Datas';
   const tableHead =['#','Date', 'Heure', 'Dom', 'Ext', 'Score']
 
   const teamSelected = teamList.filter((item) => item == team )
-  const calendarData = calendarList[teamAll.indexOf(teamSelected[0])]
+  const calendarData = calendarList[teamList.indexOf(teamSelected[0])]
   const feuilleMatch = team == "SM1" ? require('../Helper/feuille_match_SM1.json') : []
 
   const statsExist = (item) => {
-    const exist = feuilleMatch.filter((item2) => item2.match == item.Match )
+    const exist = feuilleMatch.filter((item2) => item2.match == item.match )
     if(exist.length == 1) {
       return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {item}})}><Text style={styles.text}><FontAwesome name="table" color='black'/> {item.score}</Text></TouchableOpacity>
     }
@@ -26,8 +26,8 @@ import { teamList, calendarList } from './Datas';
       <View style={{ flex: 1 }}>
         <ScrollView>
           <Table borderStyle={{borderWidth: 1}}>
-            <Row data={tableHead} flexArr={[1, 2, 1, 3, 3, 2]} style={styles.head}  textStyle={styles.textHead}/>
-            <Rows data={tableData} flexArr={[1, 2, 1, 3, 3, 2]} style={styles.row} textStyle={styles.text}/>
+            <Row data={tableHead} flexArr={[1, 2, 1.5, 3, 3, 2]} style={styles.head}  textStyle={styles.textHead}/>
+            <Rows data={tableData} flexArr={[1, 2, 1.5, 3, 3, 2]} style={styles.row} textStyle={styles.text}/>
           </Table>
       </ScrollView>
       </View>

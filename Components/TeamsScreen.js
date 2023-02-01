@@ -1,128 +1,61 @@
-import { StyleSheet, Button, Text, View, FlatList, TouchableOpacity } from 'react-native';
-import { seniorMasculin, seniorFeminin, U17Masculin, U18Feminin, U15Masculin, U15Feminin, U13Masculin, U13Feminin, U11Feminin} from './Data'
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { teamCat, teamCat2 } from './Datas';
+import TeamItem from './TeamItem'
 
 function TeamsScreen({navigation}) {
-
+  console.log(teamCat2[0].team[1].title)
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ScrollView>
-          <Text>Senior Masculin</Text>
-          <ScrollView horizontal='true'>
-            {seniorMasculin.map((item) => {
-            return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-                  <Text style={styles.item}>{item}</Text>
-                </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-
-          <Text>Senior Féminine</Text>
-          <ScrollView horizontal='true'>
-            {seniorFeminin.map((item) => {
-            return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-                  <Text style={styles.item}>{item}</Text>
-                </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-
-          <Text>U17 Masculin</Text>
-          <ScrollView horizontal='true'>
-            {U17Masculin.map((item) => {
-            return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-                  <Text style={styles.item}>{item}</Text>
-                </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-
-          <Text>U18 Feminin</Text>
-          <ScrollView horizontal='true'>
-            {U18Feminin.map((item) => {
-            return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-                  <Text style={styles.item}>{item}</Text>
-                </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-
-          <Text>U15 Masculin</Text>
-          <ScrollView horizontal='true'>
-            {U15Masculin.map((item) => {
-            return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-                  <Text style={styles.item}>{item}</Text>
-                </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-
-          <Text>U15 Feminin</Text>
-          <ScrollView horizontal='true'>
-            {U15Feminin.map((item) => {
-            return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-                  <Text style={styles.item}>{item}</Text>
-                </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-
-          <Text>U13 Masculin</Text>
-          <ScrollView horizontal='true'>
-            {U13Masculin.map((item) => {
-            return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-                  <Text style={styles.item}>{item}</Text>
-                </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-
-          <Text>U13 Feminin</Text>
-          <ScrollView horizontal='true'>
-            {U13Feminin.map((item) => {
-            return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-                  <Text style={styles.item}>{item}</Text>
-                </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-
-          <Text>U11 Feminin</Text>
-          <ScrollView horizontal='true'>
-            {U11Feminin.map((item) => {
-            return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-                  <Text style={styles.item}>{item}</Text>
-                </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-
-          <Text>Senior Féminine</Text>
-          <FlatList style={{ width: '100%' }}
-          data={seniorFeminin}
-          renderItem={({item}) => 
-            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
-              <Text style={styles.item}>{item}</Text>
-            </TouchableOpacity>}
-          /> 
-
-          </ScrollView>
+        <ScrollView style={{ width: '100%', flex: 1}}>
+          {teamCat.map((item) => <TeamItem navigation={navigation} title={item.cat} data={item.team} />)}
+        </ScrollView>
       </View>
     );
   }
 
   const styles = StyleSheet.create({
+    title: {
+      fontSize: 18,
+      padding: 5,
+      fontWeight: 'bold'
+    },
     teamContainer: {
-      height: 50,
-      width: 50
+      height: 150,
+      width: 150,
+      flexDirection: 'row',
+      flex: 1,
+      margin : 5,
+      backgroundColor: 'white',
+      elevation: 5,
+
+    },
+    teamContainerTop: {
+      flex :1,
+      flexDirection: 'row',
+      textAlign: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 150,
+    },
+    imageContainer: {
+      flex: 1,
+      height: 75,
+    },
+    textContainer: {
+      flex: 1,
+      height: 75,
+      justifyContent: 'center'
+
+    },
+    teamContainerBottom: {
+      flex :1,
+      width: 150
+
+    },
+    logo: {
+      height:75,
+      width: 75,
+      
     },
     touch: {
       justifyContent: 'center',
@@ -130,13 +63,8 @@ function TeamsScreen({navigation}) {
     },
     item: {
       fontSize: 18,
-      height: 40,
-      backgroundColor: 'white',
       color: '#00A400',
       //borderRadius:10,
-      elevation: 24,
-      borderBottomWidth:2,
-      borderBottomColor: '#00A400',
       textAlign: 'center',
     },
   

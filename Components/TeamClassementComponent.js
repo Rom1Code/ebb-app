@@ -1,14 +1,14 @@
 import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-  import { teamList, classsementList } from './Datas';
+import { teamList, classsementList } from './Datas';
 
  function TeamClassementComponent({team}) {
 
   const tableHead =['#','Equipe', 'Pts', 'J', 'V', 'D', 'M', 'E', 'D']
 
   const teamSelected = teamList.filter((item) => item == team )
-  const classementData = classsementList[teamAll.indexOf(teamSelected[0])]
+  const classementData = classsementList[teamList.indexOf(teamSelected[0])]
   
   const offenseData= classementData.map((item) => item.pts_marques)
   const defenseData= classementData.map((item) => item.pts_encaisses)
@@ -31,7 +31,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
     }
   }
 
-  const tableData= classementData.map((row) => [row.Place,teamIcon(row.equipe,row.pts_marques, row.pts_encaisses) ,row.pts_equipe, row.nb_match, row.victoire, row.defaite, row.pts_marques, row.pts_encaisses, row.difference])
+  const tableData= classementData.map((row) => [row.place,teamIcon(row.equipe,row.pts_marques, row.pts_encaisses) ,row.pts_equipe, row.nb_match, row.victoire, row.defaite, row.pts_marques, row.pts_encaisses, row.difference])
 
     return (
     <View style={{ flex: 1 }}>

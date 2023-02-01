@@ -81,3 +81,11 @@ export const U15Feminin = ['FU15_phase1','FU15_phase2','FU15_2_phase1','FU15_2_p
 export const U13Masculin = ['MU13_phase1','MU13_phase2','MU13_2_phase1','MU13_2_phase2']
 export const U13Feminin = ['FU13_phase1','FU13_phase2']
 export const U11Feminin = ['FU11_phase1','FU11_phase2']
+
+export const teamCat = [{'cat': "Senior Masculin", 'team': seniorMasculin}, {'cat': "Senior Féminine", 'team': seniorFeminin}, {'cat': "U17 Masculin", 'team': U17Masculin},
+{'cat': "U18 Feminin", 'team': U18Feminin}, {'cat': "U15 Masculin", 'team': U15Masculin}, , {'cat': "U15 Feminin", 'team': U15Feminin},
+{'cat': "U13 Masculin", 'team': U13Masculin}, {'cat': "U13 Feminin", 'team': U13Feminin}, , {'cat': "U11 Feminin", 'team': U11Feminin}]
+
+export const seniorMasculin2 = [{'team': 'SM1', 'title': 'SM1'},{'team': 'SM2', 'title': 'SM2'},{'team': 'SM3', 'title': 'SM3'}]
+export const teamCat2 = [{'cat': "Senior Masculin2", 'team': seniorMasculin2}]
+
