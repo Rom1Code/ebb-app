@@ -17,9 +17,9 @@ function Navigation() {
     <Tab.Navigator
     screenOptions={{
       tabBarActiveTintColor: '#00A400',
-      tabBarInactiveTintColor: 'white',
+      tabBarInactiveTintColor: 'grey',
       tabBarActiveBackgroundColor:'white',
-      tabBarInactiveBackgroundColor:'#00A400',
+      tabBarInactiveBackgroundColor:'white',
     }}
 >
       <Tab.Screen name="Accueil" component={HomeScreen} options={{

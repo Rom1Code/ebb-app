@@ -6,24 +6,22 @@ import TeamClassementComponent from './TeamClassementComponent'
 
  function TeamDataScreen({navigation, route}) {
   const [tabPressed, setTabPressed] = useState(1);
-  //console.log(route.params.equipe.item)
-  const team = route.params.equipe.item
-  //console.log(team)
+  const team = route.params.team.item.team
     return (
       <View style={{ flex: 1 }}>
         <View  style={styles.tabContainer}> 
-          {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed} ><Text style={styles.tabPressedText}>Calendrier</Text></TouchableOpacity>
-            : <TouchableOpacity  style={styles.tab1} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Calendrier</Text></TouchableOpacity>
+          {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed}><Text style={styles.tabPressedText}>Classement</Text></TouchableOpacity>
+            : <TouchableOpacity style={styles.tab1} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Classement</Text></TouchableOpacity>
           }
-          {tabPressed == 2 ? <TouchableOpacity  style={styles.tabPressed}><Text style={styles.tabPressedText}>Classement</Text></TouchableOpacity>
-            : <TouchableOpacity style={styles.tab1} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Classement</Text></TouchableOpacity>
+          {tabPressed == 2 ? <TouchableOpacity  style={styles.tabPressed} ><Text style={styles.tabPressedText}>Calendrier</Text></TouchableOpacity>
+            : <TouchableOpacity  style={styles.tab1} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Calendrier</Text></TouchableOpacity>
           }
         </View>
         <ScrollView>
         {tabPressed == 1 ? 
-          <TeamCalendarComponent navigation={navigation} team={team}/>
+        <TeamClassementComponent team={team}/>
         :
-          <TeamClassementComponent team={team}/>}
+        <TeamCalendarComponent navigation={navigation} team={team}/>}
         </ScrollView>
       </View>
     );

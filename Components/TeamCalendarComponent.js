@@ -14,7 +14,9 @@ import { teamList, calendarList } from './Datas';
   const statsExist = (item) => {
     const exist = feuilleMatch.filter((item2) => item2.match == item.match )
     if(exist.length == 1) {
-      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {item}})}><Text style={styles.text}><FontAwesome name="table" color='black'/> {item.score}</Text></TouchableOpacity>
+      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {item}})}>
+            <Text style={styles.text}><FontAwesome name="table" color='black'/> {item.score}</Text>
+        </TouchableOpacity>
     }
     else{
       return <Text style={styles.text}>{item.score}</Text>

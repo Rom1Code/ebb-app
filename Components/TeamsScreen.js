@@ -1,13 +1,12 @@
 import { StyleSheet, View, ScrollView } from 'react-native';
-import { teamCat, teamCat2 } from './Datas';
+import { teamCat } from './Datas';
 import TeamItem from './TeamItem'
 
 function TeamsScreen({navigation}) {
-  console.log(teamCat2[0].team[1].title)
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ScrollView style={{ width: '100%', flex: 1}}>
-          {teamCat.map((item) => <TeamItem navigation={navigation} title={item.cat} data={item.team} />)}
+        {teamCat.map((item) => <TeamItem navigation={navigation} title={item.cat} data={item.teamList} />)}
         </ScrollView>
       </View>
     );

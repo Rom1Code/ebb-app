@@ -58,27 +58,33 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
   ] : []
 
     return (
-      <View style={{ flex: 1 }}>
-        <View  style={styles.tabContainer}> 
-          {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></TouchableOpacity>
-            : <TouchableOpacity  style={styles.tab1} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></TouchableOpacity>
-          }
-          {tabPressed == 2 ? <TouchableOpacity  style={styles.tabPressed}><Text style={styles.tabPressedText}>Visiteur</Text></TouchableOpacity>
-            : <TouchableOpacity style={styles.tab1} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></TouchableOpacity>
-          }
+      <>
+        <View style={{ flex: 1 }}>
+          <View  style={styles.tabContainer}> 
+            {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></TouchableOpacity>
+              : <TouchableOpacity  style={styles.tab1} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></TouchableOpacity>
+            }
+            {tabPressed == 2 ? <TouchableOpacity  style={styles.tabPressed}><Text style={styles.tabPressedText}>Visiteur</Text></TouchableOpacity>
+              : <TouchableOpacity style={styles.tab1} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></TouchableOpacity>
+            }
+          </View>
+          <View>
+            {tabPressed == 1 ? 
+            <Table borderStyle={{borderWidth: 1}}>
+              <Row data={tableHead} flexArr={[1, 3, 2]} style={styles.head} textStyle={styles.textHead}/>
+              <Rows data={tableData_dom} flexArr={[1, 3, 2]} style={styles.row} textStyle={styles.text}/>
+            </Table>
+            :
+            <Table borderStyle={{borderWidth: 1 }}>
+              <Row data={tableHead} flexArr={[1, 3, 2]} style={styles.head} textStyle={styles.textHead}/>
+              <Rows data={tableData_ext} flexArr={[1, 3, 2]} style={styles.row} textStyle={styles.text}/>
+            </Table>}
+          </View>
         </View>
-        {tabPressed == 1 ? 
-        <Table borderStyle={{borderWidth: 1 }}>
-          <Row data={tableHead} flexArr={[1, 3, 2]} style={styles.head} textStyle={styles.textHead}/>
-          <Rows data={tableData_dom} flexArr={[1, 3, 2]} style={styles.row} textStyle={styles.text}/>
-        </Table>
-        :
-        <Table borderStyle={{borderWidth: 1 }}>
-          <Row data={tableHead} flexArr={[1, 3, 2]} style={styles.head} textStyle={styles.textHead}/>
-          <Rows data={tableData_ext} flexArr={[1, 3, 2]} style={styles.row} textStyle={styles.text}/>
-        </Table>}
-
-      </View>
+        <View style={styles.legende}>
+            <Text><FontAwesome name="star" color='orange'  /> : Meilleur joueur</Text>
+        </View>
+      </>
     );
 }
 
@@ -131,7 +137,14 @@ const styles = StyleSheet.create({
   },
   textHead: { 
     color: 'white', 
-    textAlign: 'center' }
+    textAlign: 'center' 
+  },
+  legende: {
+    position:'absolute',
+    top: 450,
+    padding: 5
+  }
+  
 })
 
 export default GameStatsScreen

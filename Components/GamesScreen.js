@@ -1,12 +1,11 @@
 import { StyleSheet, FlatList, Text, View, TouchableOpacity } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { calendarList } from './Datas';
 import React, { useState } from 'react';
-import { getDateWeek, dateArray } from './getDate';
+import { getDateWeek } from './getDate';
 import GameItem from './GameItem';
 import GameDateBar from './GameDateBar';
+import { checkPluginState } from 'react-native-reanimated/lib/reanimated2/core';
 
 function GamesScreen({navigation}) {
 
@@ -16,6 +15,9 @@ function GamesScreen({navigation}) {
   
   calendarList.map((item)=> item.map((item2) => finalCalendrier.push(item2)))
   const gameListPlayed = finalCalendrier.filter((item) => item.date == selectedDate)
+
+  const gameListPlayedSorted = gameListPlayed.sort((a ,b) => a.heure.substring(0,2) - b.heure.substring(0,2))
+
 
   const nbGame = (date) => {
     const gamesList = finalCalendrier.filter((item) => item.date == date)
@@ -27,11 +29,11 @@ function GamesScreen({navigation}) {
   }
 
     return (
-      <SafeAreaView style={{ width: '100%'}}>
+      <SafeAreaView style={{ width: '100%', marginBottom: 50}}>
         <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame}/>
         {nbGame(selectedDate) != 0 ?
         <FlatList style={{ width: '100%' }}
-          data={gameListPlayed}
+          data={gameListPlayedSorted}
           renderItem={({item}) =>
           <GameItem navigation={navigation} item={item} nbGame={nbGame}/>}
         />      

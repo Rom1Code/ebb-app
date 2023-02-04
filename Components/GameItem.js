@@ -1,4 +1,5 @@
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image, TouchableHighlight } from 'react-native';
+import { useState } from 'react';
 
 const statsIcon = (match) => {
     return (
@@ -14,27 +15,73 @@ const statsExist = (match) => {
     return exist.length
 }
 
-function GameItem({navigation, item, nbGame}) {
+const highlighWin = (score) => {
+  const dom = score.split('-')[0]
+  const ext = score.split('-')[1]
+
+  if(dom > ext){
+    return <><Text style={{color:'#00A400'}}>{dom}</Text><Text>- {ext}</Text></>
+  }
+  else{
+    return <><Text >{dom}</Text><Text style={{color:'#00A400'}}>- {ext}</Text></>
+  }
+}
+
+
+function GameItem({ navigation, item}) {
+  const [displayDetailsGame, setDisplayDetailsGame] = useState(false)
+  console.log(displayDetailsGame)
+
     return (
-        <TouchableOpacity onPress={() => statsExist(item) == 1 ? navigation.navigate('Stats Match', {match: {item}}) : null}>
+      <>
         <View style={styles.gameContainer}>
             <View style={styles.gameContainerLeft}>
                 <View style={styles.teamContainer}><Text style={styles.team}>{item.equipe.substring(0,4)}</Text></View>
-                <View style={styles.hourContainer}><Text style={styles.hour}>{item.heure}</Text></View>
+                <View style={styles.hourContainer}><Text style={styles.hour}>{item.heure.replace(':','h')}</Text></View>
             </View>
             <View style={styles.gameContainerMiddle}>
-                <Text style={styles.game}>{item.dom}</Text>
-                <Text style={styles.vs}>vs</Text>
-                <Text style={styles.game}>{item.ext}</Text>
+              <TouchableOpacity style={{flex:1}} onPress={()=>setDisplayDetailsGame(!displayDetailsGame)}>
+                <View style={styles.gameContainerMiddleItem}> 
+                  { item.dom.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {item.dom}</Text></View>
+                : <Text style={styles.game}>{item.dom}</Text>}
+                </View>
+                <View style={styles.gameContainerMiddleItem}> 
+                  <Text style={styles.vs}>vs</Text>
+                </View> 
+                <View style={styles.gameContainerMiddleItem}> 
+                  { item.ext.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {item.ext}</Text></View>
+                  : <Text style={styles.game}>{item.ext}</Text>}
+                </View> 
+                </TouchableOpacity>
             </View>
             <View style={styles.gameContainerRight}>
-                <Text style={styles.score}>{statsIcon(item.match)} {item.score}</Text>
+                <TouchableOpacity style={{flex:1, justifyContent:'center'}} onPress={() => statsExist(item) == 1 ? navigation.navigate('Stats Match', {match: {item}}) : null}>
+                  <Text style={styles.score}>{statsIcon(item.match)} {highlighWin(item.score)}</Text>
+                </TouchableOpacity>
             </View>
         </View>
-    </TouchableOpacity>
+        <View style={styles.gameDetails}>
+        {displayDetailsGame ? <><View style={styles.gameDetailsLeft}><Text style={styles.gameDetailsLeftText}>Stats match</Text></View><View style={styles.gameDetailsMiddle}><View style={styles.gameDetailsRow1}>
+          <Text style={styles.gameDetailsText}>{item.dom}</Text><Text style={styles.gameDetailsText}>vs</Text><Text style={styles.gameDetailsText}>{item.ext}</Text>
+          </View>
+          <View style={styles.gameDetailsRow1}>
+          <Text style={styles.gameDetailsText}>2</Text><Text style={styles.gameDetailsText}>LF</Text><Text style={styles.gameDetailsText}>3</Text>
+          </View>
+          <View style={styles.gameDetailsRow1}>
+          <Text style={styles.gameDetailsText}>20</Text><Text style={styles.gameDetailsText}>2 PTS</Text><Text style={styles.gameDetailsText}>15</Text>
+          </View>
+          <View style={styles.gameDetailsRow1}>
+          <Text style={styles.gameDetailsText}>5</Text><Text style={styles.gameDetailsText}>3 PTS</Text><Text style={styles.gameDetailsText}>3</Text>
+          </View>
+          </View>
+          <View style={styles.gameDetailsRight}></View>
+          </>
+          
+          : null}
+        </View>
+        </>
     )
 }
-
 
 const styles = StyleSheet.create({
     gameContainer: {
@@ -42,8 +89,8 @@ const styles = StyleSheet.create({
       flex:1,
       backgroundColor: 'white',
       elevation: 24,
-      height: 50,
-      marginTop: 5
+      height: 70,
+      marginTop: 5,
     },
     gameContainerLeft: {
       flex:1.5,
@@ -51,7 +98,11 @@ const styles = StyleSheet.create({
     },
     gameContainerMiddle: {
       flex:4,
-      paddingLeft: 5
+      padding: 5,
+    },
+    gameContainerMiddleItem: {
+      flex: 1,
+      justifyContent: 'center', //Centered horizontally
     },
     gameContainerRight: {
       justifyContent: 'center', //Centered horizontally
@@ -81,7 +132,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
     game: {
-      fontSize: 12,
+      fontSize: 11,
       textAlign: 'center'
     },
     score: {
@@ -91,8 +142,53 @@ const styles = StyleSheet.create({
     },
     vs: {
       textAlign: 'center'
-    }
+    },
+    logoContainer: {
+      flexDirection:'row',
+      justifyContent: 'center',
+      flex: 1,
+      marginTop: 3
+    },
+    logo: {
+      height:30, 
+      width:30, 
+      top: -7
+   },
+   gameDetails: {
+    flex:1,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    textAlign: 'center',
 
+   },
+   gameDetailsMiddle: {
+    flex:4,
+    borderTopWidth: 0.5,
+    borderTopColor: '#00A400'    ,
+    padding: 4
+   },
+   gameDetailsRight: {
+    flex:1,
+    borderLeftWidth: 2,
+    borderLeftColor: '#00A400'    
+
+   },
+   gameDetailsLeft: {
+    flex:1.5,
+   },
+   gameDetailsRow1: {
+    flexDirection: 'row',
+    borderBottomWidth: 1
+   },
+   gameDetailsText: {
+    flex: 1,
+    fontSize: 10,
+    textAlign: 'center',
+   },
+   gameDetailsLeftText: {
+    flex: 1,
+    textAlign: 'center',
+  }
   });
 
 

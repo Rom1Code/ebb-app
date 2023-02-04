@@ -16,7 +16,7 @@ import { teamList, classsementList } from './Datas';
   const teamIcon = (team, offense, defense) => {
     const offenseIcon = bestOffense(offense)
     const defenseIcon = bestDefense(defense)
-    return <Text style={styles.text}> {offenseIcon} {defenseIcon} {team}</Text>
+    return <Text style={styles.text}> {offenseIcon} {defenseIcon} {highlightTeam(team)}</Text>
   }
 
   const bestOffense = (pts) => {
@@ -31,7 +31,27 @@ import { teamList, classsementList } from './Datas';
     }
   }
 
-  const tableData= classementData.map((row) => [row.place,teamIcon(row.equipe,row.pts_marques, row.pts_encaisses) ,row.pts_equipe, row.nb_match, row.victoire, row.defaite, row.pts_marques, row.pts_encaisses, row.difference])
+  const highlightTeam = (team) => {
+    if(team.includes('ECKBOLSHEIM')){
+      return <Text style={{color:'#00A400', fontWeight:'bold', fontSize:12}}>{team}</Text>
+    }
+    else {
+      return team
+    }
+  }
+
+  const highlightData = (team, data) => {
+    if(team.includes('ECKBOLSHEIM')){
+      return <Text style={{color:'#00A400', fontWeight:'bold', textAlign:'center', fontSize:12}}>{data}</Text>
+    }
+    else {
+      return data
+    }
+  }
+
+
+
+  const tableData= classementData.map((row) => [highlightData(row.equipe, row.place),teamIcon(row.equipe,row.pts_marques, row.pts_encaisses) ,highlightData(row.equipe, row.pts_equipe), highlightData(row.equipe, row.nb_match), highlightData(row.equipe, row.victoire), highlightData(row.equipe, row.defaite), highlightData(row.equipe, row.pts_marques), highlightData(row.equipe, row.pts_encaisses), highlightData(row.equipe, row.difference)])
 
     return (
     <View style={{ flex: 1 }}>
@@ -40,6 +60,11 @@ import { teamList, classsementList } from './Datas';
             <Row data={tableHead} flexArr={[1, 6, 1, 1]} style={styles.head}  textStyle={styles.textHead}/>
             <Rows data={tableData} flexArr={[1, 6, 1, 1]} style={styles.row} textStyle={styles.text}/>
          </Table>
+         <View style={styles.legende}>
+          <Text><FontAwesome name="fire" color='orange'  /> : Meilleur attaque</Text>
+          <Text><FontAwesome name="lock" color='black'  /> : Meilleur défense</Text>
+
+         </View>
       </ScrollView>
     </View>
     );
@@ -47,40 +72,6 @@ import { teamList, classsementList } from './Datas';
 
 
 const styles = StyleSheet.create({
-  tabContainer: {
-    width:'100%', 
-    flexDirection: 'row',
-    },
-  tab1: {
-    flex:1,
-    backgroundColor: '#00A400',
-    justifyContent:'center',
-    borderRightWidth: 1,
-    borderRightColor:'white'
-    },
-  tab2: {
-    flex:1,
-    backgroundColor: '#00A400',
-    justifyContent:'center',
-    },
-  tabPressed: {
-    flex:1,
-    backgroundColor: 'white',
-    justifyContent:'center',
-    color: '#00A400'
-    },
-  tabText: {
-    fontSize: 20,
-    textAlign: 'center',
-    height:30,
-    color:'white'
-  },
-  tabPressedText: {
-    fontSize: 20,
-    textAlign: 'center',
-    height:30,
-    color: '#00A400'
-  },
   head: { 
     flex: 1, 
     backgroundColor: '#00A400',
@@ -101,6 +92,12 @@ const styles = StyleSheet.create({
   icon: {
     height:5,
     width:5
+  },
+  legende: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+
   }
 })
 

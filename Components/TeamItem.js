@@ -1,24 +1,26 @@
 import { Text, View, TouchableOpacity, ScrollView, Image, StyleSheet } from 'react-native';
 
 function TeamItem({navigation, title, data}) {
+    console.log(data)
     return (
         <>
         <Text style={styles.title}>{title}</Text>
           <ScrollView horizontal={true} style={{ width: '100%', flex: 1}}>
-          {data.map((item) => {
+          {data.map((item, index) => {
             return (
-              <View style={styles.teamContainer}>
-                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {equipe: {item}})}>
+              <View key={index} style={styles.teamContainer}>
+                <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {team: {item}})}>
                 <View style={styles.teamContainerTop}> 
                   <View style={styles.imageContainer}>
                     <Image style={styles.logo} source={require('../Ressources/ebb-logo.png')} />
                   </View>
                   <View style={styles.textContainer}>
-                    <Text style={styles.item}>{item.substring(0,1)=='M' || item.substring(0,1)=='F' ? item.substring(1,4) : item.substring(0,4)}</Text>
+                    <Text style={styles.item}>{item.label}</Text>
                   </View>
                 </View>
                 <View style={styles.teamContainerBottom}> 
-                    <Text style={styles.item}>(niveau)</Text>
+                    <Text style={styles.item2}>{item.level}</Text>
+                    <Text style={styles.item2}>{item.group}</Text>
                 </View>
                 </TouchableOpacity>
               </View>)})}
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
     },
     teamContainer: {
-      height: 150,
+      height: 100,
       width: 150,
       flexDirection: 'row',
       flex: 1,
@@ -54,17 +56,17 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
       flex: 1,
-      height: 75,
+
     },
     textContainer: {
       flex: 1,
-      height: 75,
-      justifyContent: 'center'
 
     },
     teamContainerBottom: {
       flex :1,
-      width: 150
+      width: 125,
+      justifyContent: 'center',
+      width: 150,
 
     },
     logo: {
@@ -82,6 +84,13 @@ const styles = StyleSheet.create({
       //borderRadius:10,
       textAlign: 'center',
     },
+    item2: {
+      fontSize: 15,
+      color: '#00A400',
+      //borderRadius:10,
+      textAlign: 'center',
+    },
+
   
   });
 

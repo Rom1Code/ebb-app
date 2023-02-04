@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     dateContainer: {
       padding: 2,
       borderWidth: 0.5,
-      height:40,
+      height:50,
+      width: 60,
       justifyContent: 'center'
     },
     text: {
@@ -39,7 +40,8 @@ const styles = StyleSheet.create({
     dateContainerSelected: {
       padding: 2,
       borderWidth: 0.5,
-      height:40,
+      height:50,
+      width: 60,
       backgroundColor: '#00A400',
       justifyContent: 'center',
       borderBottomRightRadius: 10,

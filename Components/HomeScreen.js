@@ -8,8 +8,10 @@ function HomeScreen({navigation, route}) {
         style={styles.icon}
         source={require('../Ressources/ebb-logo.png')}
         />
-        <Text style={styles.text}>Application under construction...</Text>
+        <Text style={styles.text}></Text>
+
       </SafeAreaView>
+      
     );
   }
 
