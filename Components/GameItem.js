@@ -1,77 +1,112 @@
 import { Text, View, TouchableOpacity, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import { useState } from 'react';
-
-const statsIcon = (match) => {
-    return (
-      feuilleMatch.map((item) => item.match == match  ? <View><Text style={styles.text}><FontAwesome name="table" color='black'/></Text></View> : <Text></Text>)
-    )
-  }
-
-const feuilleMatch = require('../Helper/feuille_match_SM1.json')
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { teamList, feuilleMatchList } from './Datas';
 
 
-const statsExist = (match) => {
-    const exist = feuilleMatch.filter((item) => item.match == match.match )
-    return exist.length
-}
-
-const highlighWin = (score) => {
-  const dom = score.split('-')[0]
-  const ext = score.split('-')[1]
-
-  if(dom > ext){
-    return <><Text style={{color:'#00A400'}}>{dom}</Text><Text>- {ext}</Text></>
-  }
-  else{
-    return <><Text >{dom}</Text><Text style={{color:'#00A400'}}>- {ext}</Text></>
-  }
-}
 
 
-function GameItem({ navigation, item}) {
+function GameItem({ navigation, game}) {
   const [displayDetailsGame, setDisplayDetailsGame] = useState(false)
-  console.log(displayDetailsGame)
+  const [feuilleGameClicked, setFeuilleGameClicked] = useState([])
+  const [gameClicked, setGameClicked] = useState("")
+
+  const teamSelected = teamList.filter((item) => item == game.equipe )
+  const feuilleMatchTeamList = feuilleMatchList[teamList.indexOf(teamSelected[0])]
+
+  console.log(feuilleMatchTeamList)
+  console.log(game)
+  console.log(gameClicked)
+  console.log(feuilleGameClicked)
+
+  const statsIcon = (match) => {
+    if(feuilleMatchTeamList.lenght != 0){
+      return (
+        feuilleMatchTeamList.map((item) => item.match == match.match && item.equipe == match.equipe ? <View><Text style={styles.text}><FontAwesome name="table" color='black'/></Text></View> : <Text></Text>)
+      )
+      }
+      else {
+        return null
+      }
+    }
+
+  const statsExist = (match) => {
+      if(feuilleMatchTeamList.lenght){
+        const exist = feuilleMatchTeamList.filter((item) => item.match == match.match && item.equipe == match.equipe )
+        return exist.length
+      }
+      else{
+        return 0
+      }
+  }
+
+  const highlighWin = (score) => {
+    const score_dom = score.split('-')[0]
+    const score_ext = score.split('-')[1]
+
+    if(score_dom > score_ext){
+      return <><Text style={{color:'#00A400'}}>{score_dom                                                                                                                                                                                                                                        }</Text><Text>- {score_ext}</Text></>
+    }
+    else{
+      return <><Text >{score_dom}</Text><Text style={{color:'#00A400'}}>- {score_ext}</Text></>
+    }
+  }
+
+  const getFeuilleMatch = (match, equipe) => {
+    if(feuilleMatchTeamList.length != 0){
+      console.log("getFeuilleMatch")
+     setFeuilleGameClicked(feuilleMatchTeamList.filter((item)=> item.equipe == equipe && item.match == match))
+    }
+  }
 
     return (
       <>
         <View style={styles.gameContainer}>
             <View style={styles.gameContainerLeft}>
-                <View style={styles.teamContainer}><Text style={styles.team}>{item.equipe.substring(0,4)}</Text></View>
-                <View style={styles.hourContainer}><Text style={styles.hour}>{item.heure.replace(':','h')}</Text></View>
+                <View style={styles.teamContainer}><Text style={styles.team}>{game.equipe.substring(0,4)}</Text></View>
+                <View style={styles.hourContainer}><Text style={styles.hour}>{game.heure.replace(':','h')}</Text></View>
             </View>
             <View style={styles.gameContainerMiddle}>
-              <TouchableOpacity style={{flex:1}} onPress={()=>setDisplayDetailsGame(!displayDetailsGame)}>
+              <TouchableOpacity style={{flex:1}} onPress={()=>{getFeuilleMatch(game.match, game.equipe); setDisplayDetailsGame(!displayDetailsGame); setGameClicked(game.equipe)}}>
                 <View style={styles.gameContainerMiddleItem}> 
-                  { item.dom.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {item.dom}</Text></View>
-                : <Text style={styles.game}>{item.dom}</Text>}
+                  { game.dom.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {game.dom}</Text></View>
+                : <Text style={styles.game}>{game.dom}</Text>}
                 </View>
                 <View style={styles.gameContainerMiddleItem}> 
                   <Text style={styles.vs}>vs</Text>
                 </View> 
                 <View style={styles.gameContainerMiddleItem}> 
-                  { item.ext.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {item.ext}</Text></View>
-                  : <Text style={styles.game}>{item.ext}</Text>}
+                  { game.ext.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {game.ext}</Text></View>
+                  : <Text style={styles.game}>{game.ext}</Text>}
                 </View> 
                 </TouchableOpacity>
             </View>
             <View style={styles.gameContainerRight}>
-                <TouchableOpacity style={{flex:1, justifyContent:'center'}} onPress={() => statsExist(item) == 1 ? navigation.navigate('Stats Match', {match: {item}}) : null}>
-                  <Text style={styles.score}>{statsIcon(item.match)} {highlighWin(item.score)}</Text>
+                <TouchableOpacity style={{flex:1, justifyContent:'center'}} onPress={() => statsExist(game) == 1 ? navigation.navigate('Stats Match', {match: {game}}) : null}>
+                  <Text style={styles.score}>{highlighWin(game.score)}</Text>
+                  <Text style={styles.score}>{statsIcon(game)}</Text>
                 </TouchableOpacity>
             </View>
         </View>
         <View style={styles.gameDetails}>
-        {displayDetailsGame ? <><View style={styles.gameDetailsLeft}><Text style={styles.gameDetailsLeftText}>Stats match</Text></View><View style={styles.gameDetailsMiddle}><View style={styles.gameDetailsRow1}>
-          <Text style={styles.gameDetailsText}>{item.dom}</Text><Text style={styles.gameDetailsText}>vs</Text><Text style={styles.gameDetailsText}>{item.ext}</Text>
+        {displayDetailsGame && game.score != '-' &&  feuilleGameClicked.length != 0 ? <><View style={styles.gameDetailsLeft}><Text style={styles.gameDetailsLeftText}>Stats match</Text></View><View style={styles.gameDetailsMiddle}><View style={styles.gameDetailsRow1}>
+          <Text style={styles.gameDetailsText}>{game.dom}</Text><Text style={styles.gameDetailsLabel}>vs</Text><Text style={styles.gameDetailsText}>{game.ext}</Text>
           </View>
           <View style={styles.gameDetailsRow1}>
-          <Text style={styles.gameDetailsText}>2</Text><Text style={styles.gameDetailsText}>LF</Text><Text style={styles.gameDetailsText}>3</Text>
+          <Text style={styles.gameDetailsText}>{game.score.split('-')[0]}</Text><Text style={styles.gameDetailsLabel}>Score</Text><Text style={styles.gameDetailsText}>{game.score.split('-')[1]}</Text>
+          </View>
+
+          <View style={styles.gameDetailsRow1}>
+          <Text style={styles.gameDetailsText}>{feuilleGameClicked[0].equipe_dom_LF}</Text><Text style={styles.gameDetailsLabel}>LF</Text><Text style={styles.gameDetailsText}>{feuilleGameClicked[0].equipe_ext_LF}</Text>
           </View>
           <View style={styles.gameDetailsRow1}>
-          <Text style={styles.gameDetailsText}>20</Text><Text style={styles.gameDetailsText}>2 PTS</Text><Text style={styles.gameDetailsText}>15</Text>
+          <Text style={styles.gameDetailsText}>{feuilleGameClicked[0].equipe_dom_2PTS_int}</Text><Text style={styles.gameDetailsLabel}>2 PTS int</Text><Text style={styles.gameDetailsText}>{feuilleGameClicked[0].equipe_dom_2PTS_int}</Text>
           </View>
           <View style={styles.gameDetailsRow1}>
-          <Text style={styles.gameDetailsText}>5</Text><Text style={styles.gameDetailsText}>3 PTS</Text><Text style={styles.gameDetailsText}>3</Text>
+          <Text style={styles.gameDetailsText}>{feuilleGameClicked[0].equipe_dom_2PTS_ext}</Text><Text style={styles.gameDetailsLabel}>2 PTS ext</Text><Text style={styles.gameDetailsText}>{feuilleGameClicked[0].equipe_dom_2PTS_ext}</Text>
+          </View>
+          <View style={styles.gameDetailsRow1}>
+          <Text style={styles.gameDetailsText}>{feuilleGameClicked[0].equipe_dom_3PTS}</Text><Text style={styles.gameDetailsLabel}>3 PTS</Text><Text style={styles.gameDetailsText}>{feuilleGameClicked[0].equipe_dom_3PTS}</Text>
           </View>
           </View>
           <View style={styles.gameDetailsRight}></View>
@@ -184,10 +219,20 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 10,
     textAlign: 'center',
+    fontWeight:'bold',
+
    },
    gameDetailsLeftText: {
     flex: 1,
     textAlign: 'center',
+  },
+  gameDetailsLabel: {
+    flex: 1,
+    textAlign: 'center',
+    fontWeight:'bold',
+    color: 'white',
+    fontSize: 12,
+    backgroundColor: '#00A400'
   }
   });
 

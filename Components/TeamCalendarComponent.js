@@ -11,15 +11,15 @@ import { teamList, calendarList } from './Datas';
   const calendarData = calendarList[teamList.indexOf(teamSelected[0])]
   const feuilleMatch = team == "SM1" ? require('../Helper/feuille_match_SM1.json') : []
 
-  const statsExist = (item) => {
-    const exist = feuilleMatch.filter((item2) => item2.match == item.match )
+  const statsExist = (game) => {
+    const exist = feuilleMatch.filter((item2) => item2.match == game.match )
     if(exist.length == 1) {
-      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {item}})}>
-            <Text style={styles.text}><FontAwesome name="table" color='black'/> {item.score}</Text>
+      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {game}})}>
+            <Text style={styles.text}><FontAwesome name="table" color='black'/> {game.score}</Text>
         </TouchableOpacity>
     }
     else{
-      return <Text style={styles.text}>{item.score}</Text>
+      return <Text style={styles.text}>{game.score}</Text>
     }
   }
 

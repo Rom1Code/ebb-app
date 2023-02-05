@@ -1,6 +1,6 @@
 [
     {
-        "equipe": "SM1",
+        "equipe": "SF2",
         "match": "12",
         "date": "03/12/22",
         "heure": "20:00",
@@ -8,10 +8,10 @@
         "equipe_ext": null,
         "score_dom": "66",
         "score_ext": "76",
-        "equipe_dom_LF": "17",
-        "equipe_dom_2PTS_int": "15",
-        "equipe_dom_2PTS_ext": "2",
-        "equipe_dom_3PTS": "5",
+        "equipe_dom_LF": "18",
+        "equipe_dom_2PTS_int": "16",
+        "equipe_dom_2PTS_ext": "4",
+        "equipe_dom_3PTS": "25",
         "equipe_ext_LF": "20",
         "equipe_ext_2PTS_int": "1",
         "equipe_ext_2PTS_ext": "2",
@@ -78,7 +78,7 @@
         "joueur10PTS_ext": "7"
     },
     {
-        "equipe": "SM1",
+        "equipe": "SF2",
         "match": "13",
         "date": "10/12/22",
         "heure": "20:30",

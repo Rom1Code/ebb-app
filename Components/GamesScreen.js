@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { getDateWeek } from './getDate';
 import GameItem from './GameItem';
 import GameDateBar from './GameDateBar';
-import { checkPluginState } from 'react-native-reanimated/lib/reanimated2/core';
 
 function GamesScreen({navigation}) {
 
@@ -35,7 +34,7 @@ function GamesScreen({navigation}) {
         <FlatList style={{ width: '100%' }}
           data={gameListPlayedSorted}
           renderItem={({item}) =>
-          <GameItem navigation={navigation} item={item} nbGame={nbGame}/>}
+          <GameItem navigation={navigation} game={item}/>}
         />      
       :
       <Text style={styles.noGame}>Pas de match</Text>}
