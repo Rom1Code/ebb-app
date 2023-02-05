@@ -1,3 +1,11 @@
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, child, get } from "firebase/database";
+import  { getData } from './GetData'
+
+const data =""
+const test = async () => {console.log( await getData('feuille_match_SM1'))}
+console.log(test())
+
 //classement
 export const SM1_classement = require('../Helper/classement_SM1.json');
 export const SM2_classement = require('../Helper/classement_SM2.json');
@@ -73,7 +81,8 @@ FU15_2_phase2_calendrier, MU13_phase1_calendrier, MU13_phase2_calendrier, MU13_2
 FU13_phase2_calendrier, FU11_phase1_calendrier, FU11_phase2_calendrier]
 
 
-//feuille de match
+
+
 export const feuilleMatchSM1 = require('../Helper/feuille_match_SM1.json')
 export const feuilleMatchSM2 = require('../Helper/feuille_match_SM2.json');
 export const feuilleMatchSM3 = require('../Helper/feuille_match_SM3.json');

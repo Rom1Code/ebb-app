@@ -9,18 +9,13 @@ import { teamList, feuilleMatchList } from './Datas';
 function GameItem({ navigation, game}) {
   const [displayDetailsGame, setDisplayDetailsGame] = useState(false)
   const [feuilleGameClicked, setFeuilleGameClicked] = useState([])
-  const [gameClicked, setGameClicked] = useState("")
 
   const teamSelected = teamList.filter((item) => item == game.equipe )
   const feuilleMatchTeamList = feuilleMatchList[teamList.indexOf(teamSelected[0])]
 
-  console.log(feuilleMatchTeamList)
-  console.log(game)
-  console.log(gameClicked)
-  console.log(feuilleGameClicked)
 
   const statsIcon = (match) => {
-    if(feuilleMatchTeamList.lenght != 0){
+    if(feuilleMatchTeamList.length != 0){
       return (
         feuilleMatchTeamList.map((item) => item.match == match.match && item.equipe == match.equipe ? <View><Text style={styles.text}><FontAwesome name="table" color='black'/></Text></View> : <Text></Text>)
       )
@@ -31,7 +26,7 @@ function GameItem({ navigation, game}) {
     }
 
   const statsExist = (match) => {
-      if(feuilleMatchTeamList.lenght){
+      if(feuilleMatchTeamList.length != 0){
         const exist = feuilleMatchTeamList.filter((item) => item.match == match.match && item.equipe == match.equipe )
         return exist.length
       }
@@ -57,6 +52,9 @@ function GameItem({ navigation, game}) {
       console.log("getFeuilleMatch")
      setFeuilleGameClicked(feuilleMatchTeamList.filter((item)=> item.equipe == equipe && item.match == match))
     }
+    else {
+      setFeuilleGameClicked([])
+    }
   }
 
     return (
@@ -67,7 +65,7 @@ function GameItem({ navigation, game}) {
                 <View style={styles.hourContainer}><Text style={styles.hour}>{game.heure.replace(':','h')}</Text></View>
             </View>
             <View style={styles.gameContainerMiddle}>
-              <TouchableOpacity style={{flex:1}} onPress={()=>{getFeuilleMatch(game.match, game.equipe); setDisplayDetailsGame(!displayDetailsGame); setGameClicked(game.equipe)}}>
+              <TouchableOpacity style={{flex:1}} onPress={()=>{getFeuilleMatch(game.match, game.equipe); setDisplayDetailsGame(!displayDetailsGame)}}>
                 <View style={styles.gameContainerMiddleItem}> 
                   { game.dom.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {game.dom}</Text></View>
                 : <Text style={styles.game}>{game.dom}</Text>}
