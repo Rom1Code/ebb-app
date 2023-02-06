@@ -2,13 +2,30 @@ import { StyleSheet, TouchableOpacity, Text, View, SectionList, FlatList, Scroll
 import { Table, Row, Rows } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { teamList, calendarList } from './Datas';
+import { dbRef }  from './GetData'
+import { useEffect, useState } from 'react';
+import { child, get } from "firebase/database";
 
  function TeamCalendarComponent({navigation, team}) {
-  
+  const [calendarData, setCalendarData] = useState([])
+
+  useEffect(() => {
+       get(child(dbRef, 'calendrier/'+team)).then((snapshot) => {
+      if (snapshot.exists()) {
+        setCalendarData(snapshot.val());
+      } else {
+          console.log("No data available");
+      }
+      }).catch((error) => {
+      console.error(error);
+      });
+  }, []);
+
+  console.log(calendarData)
   const tableHead =['#','Date', 'Heure', 'Dom', 'Ext', 'Score']
 
-  const teamSelected = teamList.filter((item) => item == team )
-  const calendarData = calendarList[teamList.indexOf(teamSelected[0])]
+  //const teamSelected = teamList.filter((item) => item == team )
+  //const calendarData = calendarList[teamList.indexOf(teamSelected[0])]
   const feuilleMatch = team == "SM1" ? require('../Helper/feuille_match_SM1.json') : []
 
   const statsExist = (game) => {
@@ -24,6 +41,7 @@ import { teamList, calendarList } from './Datas';
   }
 
   const tableData= calendarData.map((row) => [row.match,row.date,row.heure, row.dom, row.ext, statsExist(row)])
+  console.log(tableData)
     return (
       <View style={{ flex: 1 }}>
         <ScrollView>

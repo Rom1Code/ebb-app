@@ -2,13 +2,31 @@ import { StyleSheet, View, ScrollView, Text, Image } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { teamList, classsementList } from './Datas';
+import { dbRef }  from './GetData'
+import { useEffect, useState } from 'react';
+import { child, get } from "firebase/database";
 
  function TeamClassementComponent({team}) {
+  console.log(team)
+  const [classementData, setClassementData] = useState([])
 
+  useEffect(() => {
+      get(child(dbRef, 'classement/'+team)).then((snapshot) => {
+      if (snapshot.exists()) {
+        setClassementData(snapshot.val());
+      } else {
+          console.log("No data available");
+      }
+      }).catch((error) => {
+      console.error(error);
+      });
+  }, []);
+
+  //console.log(classementData)
   const tableHead =['#','Equipe', 'Pts', 'J', 'V', 'D', 'M', 'E', 'D']
 
-  const teamSelected = teamList.filter((item) => item == team )
-  const classementData = classsementList[teamList.indexOf(teamSelected[0])]
+  //const teamSelected = teamList.filter((item) => item == team )
+  //const classementData = classsementList[teamList.indexOf(teamSelected[0])]
   
   const offenseData= classementData.map((item) => item.pts_marques)
   const defenseData= classementData.map((item) => item.pts_encaisses)

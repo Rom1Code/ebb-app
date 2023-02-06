@@ -1,19 +1,38 @@
-import { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { dbRef }  from './GetData'
+import { useEffect, useState } from 'react';
+import { child, get } from "firebase/database";
 
 
  function GameStatsScreen({route}) {
+  const [feuilleData, setFeuilletData] = useState([])
+
+  useEffect(() => {
+      get(child(dbRef, 'feuille_match_'+route.params.match.game.equipe)).then((snapshot) => {
+      if (snapshot.exists()) {
+        setFeuilletData(snapshot.val());
+      } else {
+          console.log("No data available");
+      }
+      }).catch((error) => {
+      console.error(error);
+      });
+  }, []);
+
+  console.log(feuilleData)
+
   const feuilleMatch = require('../Helper/feuille_match_SM1.json')
   const numMatch = route.params.match.game.match
-  const match = feuilleMatch.filter((item) => item.match == numMatch)
+  //const match = feuilleMatch.filter((item) => item.match == numMatch)
+  const match = feuilleData.filter((item)=> item.match== numMatch)
 
   const [tabPressed, setTabPressed] = useState(1);
   const tableHead =['Numéro','Nom', 'Pts']
   const ptsDomTable = match.length == 1 ? [match[0].joueur1PTS_dom, match[0].joueur2PTS_dom ,match[0].joueur3PTS_dom, match[0].joueur4PTS_dom, match[0].joueur5PTS_dom, match[0].joueur6PTS_dom, match[0].joueur7PTS_dom, match[0].joueur8PTS_dom, match[0].joueur9PTS_dom, match[0].joueur10PTS_dom] : []
   const ptsExtTable = match.length == 1 ? [match[0].joueur1PTS_ext, match[0].joueur2PTS_ext ,match[0].joueur3PTS_ext, match[0].joueur4PTS_ext, match[0].joueur5PTS_ext, match[0].joueur6PTS_ext, match[0].joueur7PTS_ext, match[0].joueur8PTS_ext, match[0].joueur9PTS_ext, match[0].joueur10PTS_ext] : []
-
+  
   const onFire = (team, pts) => {
     var max
     if(team == "dom"){

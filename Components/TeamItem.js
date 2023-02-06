@@ -1,7 +1,6 @@
 import { Text, View, TouchableOpacity, ScrollView, Image, StyleSheet } from 'react-native';
 
 function TeamItem({navigation, title, data}) {
-    console.log(data)
     return (
         <>
         <Text style={styles.title}>{title}</Text>
@@ -26,7 +25,6 @@ function TeamItem({navigation, title, data}) {
               </View>)})}
           </ScrollView>
           </>
-
     )
 }
 
