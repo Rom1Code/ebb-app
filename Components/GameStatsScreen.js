@@ -1,45 +1,30 @@
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
-import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+import { Table, Row, Rows } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { dbRef }  from './GetData'
-import { useEffect, useState } from 'react';
-import { child, get } from "firebase/database";
+import { useState } from 'react';
+import { WebView } from 'react-native-webview';
 
 
  function GameStatsScreen({route}) {
-  const [feuilleData, setFeuilletData] = useState([])
-
-  useEffect(() => {
-      get(child(dbRef, 'feuille_match_'+route.params.match.game.equipe)).then((snapshot) => {
-      if (snapshot.exists()) {
-        setFeuilletData(snapshot.val());
-      } else {
-          console.log("No data available");
-      }
-      }).catch((error) => {
-      console.error(error);
-      });
-  }, []);
-
-  console.log(feuilleData)
-
-  const feuilleMatch = require('../Helper/feuille_match_SM1.json')
-  const numMatch = route.params.match.game.match
-  //const match = feuilleMatch.filter((item) => item.match == numMatch)
-  const match = feuilleData.filter((item)=> item.match== numMatch)
 
   const [tabPressed, setTabPressed] = useState(1);
+  const match = route.params.match.feuilleDataMatch
+  console.log(match)
+
   const tableHead =['Numéro','Nom', 'Pts']
+
   const ptsDomTable = match.length == 1 ? [match[0].joueur1PTS_dom, match[0].joueur2PTS_dom ,match[0].joueur3PTS_dom, match[0].joueur4PTS_dom, match[0].joueur5PTS_dom, match[0].joueur6PTS_dom, match[0].joueur7PTS_dom, match[0].joueur8PTS_dom, match[0].joueur9PTS_dom, match[0].joueur10PTS_dom] : []
+  const ptsDomTableCleaned = ptsDomTable.filter((item)=> item != undefined)
   const ptsExtTable = match.length == 1 ? [match[0].joueur1PTS_ext, match[0].joueur2PTS_ext ,match[0].joueur3PTS_ext, match[0].joueur4PTS_ext, match[0].joueur5PTS_ext, match[0].joueur6PTS_ext, match[0].joueur7PTS_ext, match[0].joueur8PTS_ext, match[0].joueur9PTS_ext, match[0].joueur10PTS_ext] : []
-  
+  const ptsExtTableCleaned = ptsExtTable.filter((item)=> item != undefined)
+
   const onFire = (team, pts) => {
     var max
     if(team == "dom"){
-      max = Math.max(...ptsDomTable)
+      max = Math.max(...ptsDomTableCleaned)
     }
     else {
-      max = Math.max(...ptsExtTable)
+      max = Math.max(...ptsExtTableCleaned)
     }
 
     if(pts == max){
@@ -51,7 +36,7 @@ import { child, get } from "firebase/database";
   }
 
   const tableData_dom =  match.length == 1 ? [
-    [match[0].joueur1Num_dom, match[0].joueur1Nom_dom, onFire("dom", match[0].joueur1PTS_dom)],
+    [match[0].joueur1Num_dom, match[0].joueur1Nom_dom, onFire("dom", parseInt(match[0].joueur1PTS_dom))],
     [match[0].joueur2Num_dom, match[0].joueur2Nom_dom, onFire("dom", match[0].joueur2PTS_dom)],
     [match[0].joueur3Num_dom, match[0].joueur3Nom_dom, onFire("dom", match[0].joueur3PTS_dom)],
     [match[0].joueur4Num_dom, match[0].joueur4Nom_dom, onFire("dom", match[0].joueur4PTS_dom)],
@@ -78,7 +63,7 @@ import { child, get } from "firebase/database";
 
     return (
       <>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, marginBottom: 250 }}>
           <View  style={styles.tabContainer}> 
             {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></TouchableOpacity>
               : <TouchableOpacity  style={styles.tab1} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></TouchableOpacity>
@@ -103,6 +88,11 @@ import { child, get } from "firebase/database";
         <View style={styles.legende}>
             <Text><FontAwesome name="star" color='orange'  /> : Meilleur joueur</Text>
         </View>
+        <WebView 
+        source={{uri:'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FEBB.EckbolsheimBasketBall%2Fvideos%2F2366698796845403%2F&show_text=false&width=560&t=0'}}
+        style={{   }}
+        />
+
       </>
     );
 }
@@ -159,8 +149,8 @@ const styles = StyleSheet.create({
     textAlign: 'center' 
   },
   legende: {
-    position:'absolute',
-    top: 450,
+    position:'relative',
+    top: -70,
     padding: 5
   }
   

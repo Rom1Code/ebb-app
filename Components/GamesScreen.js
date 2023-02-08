@@ -1,25 +1,38 @@
 import { StyleSheet, FlatList, Text, View, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { calendarList } from './Datas';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getDateWeek } from './getDate';
 import GameItem from './GameItem';
 import GameDateBar from './GameDateBar';
+import { child, get } from "firebase/database";
+import { dbRef }  from './GetData'
 
 function GamesScreen({navigation}) {
 
   const [selectedDate, setSelectedDate] = useState(getDateWeek(0))
-
-  const finalCalendrier = []
+  const [calendarData, setCalendarData] = useState([])
   
-  calendarList.map((item)=> item.map((item2) => finalCalendrier.push(item2)))
-  const gameListPlayed = finalCalendrier.filter((item) => item.date == selectedDate)
+  useEffect(() => {
+    get(child(dbRef, 'calendrier/')).then((snapshot) => {
+    if (snapshot.exists()) {
+      setCalendarData(snapshot.val());
+    } else {
+        console.log("No data available");
+    }
+    }).catch((error) => {
+    console.error(error);
+    });
+  }, []);
 
+  const calendarDataArray = []
+
+  Object.keys(calendarData).map((key)=>calendarData[key].map((item)=> calendarDataArray.push(item)))
+  
+  const gameListPlayed = calendarDataArray.filter((item) => item.date == selectedDate)
   const gameListPlayedSorted = gameListPlayed.sort((a ,b) => a.heure.substring(0,2) - b.heure.substring(0,2))
 
-
   const nbGame = (date) => {
-    const gamesList = finalCalendrier.filter((item) => item.date == date)
+    const gamesList = calendarDataArray.filter((item) => item.date == date)
   return gamesList.length
   }
 
@@ -38,7 +51,6 @@ function GamesScreen({navigation}) {
         />      
       :
       <Text style={styles.noGame}>Pas de match</Text>}
-
       </SafeAreaView>
     );
   }
