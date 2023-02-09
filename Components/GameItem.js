@@ -1,15 +1,21 @@
 import { Text, View, TouchableOpacity, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import { useState, useEffect } from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { teamList, feuilleMatchList } from './Datas';
 import { dbRef }  from './GetData'
 import { child, get } from "firebase/database";
 
+// Game item component used in the GameScreen
+// 1 props is passed
+// game : data for the game that came for the calendar
 function GameItem({ navigation, game}) {
+  // Keep track if the user click on the game item in order to display game details
   const [displayDetailsGame, setDisplayDetailsGame] = useState(false)
+  // Save of all the data game for all team
   const [feuilleListData, setFeuilleListData] = useState([])
 
+  // Fetch one time all the data for all game
   useEffect(() => {
+  // get the data from the 'feuille_match' node in the Firebase realtimebase and save it to feuilleListData variable
    get(child(dbRef, 'feuille_match/')).then((snapshot) => {
      if (snapshot.exists()) {
        setFeuilleListData(snapshot.val());
@@ -21,11 +27,12 @@ function GameItem({ navigation, game}) {
      });
   }, []);
 
+  // Fetch the data for the game (one game)
   const feuilleDataMatch = []
   Object.keys(feuilleListData).map((key)=>feuilleListData[key].map((item)=>game.equipe==item.equipe && game.match==item.match ? feuilleDataMatch.push(item) : null))
 
-
-  const statsIcon = (match) => {
+  // Display an icon if data for the game exist
+  const statsIcon = () => {
     if(feuilleDataMatch.length != 0){
       return (
         feuilleDataMatch.map(() =><View><Text style={styles.text}><FontAwesome name="table" color='black'/></Text></View>)
@@ -36,15 +43,15 @@ function GameItem({ navigation, game}) {
       }
     }
 
-  const statsExist = (match) => {
-      if(feuilleDataMatch.length != 0){
-        const exist = feuilleDataMatch.filter((item) => item.match == match.match && item.equipe == match.equipe )
-        return exist.length
-      }
-      else{
-        return 0
-      }
-  }
+  //const statsExist = (match) => {
+  //    if(feuilleDataMatch.length != 0){
+   //     const exist = feuilleDataMatch.filter((item) => item.match == match.match && item.equipe == match.equipe )
+   //     return exist.length
+   //   }
+   //   else{
+   //     return 0
+   //   }
+  //}
 
   const highlighWin = (score) => {
     const score_dom = score.split('-')[0]
@@ -81,7 +88,7 @@ function GameItem({ navigation, game}) {
                 </TouchableOpacity>
             </View>
             <View style={styles.gameContainerRight}>
-                <TouchableOpacity style={{flex:1, justifyContent:'center'}} onPress={() => statsExist(game) == 1 ? navigation.navigate('Stats Match', {match: {feuilleDataMatch}}) : null}>
+                <TouchableOpacity style={{flex:1, justifyContent:'center'}} onPress={() => feuilleDataMatch.length != 0 ? navigation.navigate('Stats Match', {match: {feuilleDataMatch}}) : null}>
                   <Text style={styles.score}>{highlighWin(game.score)}</Text>
                   <Text style={styles.score}>{statsIcon(game)}</Text>
                 </TouchableOpacity>
@@ -94,7 +101,6 @@ function GameItem({ navigation, game}) {
           <View style={styles.gameDetailsRow1}>
           <Text style={styles.gameDetailsText}>{game.score.split('-')[0]}</Text><Text style={styles.gameDetailsLabel}>Score</Text><Text style={styles.gameDetailsText}>{game.score.split('-')[1]}</Text>
           </View>
-
           <View style={styles.gameDetailsRow1}>
           <Text style={styles.gameDetailsText}>{feuilleDataMatch[0].equipe_dom_LF}</Text><Text style={styles.gameDetailsLabel}>LF</Text><Text style={styles.gameDetailsText}>{feuilleDataMatch[0].equipe_ext_LF}</Text>
           </View>
@@ -110,7 +116,6 @@ function GameItem({ navigation, game}) {
           </View>
           <View style={styles.gameDetailsRight}></View>
           </>
-          
           : null}
         </View>
         </>

@@ -4,20 +4,25 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
 import { WebView } from 'react-native-webview';
 
+  // Screen that display the the stats for the two time
+ function GameStatsScreen({feuilleDataMatch}) { // route replace by feuilleDataMatch
 
- function GameStatsScreen({route}) {
-
+  // Keep track of the tab the user select
   const [tabPressed, setTabPressed] = useState(1);
-  const match = route.params.match.feuilleDataMatch
-  console.log(match)
+  // Get the data passed in the props
+  //const match = route.params.match.feuilleDataMatch
+  const match = feuilleDataMatch
 
-  const tableHead =['Numéro','Nom', 'Pts']
+  // Set the head for the table
+  const tableHead =['Numéro','Nom', 'Pts', 'LF', '2PTS int', '2PTS ext', '3PTS']
 
-  const ptsDomTable = match.length == 1 ? [match[0].joueur1PTS_dom, match[0].joueur2PTS_dom ,match[0].joueur3PTS_dom, match[0].joueur4PTS_dom, match[0].joueur5PTS_dom, match[0].joueur6PTS_dom, match[0].joueur7PTS_dom, match[0].joueur8PTS_dom, match[0].joueur9PTS_dom, match[0].joueur10PTS_dom] : []
+  // Set a table with the pts for all player that be used for the onFire function
+  const ptsDomTable = [match[0].joueur1PTS_dom, match[0].joueur2PTS_dom ,match[0].joueur3PTS_dom, match[0].joueur4PTS_dom, match[0].joueur5PTS_dom, match[0].joueur6PTS_dom, match[0].joueur7PTS_dom, match[0].joueur8PTS_dom, match[0].joueur9PTS_dom, match[0].joueur10PTS_dom]
   const ptsDomTableCleaned = ptsDomTable.filter((item)=> item != undefined)
-  const ptsExtTable = match.length == 1 ? [match[0].joueur1PTS_ext, match[0].joueur2PTS_ext ,match[0].joueur3PTS_ext, match[0].joueur4PTS_ext, match[0].joueur5PTS_ext, match[0].joueur6PTS_ext, match[0].joueur7PTS_ext, match[0].joueur8PTS_ext, match[0].joueur9PTS_ext, match[0].joueur10PTS_ext] : []
+  const ptsExtTable = [match[0].joueur1PTS_ext, match[0].joueur2PTS_ext ,match[0].joueur3PTS_ext, match[0].joueur4PTS_ext, match[0].joueur5PTS_ext, match[0].joueur6PTS_ext, match[0].joueur7PTS_ext, match[0].joueur8PTS_ext, match[0].joueur9PTS_ext, match[0].joueur10PTS_ext]
   const ptsExtTableCleaned = ptsExtTable.filter((item)=> item != undefined)
 
+  // Get and return the player who score the most
   const onFire = (team, pts) => {
     var max
     if(team == "dom"){
@@ -35,31 +40,33 @@ import { WebView } from 'react-native-webview';
     }
   }
 
-  const tableData_dom =  match.length == 1 ? [
-    [match[0].joueur1Num_dom, match[0].joueur1Nom_dom, onFire("dom", parseInt(match[0].joueur1PTS_dom))],
-    [match[0].joueur2Num_dom, match[0].joueur2Nom_dom, onFire("dom", match[0].joueur2PTS_dom)],
-    [match[0].joueur3Num_dom, match[0].joueur3Nom_dom, onFire("dom", match[0].joueur3PTS_dom)],
-    [match[0].joueur4Num_dom, match[0].joueur4Nom_dom, onFire("dom", match[0].joueur4PTS_dom)],
-    [match[0].joueur5Num_dom, match[0].joueur5Nom_dom, onFire("dom", match[0].joueur5PTS_dom)],
-    [match[0].joueur6Num_dom, match[0].joueur6Nom_dom, onFire("dom", match[0].joueur6PTS_dom)],
-    [match[0].joueur7Num_dom, match[0].joueur7Nom_dom, onFire("dom", match[0].joueur7PTS_dom)],
-    [match[0].joueur8Num_dom, match[0].joueur8Nom_dom, onFire("dom", match[0].joueur8PTS_dom)],
-    [match[0].joueur9Num_dom, match[0].joueur9Nom_dom, onFire("dom", match[0].joueur9PTS_dom)],
-    [match[0].joueur10Num_dom, match[0].joueur10Nom_dom, onFire("dom", match[0].joueur10PTS_dom)]
-  ] : []
+  // Set the data table for dom team
+  const tableData_dom = [
+    [match[0].joueur1Num_dom, match[0].joueur1Nom_dom, onFire("dom", parseInt(match[0].joueur1PTS_dom)), match[0].joueur1_LF_dom, match[0].joueur1_2PTS_int_dom, match[0].joueur1_2PTS_ext_dom, match[0].joueur1_3PTS_dom],
+    [match[0].joueur2Num_dom, match[0].joueur2Nom_dom, onFire("dom", match[0].joueur2PTS_dom), match[0].joueur2_LF_dom, match[0].joueur2_2PTS_int_dom, match[0].joueur2_2PTS_ext_dom, match[0].joueur2_3PTS_dom],
+    [match[0].joueur3Num_dom, match[0].joueur3Nom_dom, onFire("dom", match[0].joueur3PTS_dom), match[0].joueur3_LF_dom, match[0].joueur3_2PTS_int_dom, match[0].joueur132PTS_ext_dom, match[0].joueur3_3PTS_dom],
+    [match[0].joueur4Num_dom, match[0].joueur4Nom_dom, onFire("dom", match[0].joueur4PTS_dom), match[0].joueur4_LF_dom, match[0].joueur4_2PTS_int_dom, match[0].joueur4_2PTS_ext_dom, match[0].joueur4_3PTS_dom],
+    [match[0].joueur5Num_dom, match[0].joueur5Nom_dom, onFire("dom", match[0].joueur5PTS_dom), match[0].joueur5_LF_dom, match[0].joueur5_2PTS_int_dom, match[0].joueur5_2PTS_ext_dom, match[0].joueur5_3PTS_dom],
+    [match[0].joueur6Num_dom, match[0].joueur6Nom_dom, onFire("dom", match[0].joueur6PTS_dom), match[0].joueur6_LF_dom, match[0].joueur6_2PTS_int_dom, match[0].joueur6_2PTS_ext_dom, match[0].joueur6_3PTS_dom],
+    [match[0].joueur7Num_dom, match[0].joueur7Nom_dom, onFire("dom", match[0].joueur7PTS_dom), match[0].joueur7_LF_dom, match[0].joueur7_2PTS_int_dom, match[0].joueur7_2PTS_ext_dom, match[0].joueur7_3PTS_dom],
+    [match[0].joueur8Num_dom, match[0].joueur8Nom_dom, onFire("dom", match[0].joueur8PTS_dom), match[0].joueur8_LF_dom, match[0].joueur8_2PTS_int_dom, match[0].joueur8_2PTS_ext_dom, match[0].joueur8_3PTS_dom],
+    [match[0].joueur9Num_dom, match[0].joueur9Nom_dom, onFire("dom", match[0].joueur9PTS_dom), match[0].joueur9_LF_dom, match[0].joueur9_2PTS_int_dom, match[0].joueur9_2PTS_ext_dom, match[0].joueur9_3PTS_dom],
+    [match[0].joueur10Num_dom, match[0].joueur10Nom_dom, onFire("dom", match[0].joueur10PTS_dom), match[0].joueur10_LF_dom, match[0].joueur10_2PTS_int_dom, match[0].joueur10_2PTS_ext_dom, match[0].joueur10_3PTS_dom]
+  ]
 
-  const tableData_ext = match.length == 1 ? [
-    [match[0].joueur1Num_ext, match[0].joueur1Nom_ext, onFire("ext", match[0].joueur1PTS_ext)],
-    [match[0].joueur2Num_ext, match[0].joueur2Nom_ext, onFire("ext", match[0].joueur2PTS_ext)],
-    [match[0].joueur3Num_ext, match[0].joueur3Nom_ext, onFire("ext", match[0].joueur3PTS_ext)],
-    [match[0].joueur4Num_ext, match[0].joueur4Nom_ext, onFire("ext", match[0].joueur4PTS_ext)],
-    [match[0].joueur5Num_ext, match[0].joueur5Nom_ext, onFire("ext", match[0].joueur5PTS_ext)],
-    [match[0].joueur6Num_ext, match[0].joueur6Nom_ext, onFire("ext", match[0].joueur6PTS_ext)],
-    [match[0].joueur7Num_ext, match[0].joueur7Nom_ext, onFire("ext", match[0].joueur7PTS_ext)],
-    [match[0].joueur8Num_ext, match[0].joueur8Nom_ext, onFire("ext", match[0].joueur8PTS_ext)],
-    [match[0].joueur9Num_ext, match[0].joueur9Nom_ext, onFire("ext", match[0].joueur9PTS_ext)],
-    [match[0].joueur10Num_ext, match[0].joueur10Nom_ext, onFire("ext", match[0].joueur10PTS_ext)]
-  ] : []
+  // Set the data table for ext team
+  const tableData_ext = [
+    [match[0].joueur1Num_ext, match[0].joueur1Nom_ext, onFire("ext", match[0].joueur1PTS_ext), match[0].joueur1_LF_ext, match[0].joueur1_2PTS_int_ext, match[0].joueur1_2PTS_ext_ext, match[0].joueur1_3PTS_ext],
+    [match[0].joueur2Num_ext, match[0].joueur2Nom_ext, onFire("ext", match[0].joueur2PTS_ext), match[0].joueur2_LF_ext, match[0].joueur2_2PTS_int_ext, match[0].joueur2_2PTS_ext_ext, match[0].joueur2_3PTS_ext],
+    [match[0].joueur3Num_ext, match[0].joueur3Nom_ext, onFire("ext", match[0].joueur3PTS_ext), match[0].joueur3_LF_ext, match[0].joueur3_2PTS_int_ext, match[0].joueur3_2PTS_ext_ext, match[0].joueur3_3PTS_ext],
+    [match[0].joueur4Num_ext, match[0].joueur4Nom_ext, onFire("ext", match[0].joueur4PTS_ext), match[0].joueur4_LF_ext, match[0].joueur4_2PTS_int_ext, match[0].joueur4_2PTS_ext_ext, match[0].joueur4_3PTS_ext],
+    [match[0].joueur5Num_ext, match[0].joueur5Nom_ext, onFire("ext", match[0].joueur5PTS_ext), match[0].joueur5_LF_ext, match[0].joueur5_2PTS_int_ext, match[0].joueur5_2PTS_ext_ext, match[0].joueur5_3PTS_ext],
+    [match[0].joueur6Num_ext, match[0].joueur6Nom_ext, onFire("ext", match[0].joueur6PTS_ext), match[0].joueur6_LF_ext, match[0].joueur6_2PTS_int_ext, match[0].joueur6_2PTS_ext_ext, match[0].joueur6_3PTS_ext],
+    [match[0].joueur7Num_ext, match[0].joueur7Nom_ext, onFire("ext", match[0].joueur7PTS_ext), match[0].joueur7_LF_ext, match[0].joueur7_2PTS_int_ext, match[0].joueur7_2PTS_ext_ext, match[0].joueur7_3PTS_ext],
+    [match[0].joueur8Num_ext, match[0].joueur8Nom_ext, onFire("ext", match[0].joueur8PTS_ext), match[0].joueur8_LF_ext, match[0].joueur8_2PTS_int_ext, match[0].joueur8_2PTS_ext_ext, match[0].joueur8_3PTS_ext],
+    [match[0].joueur9Num_ext, match[0].joueur9Nom_ext, onFire("ext", match[0].joueur9PTS_ext), match[0].joueur9_LF_ext, match[0].joueur9_2PTS_int_ext, match[0].joueur9_2PTS_ext_ext, match[0].joueur9_3PTS_ext],
+    [match[0].joueur10Num_ext, match[0].joueur10Nom_ext, onFire("ext", match[0].joueur10PTS_ext), match[0].joueur10_LF_ext, match[0].joueur10_2PTS_int_ext, match[0].joueur10_2PTS_ext_ext, match[0].joueur10_3PTS_ext]
+  ] 
 
     return (
       <>

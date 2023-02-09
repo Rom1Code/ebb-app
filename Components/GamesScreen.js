@@ -7,11 +7,14 @@ import GameDateBar from './GameDateBar';
 import { child, get } from "firebase/database";
 import { dbRef }  from './GetData'
 
+// Screen that display the GameDateBar componenet and list the game in function of date selected
 function GamesScreen({navigation}) {
-
+  // Keep track of the date selected by the user
   const [selectedDate, setSelectedDate] = useState(getDateWeek(0))
+  // Get the calendar data for all the team
   const [calendarData, setCalendarData] = useState([])
   
+  // Get the data from the 'calendrier' node in the Firebase realtimebase and save it to calendarData variable
   useEffect(() => {
     get(child(dbRef, 'calendrier/')).then((snapshot) => {
     if (snapshot.exists()) {
@@ -24,18 +27,22 @@ function GamesScreen({navigation}) {
     });
   }, []);
 
+    // Fetch the data for the date selected
   const calendarDataArray = []
 
+  // !!!mettre sur une ligne comme pour gameItem
   Object.keys(calendarData).map((key)=>calendarData[key].map((item)=> calendarDataArray.push(item)))
-  
   const gameListPlayed = calendarDataArray.filter((item) => item.date == selectedDate)
+
   const gameListPlayedSorted = gameListPlayed.sort((a ,b) => a.heure.substring(0,2) - b.heure.substring(0,2))
 
+  // Get and return the number of game for the selected date
   const nbGame = (date) => {
     const gamesList = calendarDataArray.filter((item) => item.date == date)
   return gamesList.length
   }
 
+  // Set selectedData variable with selected date
   const dateTrigger = (date) => {
     setSelectedDate(date)
   }

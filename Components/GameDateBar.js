@@ -2,6 +2,11 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { dateArray } from './getDate';
 
+// Game data bar component used in the GameScreen
+// 3 props are passed
+// selectedData : date selected by the user
+// dateTrigger : function used in this componenent and declare in GameScreen - set the selectedDate
+// nbGame : nb game for the selected date
 function GameDateBar({selectedDate, dateTrigger, nbGame}) {
     return(
         <ScrollView horizontal={true}>

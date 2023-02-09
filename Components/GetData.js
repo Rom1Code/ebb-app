@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get } from "firebase/database";
 import { useState } from "react";
+
+// Firebas configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDnXOSzKFYhpdHY57eNHcduFiLQ1WrEYIw",
     authDomain: "ebb-app-32a47.firebaseapp.com",
@@ -14,37 +16,5 @@ const firebaseConfig = {
   
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  export const db = getDatabase();  
-  export const dbRef = ref(getDatabase());
-
-
-
-
-export const getData = async (feuille) => {
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    
-const result =  await get(child(dbRef, feuille)).then((snapshot) => {
-    if (snapshot.exists()) {
-        return snapshot.val();
-    } else {
-        console.log("No data available");
-    }
-    }).catch((error) => {
-    console.error(error);
-    });
-return result
-}
-
-
-
-
-
-
-    
-
-
-
+  export const db = getDatabase(app);  // voir ce que ca renvoi, avec et sans le app
+  export const dbRef = ref(getDatabase()); // voir ce que ca renvoi
