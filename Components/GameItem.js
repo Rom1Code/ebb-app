@@ -1,6 +1,8 @@
-import { Text, View, TouchableOpacity, StyleSheet, Image, TouchableHighlight } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useState, useEffect } from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Entypo from 'react-native-vector-icons/Entypo';
+
 import { dbRef }  from './GetData'
 import { child, get } from "firebase/database";
 
@@ -23,25 +25,38 @@ function GameItem({ navigation, game}) {
          console.log("No data available");
      }
      }).catch((error) => {
-     console.error(error);
      });
   }, []);
 
   // Fetch the data for the game (one game)
   const feuilleDataMatch = []
   Object.keys(feuilleListData).map((key)=>feuilleListData[key].map((item)=>game.equipe==item.equipe && game.match==item.match ? feuilleDataMatch.push(item) : null))
-
+  console.log(feuilleDataMatch)
   // Display an icon if data for the game exist
   const statsIcon = () => {
     if(feuilleDataMatch.length != 0){
       return (
-        feuilleDataMatch.map(() =><View><Text style={styles.text}><FontAwesome name="table" color='black'/></Text></View>)
+        feuilleDataMatch.map(() =><FontAwesome name="table" color='black'/>)
       )
       }
       else {
         return null
       }
     }
+
+  // Display an icon if data for the game exist
+  const videoIcon = () => {
+    if(feuilleDataMatch.length != 0 && feuilleDataMatch[0].url_video!=''){
+      return (
+        feuilleDataMatch.map(() =><Entypo name="video" color='black'/>)
+      )
+      }
+      else {
+        return null
+      }
+    }
+
+
 
   //const statsExist = (match) => {
   //    if(feuilleDataMatch.length != 0){
@@ -78,7 +93,7 @@ function GameItem({ navigation, game}) {
                   { game.dom.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {game.dom}</Text></View>
                 : <Text style={styles.game}>{game.dom}</Text>}
                 </View>
-                <View style={styles.gameContainerMiddleItem}> 
+                <View style={styles.gameContainerMiddleItemVS}> 
                   <Text style={styles.vs}>vs</Text>
                 </View> 
                 <View style={styles.gameContainerMiddleItem}> 
@@ -90,12 +105,13 @@ function GameItem({ navigation, game}) {
             <View style={styles.gameContainerRight}>
                 <TouchableOpacity style={{flex:1, justifyContent:'center'}} onPress={() => feuilleDataMatch.length != 0 ? navigation.navigate('Stats Match', {match: {feuilleDataMatch}}) : null}>
                   <Text style={styles.score}>{highlighWin(game.score)}</Text>
-                  <Text style={styles.score}>{statsIcon(game)}</Text>
+                  <Text style={styles.score}>{statsIcon()} {videoIcon()}</Text>
                 </TouchableOpacity>
             </View>
         </View>
         <View style={styles.gameDetails}>
-        {displayDetailsGame && game.score != '-' &&  feuilleDataMatch.length != 0 ? <><View style={styles.gameDetailsLeft}><Text style={styles.gameDetailsLeftText}>Stats match</Text></View><View style={styles.gameDetailsMiddle}><View style={styles.gameDetailsRow1}>
+        {displayDetailsGame && game.score != '-' &&  feuilleDataMatch.length != 0 ? 
+        <><View style={styles.gameDetailsLeft}><Text style={styles.gameDetailsLeftText}>Stats match</Text></View><View style={styles.gameDetailsMiddle}><View style={styles.gameDetailsRow1}>
           <Text style={styles.gameDetailsText}>{game.dom}</Text><Text style={styles.gameDetailsLabel}>vs</Text><Text style={styles.gameDetailsText}>{game.ext}</Text>
           </View>
           <View style={styles.gameDetailsRow1}>
@@ -128,7 +144,7 @@ const styles = StyleSheet.create({
       flex:1,
       backgroundColor: 'white',
       elevation: 24,
-      height: 70,
+      height: 80,
       marginTop: 5,
     },
     gameContainerLeft: {
@@ -137,11 +153,15 @@ const styles = StyleSheet.create({
     },
     gameContainerMiddle: {
       flex:4,
-      padding: 5,
+      justifyContent: 'center', //Centered horizontally
+
     },
     gameContainerMiddleItem: {
-      flex: 1,
+      flex: 1.5,
       justifyContent: 'center', //Centered horizontally
+    },
+    gameContainerMiddleItemVS: {
+      flex: 1,
     },
     gameContainerRight: {
       justifyContent: 'center', //Centered horizontally
@@ -152,7 +172,6 @@ const styles = StyleSheet.create({
     teamContainer: {
       flex: 1,
       justifyContent: 'center', //Centered horizontally
-
     },
     hourContainer: {
       justifyContent: 'center', //Centered horizontally
@@ -171,7 +190,7 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
     game: {
-      fontSize: 11,
+      fontSize: 12,
       textAlign: 'center'
     },
     score: {
@@ -186,7 +205,7 @@ const styles = StyleSheet.create({
       flexDirection:'row',
       justifyContent: 'center',
       flex: 1,
-      marginTop: 3
+      marginTop: 6
     },
     logo: {
       height:30, 
@@ -204,7 +223,6 @@ const styles = StyleSheet.create({
     flex:4,
     borderTopWidth: 0.5,
     borderTopColor: '#00A400'    ,
-    padding: 4
    },
    gameDetailsRight: {
     flex:1,

@@ -6,6 +6,8 @@ import GameItem from './GameItem';
 import GameDateBar from './GameDateBar';
 import { child, get } from "firebase/database";
 import { dbRef }  from './GetData'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 // Screen that display the GameDateBar componenet and list the game in function of date selected
 function GamesScreen({navigation}) {
@@ -48,17 +50,27 @@ function GamesScreen({navigation}) {
   }
 
     return (
-      <SafeAreaView style={{ width: '100%', marginBottom: 50}}>
-        <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame}/>
-        {nbGame(selectedDate) != 0 ?
-        <FlatList style={{ width: '100%' }}
-          data={gameListPlayedSorted}
-          renderItem={({item}) =>
-          <GameItem navigation={navigation} game={item}/>}
-        />      
-      :
-      <Text style={styles.noGame}>Pas de match</Text>}
-      </SafeAreaView>
+      <>
+        <SafeAreaView style={{ width: '100%', marginBottom: 50}}>
+          <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame}/>
+          {nbGame(selectedDate) != 0 ?
+          <FlatList style={{ width: '100%' }}
+            data={gameListPlayedSorted}
+            ListFooterComponent={() => 
+            <View style={styles.legende}>
+              <Text><Entypo name="video" color='black'/> : Vidéo disponible</Text>
+              <Text><FontAwesome name="table" color='black'/> : Stats disponible</Text>
+            </View>}
+            renderItem={({item}) =>
+            <GameItem navigation={navigation} game={item}/>}
+          />      
+        :
+        <Text style={styles.noGame}>Pas de match</Text>}
+                
+
+        </SafeAreaView>
+
+      </>
     );
   }
 
@@ -118,7 +130,6 @@ function GamesScreen({navigation}) {
     teamContainer: {
       flex: 1,
       justifyContent: 'center', //Centered horizontally
-
     },
     hourContainer: {
       justifyContent: 'center', //Centered horizontally
@@ -147,8 +158,15 @@ function GamesScreen({navigation}) {
     },
     vs: {
       textAlign: 'center'
+    },
+    legende: {
+      flexDirection: 'row',
+      justifyContent:'space-around',
+      backgroundColor:'white',
+      height: 50,
+      alignItems:'center',
+      marginTop: 5
     }
-
   });
 
 

@@ -1,62 +1,79 @@
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { WebView } from 'react-native-webview';
+import { StyleSheet, Text, View, Image, Dimensions, ScrollView, Pressable } from 'react-native';
+import { useState,  } from 'react';
+import ModalComponent from './ModalComponent';
 import Carousel from 'react-native-reanimated-carousel';
 
+function HomeScreen() {
 
-function HomeScreen({navigation, route}) {
   const width = Dimensions.get('window').width;
+  const height = Dimensions.get('window').height;
 
-  const _renderItem = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [image, setImage] = useState('');
 
-    array.map((item)=> <Image source={require('../Ressources/annee_80.jpg')} />   )
+  const arrayActu=[{image:require('../Ressources/annonce.jpg')},{image:require('../Ressources/annee_80.jpg')},{image:require('../Ressources/label_or.jpg')}]
+  const arrayAffiche=[{image:require('../Ressources/match_affiche.jpg')}]
 
-}
+  const modalVisibleTrigger = () => {
+    setModalVisible(!modalVisible)
+  }
 
-const array=['require(\'../Ressources/annonce.jpg\')']
-    return (
+  return (
       <>
         <View >
           <Image
           style={styles.icon}
           source={require('../Ressources/ebb-logo.png')}
         />
+        </View>
         <Text style={styles.title}>Actualité du club</Text>
-        <View style={{ flex: 1 }}>
-            <Carousel
-                loop
-                width={width}
-                height={width / 2}
-                autoPlay={true}
-                data={array}
-                mode='parallax'
-                //scrollAnimationDuration={1000}
-                onSnapToItem={(index) => console.log('current index:', index)}
-                renderItem={({ item, index }) => (
-                    <View
-                        style={{
-                            flex: 1,
-                            borderWidth: 1,
-                            justifyContent: 'center',
-                        }}>
-                          <Text>{item}</Text>
-                        <Image source={item} />
-                    </View>
-                )}
-            />
-        </View>
-        </View>
 
+        <ModalComponent visible={modalVisible} image={image} modalVisibleTrigger={modalVisibleTrigger}/>
 
+        <Carousel
+        style={{border:'none'}}
+            loop
+            width={width}
+            height={300 }
+            autoPlay={true}
+            data={arrayActu}
+            scrollAnimationDuration={2000}
+            mode='parallax'
+            //paralaxScrollingScale={2.9}
+            //paralaxScrollingOffset={50}
+            pinchGestureEnabled={true}
+            //onSnapToItem={(index) => console.log('current index:', index)}
+            renderItem={({ item }) => (
+                <View horizontal='true'
+                    style={{
+                        flex: 1,
+                        justifyContent:'center'
+                    }}
+                >
+                  <Pressable onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>
+                    <Image  style={{  width: width, height: 300, resizeMode:'contain',  }}  source={item.image} />
+                  </Pressable>
+                </View>
+            )}
+        />
+        
+        <Text style={styles.title2}>Match à l'affiche</Text>
+
+        <ScrollView horizontal={true}>
+          {arrayAffiche.map((item) =>
+            <Pressable onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
+              <Image style={{ width: width, height: 250, resizeMode:'contain', ver:'center' }} source={item.image} />
+            </Pressable>   
+          )}
+        </ScrollView>
       </>
-      
     );
   }
 
   const styles = StyleSheet.create({
     icon: {
-      width: 200,
-      height: 200,
+      width: 150,
+      height: 150,
       alignSelf: 'center'
     },
     text: {
@@ -66,8 +83,34 @@ const array=['require(\'../Ressources/annonce.jpg\')']
     },
     title: {
       fontSize: 20,
-      fontWeight: 'bold'
-    }
+      fontWeight: 'bold',
+      textAlign:'center',
+      marginTop: -10
+    },
+    title2: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      textAlign:'center',
+      marginTop: -10,
+      marginBottom: 10
+    },
+    modalView: {
+      margin: 20,
+      backgroundColor: 'white',
+      borderRadius: 20,
+      padding: 35,
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      }},
+      modalImage: {
+        width: 300,
+        resizeMode:'contain',
+        backgroundColor:'green'
+      }
+
   })
   
   export default HomeScreen;

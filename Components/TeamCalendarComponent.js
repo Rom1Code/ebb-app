@@ -4,6 +4,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { dbRef }  from './GetData'
 import { useEffect, useState } from 'react';
 import { child, get } from "firebase/database";
+import Entypo from 'react-native-vector-icons/Entypo';
 
  function TeamCalendarComponent({navigation, team}) {
   const [calendarData, setCalendarData] = useState([])
@@ -30,20 +31,33 @@ import { child, get } from "firebase/database";
         });
   }, []);
 
-
   const tableHead =['#','Date', 'Heure', 'Dom', 'Ext', 'Score']
 
   const statsExist = (game) => {
     const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == game.match )
-    if(feuilleDataMatch.length == 1) {
+    if(feuilleDataMatch.length == 1 && feuilleDataMatch[0].url_video !='') {
       return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
-            <Text style={styles.text}><FontAwesome name="table" color='black'/> {game.score}</Text>
+            <Text style={styles.text}>{game.score}</Text>
+            <Text style={styles.text}><FontAwesome name="table" color='black'/> <Entypo name="video" color='black'/></Text>
         </TouchableOpacity>
     }
     else{
       return <Text style={styles.text}>{game.score}</Text>
     }
   }
+
+  // Display an icon if data for the game exist
+  const videoIcon = () => {
+    if(feuilleDataMatch.length != 0 && feuilleDataMatch[0].url_video!=''){
+      return (
+        feuilleDataMatch.map(() =><Entypo name="video" color='black'/>)
+      )
+      }
+      else {
+        return null
+      }
+    }
+  
 
   const highlightTeam = (team) => {
     if(team.includes('ECKBOLSHEIM')){

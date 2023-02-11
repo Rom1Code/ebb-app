@@ -1,10 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get } from "firebase/database";
-import  { getData } from './GetData'
-
-const data =""
-const test = async () => {console.log( await getData('feuille_match_SM1'))}
-console.log(test())
 
 //classement
 export const SM1_classement = require('../Helper/classement_SM1.json');

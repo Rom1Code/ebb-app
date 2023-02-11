@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get } from "firebase/database";
-import { useState } from "react";
+import { getDatabase, ref } from "firebase/database";
 
 // Firebas configuration
 const firebaseConfig = {
@@ -16,5 +15,5 @@ const firebaseConfig = {
   
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  export const db = getDatabase(app);  // voir ce que ca renvoi, avec et sans le app
+  //export const db = getDatabase();  // voir ce que ca renvoi, avec et sans le app
   export const dbRef = ref(getDatabase()); // voir ce que ca renvoi

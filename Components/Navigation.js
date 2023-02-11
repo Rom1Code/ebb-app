@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import  HomeScreen from './HomeScreen';
 import  TeamsScreen from './TeamsScreen';
-import  StatsScreen from './StatsScreen';
+import  ContactsScreen from './ContactsScreen';
 import { Ionicons } from '@expo/vector-icons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -47,12 +47,12 @@ function Navigation() {
             <AntDesign name="team" color={color} size={size} />
           ),
         }}/>
-      <Tab.Screen name="Stats" component={StatsScreen} options={{
-          tabBarLabel: 'Stats',
+      <Tab.Screen name="Contacts" component={ContactsScreen} options={{
+          tabBarLabel: 'Contacts',
           headerShown:false,
           headerTintColor:'#00A400',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="stats-chart" color={color} size={size} />
+            <AntDesign name="form" color={color} size={size} />
           ),
         }}/>
     </Tab.Navigator>

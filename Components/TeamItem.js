@@ -2,7 +2,7 @@ import { Text, View, TouchableOpacity, ScrollView, Image, StyleSheet } from 'rea
 
 function TeamItem({navigation, title, data}) {
     return (
-        <>
+        <View style={{ margin: 5,}}>
         <Text style={styles.title}>{title}</Text>
           <ScrollView horizontal={true} style={{ width: '100%', flex: 1}}>
           {data.map((item, index) => {
@@ -24,7 +24,7 @@ function TeamItem({navigation, title, data}) {
                 </TouchableOpacity>
               </View>)})}
           </ScrollView>
-          </>
+          </View>
     )
 }
 
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
       margin : 5,
       backgroundColor: 'white',
       elevation: 5,
-
+      borderRadius: 10
     },
     teamContainerTop: {
       flex :1,

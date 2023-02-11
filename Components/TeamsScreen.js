@@ -4,7 +4,7 @@ import TeamItem from './TeamItem'
 
 function TeamsScreen({navigation}) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1 }}>
         <ScrollView style={{ width: '100%', flex: 1}}>
         {teamCat.map((item) => <TeamItem navigation={navigation} title={item.cat} data={item.teamList} />)}
         </ScrollView>

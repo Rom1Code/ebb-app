@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { child, get } from "firebase/database";
 
  function TeamClassementComponent({team}) {
-  console.log(team)
   const [classementData, setClassementData] = useState([])
 
   useEffect(() => {
@@ -20,6 +19,7 @@ import { child, get } from "firebase/database";
       console.error(error);
       });
   }, []);
+
 
   const tableHead =['#','Equipe', 'Pts', 'J', 'V', 'D', 'M', 'E', 'D']
 
