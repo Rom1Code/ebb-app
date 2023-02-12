@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, Image, Dimensions, ScrollView, Pressable } from 'react-native';
-import { useState,  } from 'react';
+import { useState, useEffect } from 'react';
 import ModalComponent from './ModalComponent';
 import Carousel from 'react-native-reanimated-carousel';
+import { dbRef }  from './GetData'
+import { child, get } from "firebase/database";
 
 function HomeScreen() {
 
@@ -10,14 +12,39 @@ function HomeScreen() {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [image, setImage] = useState('');
+  const [actu, setActu] = useState([]);
+  const [affiche, setAffiche] = useState([]);
 
-  const arrayActu=[{image:require('../Ressources/annonce.jpg')},{image:require('../Ressources/annee_80.jpg')},{image:require('../Ressources/label_or.jpg')}]
-  const arrayAffiche=[{image:require('../Ressources/match_affiche.jpg')}]
+  const arrayActu = actu.map((item)=> item.link)
+
+  const arrayAffiche= affiche.map((item)=> item.link)
 
   const modalVisibleTrigger = () => {
     setModalVisible(!modalVisible)
   }
 
+  // Fetch one time all the data for all game
+  useEffect(() => {
+    // get the data from the 'feuille_match' node in the Firebase realtimebase and save it to feuilleListData variable
+      get(child(dbRef, 'actu/')).then((snapshot) => {
+        if (snapshot.exists()) {
+          setActu(snapshot.val());
+        } else {
+            console.log("No data available");
+        }
+        }).catch((error) => {
+        });
+      // get the data from the 'feuille_match' node in the Firebase realtimebase and save it to feuilleListData variable
+      get(child(dbRef, 'affiche/')).then((snapshot) => {
+        if (snapshot.exists()) {
+          setAffiche(snapshot.val());
+        } else {
+            console.log("No data available");
+        }
+        }).catch((error) => {
+        });
+    }, []);
+  
   return (
       <>
         <View >
@@ -43,7 +70,7 @@ function HomeScreen() {
             //paralaxScrollingOffset={50}
             pinchGestureEnabled={true}
             //onSnapToItem={(index) => console.log('current index:', index)}
-            renderItem={({ item }) => (
+            renderItem={({ item, index }) => (
                 <View horizontal='true'
                     style={{
                         flex: 1,
@@ -51,7 +78,7 @@ function HomeScreen() {
                     }}
                 >
                   <Pressable onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>
-                    <Image  style={{  width: width, height: 300, resizeMode:'contain',  }}  source={item.image} />
+                    <Image key={index} style={{  width: width, height: 300, resizeMode:'contain',  }}  source={{uri :item}} />
                   </Pressable>
                 </View>
             )}
@@ -60,9 +87,9 @@ function HomeScreen() {
         <Text style={styles.title2}>Match à l'affiche</Text>
 
         <ScrollView horizontal={true}>
-          {arrayAffiche.map((item) =>
-            <Pressable onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
-              <Image style={{ width: width, height: 250, resizeMode:'contain', ver:'center' }} source={item.image} />
+          {arrayAffiche.map((item, index) =>
+            <Pressable key={index} onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
+              <Image  style={{ width: width, height: 250, resizeMode:'contain', ver:'center' }} source={{uri: item}} />
             </Pressable>   
           )}
         </ScrollView>

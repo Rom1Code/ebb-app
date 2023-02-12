@@ -6,7 +6,7 @@ function TeamsScreen({navigation}) {
     return (
       <View style={{ flex: 1 }}>
         <ScrollView style={{ width: '100%', flex: 1}}>
-        {teamCat.map((item) => <TeamItem navigation={navigation} title={item.cat} data={item.teamList} />)}
+        {teamCat.map((item, index) => <TeamItem key={index} navigation={navigation} title={item.cat} data={item.teamList} />)}
         </ScrollView>
       </View>
     );

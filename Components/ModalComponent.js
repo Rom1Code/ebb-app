@@ -24,7 +24,7 @@ function ModalComponent({visible, image, modalVisibleTrigger}) {
                 <Pressable onPress={() => modalVisibleTrigger()}>
                   <Image
                     style={{width:width, height: height, resizeMode:'contain'}}
-                    source={image.image}
+                    source={{uri: image}}
                   />
                 </Pressable>
               </ImageZoom>

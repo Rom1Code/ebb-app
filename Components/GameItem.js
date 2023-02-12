@@ -31,7 +31,6 @@ function GameItem({ navigation, game}) {
   // Fetch the data for the game (one game)
   const feuilleDataMatch = []
   Object.keys(feuilleListData).map((key)=>feuilleListData[key].map((item)=>game.equipe==item.equipe && game.match==item.match ? feuilleDataMatch.push(item) : null))
-  console.log(feuilleDataMatch)
   // Display an icon if data for the game exist
   const statsIcon = () => {
     if(feuilleDataMatch.length != 0){

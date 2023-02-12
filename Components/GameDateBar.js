@@ -10,15 +10,15 @@ import { dateArray } from './getDate';
 function GameDateBar({selectedDate, dateTrigger, nbGame}) {
     return(
         <ScrollView horizontal={true}>
-        {dateArray.map((item)=> item == selectedDate ? 
-        <TouchableOpacity style={styles.touch} onPress={() => dateTrigger(item)}>
+        {dateArray.map((item, index)=> item == selectedDate ? 
+        <TouchableOpacity key={index} style={styles.touch} onPress={() => dateTrigger(item)}>
             <View style={styles.dateContainerSelected}>
                 <Text style={styles.textSelected}>{item.substring(0,5)}</Text>
                 <Text style={styles.textSelected}>{nbGame(item)} match</Text>
             </View>
           </TouchableOpacity> 
           :
-          <TouchableOpacity style={styles.touch} onPress={() => dateTrigger(item)}>
+          <TouchableOpacity key={index} style={styles.touch} onPress={() => dateTrigger(item)}>
           <View style={styles.dateContainer}>
               <Text style={styles.text}>{item.substring(0,5)}</Text>
               <Text style={styles.text}>{nbGame(item)} match</Text>

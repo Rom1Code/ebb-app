@@ -1,10 +1,11 @@
 {
   "expo": {
-    "name": "ebb-app",
+    "name": "EBB",
+    "description": "Actu, classement, calendrier et stats pour l'équipe de basket d'Eckbolsheim",
     "slug": "ebb-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./Ressources/adaptive-icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./Ressources/ebb-logo.png",
@@ -24,7 +25,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./Ressources/ebb-logo.png",
+        "foregroundImage": "./Ressources/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.rom1code.ebbapp"

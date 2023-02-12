@@ -4,6 +4,7 @@
   },
   "build": {
     "development": {
+      "channel": "master",
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
@@ -12,11 +13,13 @@
     },
     "preview": {
       "distribution": "internal",
+      "channel": "master",
       "ios": {
         "resourceClass": "m1-medium"
       }
     },
     "production": {
+      "channel": "master",
       "ios": {
         "resourceClass": "m1-medium"
       }

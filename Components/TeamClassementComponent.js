@@ -76,7 +76,6 @@ import { child, get } from "firebase/database";
          <View style={styles.legende}>
           <Text><FontAwesome name="fire" color='orange'  /> : Meilleur attaque</Text>
           <Text><FontAwesome name="lock" color='black'  /> : Meilleur défense</Text>
-
          </View>
       </ScrollView>
     </View>
