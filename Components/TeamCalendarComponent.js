@@ -11,7 +11,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
   const [feuilleListData, setFeuilleListData] = useState([])
 
   useEffect(() => {
-       get(child(dbRef, 'calendrier/'+team)).then((snapshot) => {
+      get(child(dbRef, 'calendrier/'+team)).then((snapshot) => {
       if (snapshot.exists()) {
         setCalendarData(snapshot.val());
       } else {
