@@ -2,12 +2,32 @@ import { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, ScrollView } from 'react-native';
 import TeamCalendarComponent from './TeamCalendarComponent'
 import TeamClassementComponent from './TeamClassementComponent'
-
+//import { NavigationContainer } from '@react-navigation/native';
+//import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
  function TeamDataScreen({navigation, route}) {
   const [tabPressed, setTabPressed] = useState(1);
   const team = route.params.team.item.team
     return (
+      //<NavigationContainer>
+        //<Tab.Navigator       
+      //initialRouteName="Classement"
+      //screenOptions={{
+      //  tabBarActiveTintColor: '#00A400',
+       // tabBarInactiveTintColor: 'black',
+       // tabBarPressColor :'#00A400',
+       // tabBarLabelStyle: { fontSize: 12 },
+       // tabBarStyle: { backgroundColor: 'white' },
+       // tabBarIndicatorStyle: {
+        //    borderBottomColor:'#00A400',
+       //     borderBottomWidth: 3,
+         // }}       
+      //  >
+         // <Tab.Screen name="Classement" component={()=> <TeamClassementComponent team={team}/>} />
+        //  <Tab.Screen name="Calendrier" component={()=> <TeamCalendarComponent navigation={navigation} team={team}/>}/>
+       // </Tab.Navigator>
+      //</NavigationContainer>
+
       <View style={{ flex: 1 }}>
         <View  style={styles.tabContainer}> 
           {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed}><Text style={styles.tabPressedText}>Classement</Text></TouchableOpacity>

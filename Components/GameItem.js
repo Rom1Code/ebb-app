@@ -31,6 +31,7 @@ function GameItem({ navigation, game}) {
   // Fetch the data for the game (one game)
   const feuilleDataMatch = []
   Object.keys(feuilleListData).map((key)=>feuilleListData[key].map((item)=>game.equipe==item.equipe && game.match==item.match ? feuilleDataMatch.push(item) : null))
+
   // Display an icon if data for the game exist
   const statsIcon = () => {
     if(feuilleDataMatch.length != 0){
@@ -67,15 +68,18 @@ function GameItem({ navigation, game}) {
    //   }
   //}
 
-  const highlighWin = (score) => {
+  const highlighWin = (score, dom, ext) => {
     const score_dom = score.split('-')[0]
     const score_ext = score.split('-')[1]
 
-    if(score_dom > score_ext){
-      return <><Text style={{color:'#00A400'}}>{score_dom                                                                                                                                                                                                                                        }</Text><Text>- {score_ext}</Text></>
+    if(score_dom > score_ext && dom.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#00A400'}}>{score_dom} - {score_ext}</Text></>
+    }
+    if(score_dom < score_ext && ext.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#00A400'}}>{score_dom} - {score_ext}</Text></>
     }
     else{
-      return <><Text >{score_dom}</Text><Text style={{color:'#00A400'}}>- {score_ext}</Text></>
+      return <><Text style={{color:'red'}}>{score_dom} - {score_ext}</Text></>
     }
   }
 
@@ -103,7 +107,7 @@ function GameItem({ navigation, game}) {
             </View>
             <View style={styles.gameContainerRight}>
                 <TouchableOpacity style={{flex:1, justifyContent:'center'}} onPress={() => feuilleDataMatch.length != 0 ? navigation.navigate('Stats Match', {match: {feuilleDataMatch}}) : null}>
-                  <Text style={styles.score}>{highlighWin(game.score)}</Text>
+                  <Text style={styles.score}>{highlighWin(game.score, game.dom, game.ext)}</Text>
                   <Text style={styles.score}>{statsIcon()} {videoIcon()}</Text>
                 </TouchableOpacity>
             </View>

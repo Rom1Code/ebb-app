@@ -31,33 +31,27 @@ import Entypo from 'react-native-vector-icons/Entypo';
         });
   }, []);
 
-  const tableHead =['#','Date', 'Heure', 'Dom', 'Ext', 'Score']
+  const tableHead =['#','Date', 'Heure', 'Dom', 'Ext', 'Score', 'G/P']
 
-  const statsExist = (game) => {
-    const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == game.match )
+  const statsExist = (numMatch, score) => {
+    const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == numMatch )
     if(feuilleDataMatch.length == 1 && feuilleDataMatch[0].url_video !='') {
       return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
-            <Text style={styles.text}>{game.score}</Text>
+            <Text style={styles.text}>{score}</Text>
             <Text style={styles.text}><FontAwesome name="table" color='black'/> <Entypo name="video" color='black'/></Text>
         </TouchableOpacity>
     }
+    else if(feuilleDataMatch.length == 1) {
+      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
+            <Text style={styles.text}>{score}</Text>
+            <Text style={styles.text}><FontAwesome name="table" color='black'/></Text>
+        </TouchableOpacity>
+    }
     else{
-      return <Text style={styles.text}>{game.score}</Text>
+      return <Text style={styles.text}>{score}</Text>
     }
   }
 
-  // Display an icon if data for the game exist
-  const videoIcon = () => {
-    if(feuilleDataMatch.length != 0 && feuilleDataMatch[0].url_video!=''){
-      return (
-        feuilleDataMatch.map(() =><Entypo name="video" color='black'/>)
-      )
-      }
-      else {
-        return null
-      }
-    }
-  
 
   const highlightTeam = (team) => {
     if(team.includes('ECKBOLSHEIM')){
@@ -68,14 +62,32 @@ import Entypo from 'react-native-vector-icons/Entypo';
     }
   }
 
+  const win_loose = (score, dom, ext) => {
+    const score_dom = score.split('-')[0]
+    const score_ext = score.split('-')[1]
 
-  const tableData= calendarData.map((row) => [row.match,row.date,row.heure, highlightTeam(row.dom), highlightTeam(row.ext), statsExist(row)])
+    if(score_dom > score_ext && dom.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#00A400'}}>G</Text></>
+    }
+    if(score_dom < score_ext && ext.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#00A400'}}>G</Text></>
+    }
+    else{
+      return <><Text style={{color:'red'}}>P</Text></>
+    }
+  }
+
+
+
+  const tableData= calendarData.map((row) => [row.match,row.date,row.heure, highlightTeam(row.dom), highlightTeam(row.ext), statsExist(row.match, row.score), win_loose(row.score, row.dom, row.ext) ])
     return (
       <View style={{ flex: 1 }}>
+        <Table borderStyle={{borderWidth: 1}}>
+          <Row data={tableHead} flexArr={[1, 2, 1.5, 3, 3, 2,1]} style={styles.head}  textStyle={styles.textHead}/>
+        </Table>
         <ScrollView>
           <Table borderStyle={{borderWidth: 1}}>
-            <Row data={tableHead} flexArr={[1, 2, 1.5, 3, 3, 2]} style={styles.head}  textStyle={styles.textHead}/>
-            <Rows data={tableData} flexArr={[1, 2, 1.5, 3, 3, 2]} style={styles.row} textStyle={styles.text}/>
+            <Rows data={tableData} flexArr={[1, 2, 1.5, 3, 3, 2,1]} style={styles.row} textStyle={styles.text}/>
           </Table>
       </ScrollView>
       </View>
