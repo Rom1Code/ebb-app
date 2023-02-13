@@ -65,15 +65,17 @@ import Entypo from 'react-native-vector-icons/Entypo';
   const win_loose = (score, dom, ext) => {
     const score_dom = score.split('-')[0]
     const score_ext = score.split('-')[1]
-
-    if(score_dom > score_ext && dom.includes('ECKBOLSHEIM')){
-      return <><Text style={{color:'#00A400'}}>G</Text></>
+    if(parseInt(score_dom) > parseInt(score_ext) && dom.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#00A400', textAlign:'center'}}>G</Text></>
     }
-    if(score_dom < score_ext && ext.includes('ECKBOLSHEIM')){
-      return <><Text style={{color:'#00A400'}}>G</Text></>
+    else if(parseInt(score_dom) < parseInt(score_ext) && ext.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#00A400', textAlign:'center'}}>G</Text></>
+    }
+    else if(score == '-'){
+      return <><Text></Text></>
     }
     else{
-      return <><Text style={{color:'red'}}>P</Text></>
+      return <><Text style={{color:'red', textAlign:'center'}}>P</Text></>
     }
   }
 
@@ -83,53 +85,24 @@ import Entypo from 'react-native-vector-icons/Entypo';
     return (
       <View style={{ flex: 1 }}>
         <Table borderStyle={{borderWidth: 1}}>
-          <Row data={tableHead} flexArr={[1, 2, 1.5, 3, 3, 2,1]} style={styles.head}  textStyle={styles.textHead}/>
+          <Row data={tableHead} flexArr={[1, 2, 1.5, 3, 3, 2, 1]} style={styles.head}  textStyle={styles.textHead}/>
         </Table>
         <ScrollView>
           <Table borderStyle={{borderWidth: 1}}>
-            <Rows data={tableData} flexArr={[1, 2, 1.5, 3, 3, 2,1]} style={styles.row} textStyle={styles.text}/>
+            <Rows data={tableData} flexArr={[1, 2, 1.5, 3, 3, 2, 1]} style={styles.row} textStyle={styles.text}/>
           </Table>
-      </ScrollView>
+        </ScrollView>
+        <View style={styles.legende}>
+              <Text><Entypo name="video" color='black'/> : Vidéo disponible</Text>
+              <Text><FontAwesome name="table" color='black'/> : Stats disponible</Text>
+        </View>
+
       </View>
     );
 }
 
 
 const styles = StyleSheet.create({
-  tabContainer: {
-    width:'100%', 
-    flexDirection: 'row',
-    },
-  tab1: {
-    flex:1,
-    backgroundColor: '#00A400',
-    justifyContent:'center',
-    borderRightWidth: 1,
-    borderRightColor:'white'
-    },
-  tab2: {
-    flex:1,
-    backgroundColor: '#00A400',
-    justifyContent:'center',
-    },
-  tabPressed: {
-    flex:1,
-    backgroundColor: 'white',
-    justifyContent:'center',
-    color: '#00A400'
-    },
-  tabText: {
-    fontSize: 20,
-    textAlign: 'center',
-    height:30,
-    color:'white'
-  },
-  tabPressedText: {
-    fontSize: 20,
-    textAlign: 'center',
-    height:30,
-    color: '#00A400'
-  },
   head: { 
     flex: 1, 
     backgroundColor: '#00A400',
@@ -146,7 +119,16 @@ const styles = StyleSheet.create({
   textHead: { 
     textAlign: 'center',
     color: 'white'
+  },
+  legende: {
+    flexDirection: 'row',
+    justifyContent:'space-around',
+    backgroundColor:'white',
+    height: 50,
+    alignItems:'center',
+    marginTop: 5
   }
+
 })
 
 export default TeamCalendarComponent

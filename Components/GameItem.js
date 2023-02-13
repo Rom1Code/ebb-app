@@ -46,6 +46,7 @@ function GameItem({ navigation, game}) {
 
   // Display an icon if data for the game exist
   const videoIcon = () => {
+    console.log(feuilleDataMatch)
     if(feuilleDataMatch.length != 0 && feuilleDataMatch[0].url_video!=''){
       return (
         feuilleDataMatch.map(() =><Entypo name="video" color='black'/>)
@@ -56,30 +57,22 @@ function GameItem({ navigation, game}) {
       }
     }
 
-
-
-  //const statsExist = (match) => {
-  //    if(feuilleDataMatch.length != 0){
-   //     const exist = feuilleDataMatch.filter((item) => item.match == match.match && item.equipe == match.equipe )
-   //     return exist.length
-   //   }
-   //   else{
-   //     return 0
-   //   }
-  //}
-
-  const highlighWin = (score, dom, ext) => {
+    
+  const highlighWin = (heure, score, dom, ext) => {
     const score_dom = score.split('-')[0]
     const score_ext = score.split('-')[1]
-
-    if(score_dom > score_ext && dom.includes('ECKBOLSHEIM')){
-      return <><Text style={{color:'#00A400'}}>{score_dom} - {score_ext}</Text></>
+    console.log(dom)
+    if(parseInt(score_dom) > parseInt(score_ext) && dom.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#00A400'}}>{score_dom}-{score_ext}</Text></>
     }
-    if(score_dom < score_ext && ext.includes('ECKBOLSHEIM')){
-      return <><Text style={{color:'#00A400'}}>{score_dom} - {score_ext}</Text></>
+    else if(parseInt(score_dom) < parseInt(score_ext) && ext.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#00A400'}}>{score_dom}-{score_ext}</Text></>
+    }
+    else if(score == '-') {
+      return <><Text style={{color:'black'}}>{heure.replace(':','h')}</Text></>
     }
     else{
-      return <><Text style={{color:'red'}}>{score_dom} - {score_ext}</Text></>
+      return <><Text style={{color:'red'}}>{score_dom}-{score_ext}</Text></>
     }
   }
 
@@ -88,7 +81,6 @@ function GameItem({ navigation, game}) {
         <View style={styles.gameContainer}>
             <View style={styles.gameContainerLeft}>
                 <View style={styles.teamContainer}><Text style={styles.team}>{game.equipe.substring(0,4)}</Text></View>
-                <View style={styles.hourContainer}><Text style={styles.hour}>{game.heure.replace(':','h')}</Text></View>
             </View>
             <View style={styles.gameContainerMiddle}>
               <TouchableOpacity style={{flex:1}} onPress={()=> setDisplayDetailsGame(!displayDetailsGame)}>
@@ -107,8 +99,8 @@ function GameItem({ navigation, game}) {
             </View>
             <View style={styles.gameContainerRight}>
                 <TouchableOpacity style={{flex:1, justifyContent:'center'}} onPress={() => feuilleDataMatch.length != 0 ? navigation.navigate('Stats Match', {match: {feuilleDataMatch}}) : null}>
-                  <Text style={styles.score}>{highlighWin(game.score, game.dom, game.ext)}</Text>
-                  <Text style={styles.score}>{statsIcon()} {videoIcon()}</Text>
+                  <Text style={styles.score}>{highlighWin(game.heure, game.score, game.dom, game.ext)}</Text>
+                  {feuilleDataMatch.length != 0 ? <Text style={styles.score}>{statsIcon()} {videoIcon()}</Text> : null}
                 </TouchableOpacity>
             </View>
         </View>
@@ -185,7 +177,7 @@ const styles = StyleSheet.create({
     team: {
       textAlign: 'center',
       color: 'white',
-      fontSize: 12,
+      fontSize: 16,
     },
     hour: {
       color: 'white',

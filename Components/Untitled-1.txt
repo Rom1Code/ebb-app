@@ -5,3 +5,43 @@ useEffect(() => {
       setFeuille(todoItems);
     });
   }, []);
+
+
+
+  const Tab = createMaterialTopTabNavigator();
+
+        <Tab.Navigator       
+      initialRouteName="Classement"
+      screenOptions={{
+        tabBarActiveTintColor: '#00A400',
+        tabBarInactiveTintColor: 'black',
+        tabBarPressColor :'#00A400',
+        tabBarLabelStyle: { fontSize: 12 },
+        tabBarStyle: { backgroundColor: 'white' },
+        tabBarIndicatorStyle: {
+            borderBottomColor:'#00A400',
+            borderBottomWidth: 3}
+          }}       
+        >
+          <Tab.Screen name="Classement" component={()=> <TeamClassementComponent team={team}/>} />
+          <Tab.Screen name="Calendrier" component={()=> <TeamCalendarComponent navigation={navigation} team={team}/>}/>
+        </Tab.Navigator>
+
+
+      <View style={{ flex: 1 }}>
+        <View  style={styles.tabContainer}> 
+          {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed}><Text style={styles.tabPressedText}>Classement</Text></TouchableOpacity>
+            : <TouchableOpacity style={styles.tab1} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Classement</Text></TouchableOpacity>
+          }
+          {tabPressed == 2 ? <TouchableOpacity  style={styles.tabPressed} ><Text style={styles.tabPressedText}>Calendrier</Text></TouchableOpacity>
+            : <TouchableOpacity  style={styles.tab1} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Calendrier</Text></TouchableOpacity>
+          }
+        </View>
+        <ScrollView>
+        {tabPressed == 1 ? 
+        <TeamClassementComponent team={team}/>
+        :
+        <TeamCalendarComponent navigation={navigation} team={team}/>}
+        </ScrollView>
+      </View>
+

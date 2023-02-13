@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import TeamDataScreen from './TeamDataScreen';
 import TeamsScreen from './TeamsScreen';
 import GameStatsScreen from './GameStatsScreen';
+import TeamClassementComponent from './TeamClassementComponent';
 
 const Stack = createStackNavigator();
 

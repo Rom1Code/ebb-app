@@ -5,9 +5,9 @@ import { dbRef }  from './GetData'
 import { useEffect, useState } from 'react';
 import { child, get } from "firebase/database";
 
- function TeamClassementComponent({team}) {
+ function TeamClassementComponent({route, team}) {
   const [classementData, setClassementData] = useState([])
-
+  console.log(route)
   useEffect(() => {
       get(child(dbRef, 'classement/'+team)).then((snapshot) => {
       if (snapshot.exists()) {

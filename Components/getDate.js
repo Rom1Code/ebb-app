@@ -6,5 +6,5 @@ export function getDateWeek(x) {
     return  date + '/' + month + '/' + lastWeek.getFullYear();
   }
 
-export const dateArray = [getDateWeek(7),getDateWeek(6),getDateWeek(5),getDateWeek(4),getDateWeek(3),getDateWeek(2),getDateWeek(1),getDateWeek(0),
-    getDateWeek(-1),getDateWeek(-2),getDateWeek(-3),getDateWeek(-4),getDateWeek(-5),getDateWeek(-6),getDateWeek(-7)];
+export const dateArray = [getDateWeek(16),getDateWeek(15),getDateWeek(7),getDateWeek(6),getDateWeek(5),getDateWeek(4),getDateWeek(3),getDateWeek(2),getDateWeek(1),getDateWeek(0),
+    getDateWeek(-1),getDateWeek(-2),getDateWeek(-3),getDateWeek(-4),getDateWeek(-5),getDateWeek(-6),getDateWeek(-7),getDateWeek(-27)];

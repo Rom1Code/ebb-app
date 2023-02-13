@@ -72,10 +72,10 @@ import { WebView } from 'react-native-webview';
         <View style={{ flex: 1, marginBottom: 220 }}>
           <View  style={styles.tabContainer}> 
             {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></TouchableOpacity>
-              : <TouchableOpacity  style={styles.tab1} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></TouchableOpacity>
+              : <TouchableOpacity  style={styles.tab} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></TouchableOpacity>
             }
             {tabPressed == 2 ? <TouchableOpacity  style={styles.tabPressed}><Text style={styles.tabPressedText}>Visiteur</Text></TouchableOpacity>
-              : <TouchableOpacity style={styles.tab1} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></TouchableOpacity>
+              : <TouchableOpacity style={styles.tab} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></TouchableOpacity>
             }
           </View>
           <View>
@@ -109,33 +109,29 @@ const styles = StyleSheet.create({
   tabContainer: {
     width:'100%', 
     flexDirection: 'row',
+    marginBottom: 5
     },
-  tab1: {
+  tab: {
     flex:1,
-    backgroundColor: '#00A400',
-    justifyContent:'center',
-    borderRightWidth: 1,
-    borderRightColor:'white'
-    },
-  tab2: {
-    flex:1,
-    backgroundColor: '#00A400',
+    backgroundColor: 'white',
     justifyContent:'center',
     },
   tabPressed: {
     flex:1,
     backgroundColor: 'white',
     justifyContent:'center',
-    color: '#00A400'
+    color: '#00A400',
+    borderBottomWidth: 3,
+    borderBottomColor:'#00A400'
     },
   tabText: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center',
     height:30,
-    color:'white'
+    color:'grey'
   },
   tabPressedText: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center',
     height:30,
     color: '#00A400'
