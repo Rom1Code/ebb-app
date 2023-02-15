@@ -1,7 +1,6 @@
 import { StyleSheet, Image, Dimensions,  Modal, View , Text, Pressable} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
-
 import { WebView } from 'react-native-webview';
 
 function ModalStatsGameComponent({navigation, visible, game, modalStatsVisibleTrigger, feuilleDataMatch}) {
