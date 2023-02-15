@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { dateArray } from './getDate';
+import { dateArray, getWeekEnd } from './getDate';
 
 // Game data bar component used in the GameScreen
 // 3 props are passed
@@ -8,49 +8,55 @@ import { dateArray } from './getDate';
 // dateTrigger : function used in this componenent and declare in GameScreen - set the selectedDate
 // nbGame : nb game for the selected date
 function GameDateBar({selectedDate, dateTrigger, nbGame}) {
-    return(
-        <ScrollView horizontal={true}>
-        {dateArray.map((item, index)=> item == selectedDate ? 
-        <TouchableOpacity key={index} style={styles.touch} onPress={() => dateTrigger(item)}>
+    return(<>
+        <ScrollView style={styles.container} horizontal={true}>
+        {getWeekEnd(60).map((item, index)=> item == selectedDate ? 
+        <Pressable android_ripple={{ color: '#00A400' }} key={index} style={styles.touch} onPress={() => dateTrigger(item)}>
             <View style={styles.dateContainerSelected}>
+                {index % 2 == 0 ? <Text style={styles.textSelected}>sam</Text> : <Text style={styles.textSelected}>dim</Text> }
                 <Text style={styles.textSelected}>{item.substring(0,5)}</Text>
                 <Text style={styles.textSelected}>{nbGame(item)} match</Text>
             </View>
-          </TouchableOpacity> 
+          </Pressable> 
           :
-          <TouchableOpacity key={index} style={styles.touch} onPress={() => dateTrigger(item)}>
+          <Pressable android_ripple={{ color: '#00A400' }} key={index} style={styles.touch} onPress={() => dateTrigger(item)}>
           <View style={styles.dateContainer}>
+              {index % 2 == 0 ? <Text style={styles.text}>sam</Text> : <Text style={styles.text}>dim</Text> }
               <Text style={styles.text}>{item.substring(0,5)}</Text>
               <Text style={styles.text}>{nbGame(item)} match</Text>
           </View>
-        </TouchableOpacity> 
+        </Pressable> 
         )}
-        </ScrollView>
+        </ScrollView></>
     )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    height:65,
+  },
     dateContainer: {
       padding: 2,
       borderWidth: 0.5,
-      height:50,
-      width: 60,
+      width: 65,
+      height:65,
       justifyContent: 'center'
     },
     text: {
       color: 'black',
       fontSize: 12,
-      textAlign: 'center'
+      textAlign: 'center',
     },
     dateContainerSelected: {
       padding: 2,
-      borderWidth: 0.5,
-      height:50,
-      width: 60,
+      height:65,
+
+      width: 65,
       backgroundColor: '#00A400',
       justifyContent: 'center',
-      borderBottomRightRadius: 10,
-      borderBottomLeftRadius: 10
+      borderBottomRightRadius: 15,
+      borderBottomLeftRadius: 15,
+
     },
     textSelected: {
       color: 'white',

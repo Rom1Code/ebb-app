@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, Image, Dimensions, ScrollView, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, ScrollView, Pressable, ActivityIndicator } from 'react-native';
 import { useState, useEffect } from 'react';
 import ModalComponent from './ModalComponent';
+
 import Carousel from 'react-native-reanimated-carousel';
 import { dbRef }  from './GetData'
 import { child, get } from "firebase/database";
@@ -11,9 +12,12 @@ function HomeScreen() {
   const height = Dimensions.get('window').height;
 
   const [modalVisible, setModalVisible] = useState(false);
+
   const [image, setImage] = useState('');
   const [actu, setActu] = useState([]);
   const [affiche, setAffiche] = useState([]);
+  const [loading, setLoading] = useState(true)
+  const [loading2, setLoading2] = useState(true)
 
   const arrayActu = actu.map((item)=> item.link)
 
@@ -29,6 +33,7 @@ function HomeScreen() {
       get(child(dbRef, 'actu/')).then((snapshot) => {
         if (snapshot.exists()) {
           setActu(snapshot.val());
+          setLoading(false)
         } else {
             console.log("No data available");
         }
@@ -38,6 +43,7 @@ function HomeScreen() {
       get(child(dbRef, 'affiche/')).then((snapshot) => {
         if (snapshot.exists()) {
           setAffiche(snapshot.val());
+          setLoading2(false)
         } else {
             console.log("No data available");
         }
@@ -54,9 +60,12 @@ function HomeScreen() {
         />
         </View>
         <Text style={styles.title}>Actualité du club</Text>
-
+        <View style={{justifyContent:'center', alignContent:'center'}}>
         <ModalComponent visible={modalVisible} image={image} modalVisibleTrigger={modalVisibleTrigger}/>
-
+        </View>
+        { loading  ? 
+        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+      :
         <Carousel
         style={{border:'none'}}
             loop
@@ -82,17 +91,19 @@ function HomeScreen() {
                   </Pressable>
                 </View>
             )}
-        />
+        />}
         
         <Text style={styles.title2}>Match à l'affiche</Text>
-
+        { loading2  ? 
+        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+      :
         <ScrollView horizontal={true}>
           {arrayAffiche.map((item, index) =>
             <Pressable key={index} onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
               <Image  style={{ width: width, height: 250, resizeMode:'contain', ver:'center' }} source={{uri: item}} />
             </Pressable>   
           )}
-        </ScrollView>
+        </ScrollView>}
       </>
     );
   }

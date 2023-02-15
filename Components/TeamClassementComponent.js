@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, ActivityIndicator  } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { dbRef }  from './GetData'
@@ -7,11 +7,13 @@ import { child, get } from "firebase/database";
 
  function TeamClassementComponent({route, team}) {
   const [classementData, setClassementData] = useState([])
-  console.log(route)
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
       get(child(dbRef, 'classement/'+team)).then((snapshot) => {
       if (snapshot.exists()) {
         setClassementData(snapshot.val());
+        setLoading(false)
       } else {
           console.log("No data available");
       }
@@ -68,6 +70,9 @@ import { child, get } from "firebase/database";
 
     return (
     <View style={{ flex: 1 }}>
+            { loading  ? 
+        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+      :
         <ScrollView>
          <Table borderStyle={{borderWidth: 1}}>
             <Row data={tableHead} flexArr={[1, 6, 1, 1]} style={styles.head}  textStyle={styles.textHead}/>
@@ -77,9 +82,9 @@ import { child, get } from "firebase/database";
           <Text><FontAwesome name="fire" color='orange'  /> : Meilleur attaque</Text>
           <Text><FontAwesome name="lock" color='black'  /> : Meilleur défense</Text>
          </View>
-      </ScrollView>
+      </ScrollView>}
     </View>
-    );
+      );
 }
 
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Pressable, Text, View, ScrollView } from 'react-native';
 import TeamCalendarComponent from './TeamCalendarComponent'
 import TeamClassementComponent from './TeamClassementComponent'
 //import { NavigationContainer } from '@react-navigation/native';
@@ -11,11 +11,11 @@ import TeamClassementComponent from './TeamClassementComponent'
     return (
       <View style={{ flex: 1, backgroundColor:'white' }}>
         <View  style={styles.tabContainer}> 
-          {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed}><Text style={styles.tabPressedText}>Classement</Text></TouchableOpacity>
-            : <TouchableOpacity style={styles.tab} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Classement</Text></TouchableOpacity>
+          {tabPressed == 1 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabPressed}><Text style={styles.tabPressedText}>Classement</Text></Pressable></View>
+            : <View style={styles.tab}><Pressable  android_ripple={{ color: '#00A400' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Classement</Text></Pressable></View>
           }
-          {tabPressed == 2 ? <TouchableOpacity  style={styles.tabPressed} ><Text style={styles.tabPressedText}>Calendrier</Text></TouchableOpacity>
-            : <TouchableOpacity  style={styles.tab} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Calendrier</Text></TouchableOpacity>
+          {tabPressed == 2 ? <View style={styles.tab}><Pressable  android_ripple={{ color: '#00A400', borderless: false }} style={styles.tabPressed} ><Text  style={styles.tabPressedText}>Calendrier</Text></Pressable></View>
+            : <View style={styles.tab}><Pressable  android_ripple={{ color: '#00A400' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Calendrier</Text></Pressable></View>
           }
         </View>
         <ScrollView>
@@ -36,15 +36,16 @@ const styles = StyleSheet.create({
     marginBottom: 5
     },
   tab: {
-    flex:1,
+    flex:1, 
+    borderRadius:10, 
+    overflow: 'hidden'
+  },
+  tabNotPressed: {
     justifyContent:'center',
     },
   tabPressed: {
-    flex:1,
     justifyContent:'center',
     color: '#00A400',
-    borderBottomWidth: 3,
-    borderBottomColor:'#00A400'
     },
   tabText: {
     fontSize: 16,
@@ -56,7 +57,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     height:30,
-    color: '#00A400'
+    color: '#00A400',
+    borderBottomWidth: 3,
+    borderBottomColor:'#00A400',
+    marginHorizontal:50
   },
   head: { 
     flex: 1, 

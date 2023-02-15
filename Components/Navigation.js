@@ -1,33 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import  HomeScreen from './HomeScreen';
-import  TeamsScreen from './TeamsScreen';
-import  ContactsScreen from './ContactsScreen';
-import { Ionicons } from '@expo/vector-icons';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import HomeScreen from './HomeScreen';
+import ContactsScreen from './ContactsScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import GamesStackScreen from './GamesStackScreen';
 import TeamsStackScreen from './TeamsStackScreen';
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 function Navigation() {
   return (
     <Tab.Navigator
-    screenOptions={{
-      tabBarActiveTintColor: '#00A400',
-      tabBarInactiveTintColor: 'grey',
-      tabBarActiveBackgroundColor:'white',
-      tabBarInactiveBackgroundColor:'white',
-    }}
->
+     activeColor='#00A400'
+    >
       <Tab.Screen name="Accueil" component={HomeScreen} options={{
           tabBarLabel: 'Accueil',
           headerTintColor:'#00A400',
           headerShown:false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <MaterialCommunityIcons name="home" color={color} size={24} />
           ),
         }}/>
       <Tab.Screen name="MatchsStack" component={GamesStackScreen} options={{
@@ -35,7 +27,7 @@ function Navigation() {
           headerTintColor:'#00A400',
           headerShown:false,
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome5 name="basketball-ball" color={color} size={size} />
+            <FontAwesome5 name="basketball-ball" color={color} size={24} />
           ),
         }}
       />
@@ -44,7 +36,7 @@ function Navigation() {
           headerShown:false,
           headerTintColor:'#00A400',
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="team" color={color} size={size} />
+            <AntDesign name="team" color={color} size={24} />
           ),
         }}/>
       <Tab.Screen name="Contacts" component={ContactsScreen} options={{
@@ -52,7 +44,7 @@ function Navigation() {
           headerShown:false,
           headerTintColor:'#00A400',
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="form" color={color} size={size} />
+            <AntDesign name="form" color={color} size={24} />
           ),
         }}/>
     </Tab.Navigator>

@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+import { StyleSheet, Pressable, Text, View } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
@@ -71,11 +71,11 @@ import { WebView } from 'react-native-webview';
       <>
         <View style={{ flex: 1, marginBottom: 220 }}>
           <View  style={styles.tabContainer}> 
-            {tabPressed == 1 ? <TouchableOpacity  style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></TouchableOpacity>
-              : <TouchableOpacity  style={styles.tab} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></TouchableOpacity>
+            {tabPressed == 1 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></Pressable></View>
+              : <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></Pressable></View>
             }
-            {tabPressed == 2 ? <TouchableOpacity  style={styles.tabPressed}><Text style={styles.tabPressedText}>Visiteur</Text></TouchableOpacity>
-              : <TouchableOpacity style={styles.tab} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></TouchableOpacity>
+            {tabPressed == 2 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabPressed}><Text style={styles.tabPressedText}>Visiteur</Text></Pressable></View>
+              : <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></Pressable></View>
             }
           </View>
           <View>
@@ -109,15 +109,19 @@ const styles = StyleSheet.create({
   tabContainer: {
     width:'100%', 
     flexDirection: 'row',
-    marginBottom: 5
+    marginBottom: 5,
+    backgroundColor:'white'
     },
   tab: {
-    flex:1,
+    flex:1, 
+    borderRadius:10, 
+    overflow: 'hidden'
+  },
+  tabNotPressed: {
     backgroundColor: 'white',
     justifyContent:'center',
     },
   tabPressed: {
-    flex:1,
     backgroundColor: 'white',
     justifyContent:'center',
     color: '#00A400',

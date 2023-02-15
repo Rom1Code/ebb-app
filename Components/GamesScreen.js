@@ -1,7 +1,7 @@
-import { StyleSheet, FlatList, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, FlatList, Text, View, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect } from 'react';
-import { getDateWeek } from './getDate';
+import { getWeekEnd } from './getDate';
 import GameItem from './GameItem';
 import GameDateBar from './GameDateBar';
 import { child, get } from "firebase/database";
@@ -12,15 +12,17 @@ import Entypo from 'react-native-vector-icons/Entypo';
 // Screen that display the GameDateBar componenet and list the game in function of date selected
 function GamesScreen({navigation}) {
   // Keep track of the date selected by the user
-  const [selectedDate, setSelectedDate] = useState(getDateWeek(0))
+  const [selectedDate, setSelectedDate] = useState(getWeekEnd(60)[getWeekEnd(60).length /2])
   // Get the calendar data for all the team
   const [calendarData, setCalendarData] = useState([])
-  
+  const [loading, setLoading] = useState(true)
+
   // Get the data from the 'calendrier' node in the Firebase realtimebase and save it to calendarData variable
   useEffect(() => {
     get(child(dbRef, 'calendrier/')).then((snapshot) => {
     if (snapshot.exists()) {
       setCalendarData(snapshot.val());
+      setLoading(false)
     } else {
         console.log("No data available");
     }
@@ -51,10 +53,16 @@ function GamesScreen({navigation}) {
 
     return (
       <>
-        <SafeAreaView style={{ width: '100%', marginBottom: 50}}>
-          <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame}/>
-          {nbGame(selectedDate) != 0 ?
-          <FlatList style={{ width: '100%' }}
+      <View>
+        <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame}/>
+      </View>
+      <SafeAreaView style={{flex:1}}>
+          { loading  ? 
+        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+      :
+
+          nbGame(selectedDate) != 0 ?
+          <FlatList
             data={gameListPlayedSorted}
             ListFooterComponent={() => 
             <View style={styles.legende}>
@@ -62,14 +70,12 @@ function GamesScreen({navigation}) {
               <Text><FontAwesome name="table" color='black'/> : Stats disponible</Text>
             </View>}
             renderItem={({item}) =>
+            
             <GameItem navigation={navigation} game={item}/>}
           />      
         :
         <Text style={styles.noGame}>Pas de match</Text>}
-                
-
-        </SafeAreaView>
-
+      </SafeAreaView>
       </>
     );
   }

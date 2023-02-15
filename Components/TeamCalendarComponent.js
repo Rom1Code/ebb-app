@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, Text, View, SectionList, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, ScrollView, ActivityIndicator } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { dbRef }  from './GetData'
@@ -9,6 +9,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
  function TeamCalendarComponent({navigation, team}) {
   const [calendarData, setCalendarData] = useState([])
   const [feuilleListData, setFeuilleListData] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
       get(child(dbRef, 'calendrier/'+team)).then((snapshot) => {
@@ -23,6 +24,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
       get(child(dbRef, 'feuille_match/'+team)).then((snapshot) => {
         if (snapshot.exists()) {
           setFeuilleListData(snapshot.val());
+          setLoading(false)
         } else {
             console.log("No data available");
         }
@@ -82,8 +84,13 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 
   const tableData= calendarData.map((row) => [row.match,row.date,row.heure, highlightTeam(row.dom), highlightTeam(row.ext), statsExist(row.match, row.score), win_loose(row.score, row.dom, row.ext) ])
-    return (
+    
+  return (
       <View style={{ flex: 1 }}>
+                    { loading  ? 
+        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+      :
+        <>      
         <Table borderStyle={{borderWidth: 1}}>
           <Row data={tableHead} flexArr={[1, 2, 1.5, 3, 3, 2, 1]} style={styles.head}  textStyle={styles.textHead}/>
         </Table>
@@ -96,6 +103,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
               <Text><Entypo name="video" color='black'/> : Vidéo disponible</Text>
               <Text><FontAwesome name="table" color='black'/> : Stats disponible</Text>
         </View>
+        </> }
 
       </View>
     );
