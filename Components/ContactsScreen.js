@@ -3,6 +3,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import Foundation from 'react-native-vector-icons/Foundation';
 
+// Contact Screen- information about the club
 function ContactsScreen({navigation}) {
     return (
       <View style={{flex:1}} >

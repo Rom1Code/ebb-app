@@ -2,7 +2,14 @@ import ImageZoom from 'react-native-image-pan-zoom';
 import { StyleSheet, ScrollView, Image, Dimensions,  Modal, Pressable, View } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+// Modal component used in order to zoom in the photos showed in the homeScreen
+// 3 props are passed
+// visible : boolean in order to display the modal
+// image : the image on which the user has clicked
+// modalVisibleTrigger : function used in order to hide the modal
 function ModalComponent({visible, image, modalVisibleTrigger}) {
+
+  // Get the width and height of the phone used
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
 

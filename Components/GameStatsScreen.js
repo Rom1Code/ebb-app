@@ -30,7 +30,6 @@ import { WebView } from 'react-native-webview';
     else {
       max = Math.max(...ptsExtTableCleaned)
     }
-
     if(pts == max){
       return <View><Text style={styles.text}><FontAwesome name="star" color='orange'  />{ pts}</Text></View>
     }
@@ -138,7 +137,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     height:30,
-    color: '#00A400'
+    color: '#00A400',
+    borderBottomWidth: 3,
+    borderBottomColor:'#00A400',
+    marginHorizontal:50
   },
   head: { 
     backgroundColor: '#00A400',

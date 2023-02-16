@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { dateArray, getWeekEnd } from './getDate';
+import { getWeekEnd } from './getDate';
 
-// Game data bar component used in the GameScreen
+// Game data bar component used in the GameScreen - get the weekend date with the call of function getWeekEnd
 // 3 props are passed
 // selectedData : date selected by the user
 // dateTrigger : function used in this componenent and declare in GameScreen - set the selectedDate
@@ -50,13 +50,11 @@ const styles = StyleSheet.create({
     dateContainerSelected: {
       padding: 2,
       height:65,
-
       width: 65,
       backgroundColor: '#00A400',
       justifyContent: 'center',
       borderBottomRightRadius: 15,
       borderBottomLeftRadius: 15,
-
     },
     textSelected: {
       color: 'white',

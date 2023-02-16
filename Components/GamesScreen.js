@@ -15,7 +15,29 @@ function GamesScreen({navigation}) {
   const [selectedDate, setSelectedDate] = useState(getWeekEnd(60)[getWeekEnd(60).length /2])
   // Get the calendar data for all the team
   const [calendarData, setCalendarData] = useState([])
+  // Keep track if data is loading or not
   const [loading, setLoading] = useState(true)
+
+  // Fetch the data for the date selected
+  const calendarDataArray = []
+
+  // !!!mettre sur une ligne comme pour gameItem
+  Object.keys(calendarData).map((key)=>calendarData[key].map((item)=> calendarDataArray.push(item)))
+  const gameListPlayed = calendarDataArray.filter((item) => item.date == selectedDate)
+
+  // Array ordered by date
+  const gameListPlayedSorted = gameListPlayed.sort((a ,b) => a.heure.substring(0,2) - b.heure.substring(0,2))
+
+  // Get and return the number of game for the selected date
+  const nbGame = (date) => {
+    const gamesList = calendarDataArray.filter((item) => item.date == date)
+  return gamesList.length
+  }
+
+  // Set selectedData variable with selected date
+  const dateTrigger = (date) => {
+    setSelectedDate(date)
+  }
 
   // Get the data from the 'calendrier' node in the Firebase realtimebase and save it to calendarData variable
   useEffect(() => {
@@ -30,55 +52,34 @@ function GamesScreen({navigation}) {
     console.error(error);
     });
   }, []);
+  
 
-    // Fetch the data for the date selected
-  const calendarDataArray = []
-
-  // !!!mettre sur une ligne comme pour gameItem
-  Object.keys(calendarData).map((key)=>calendarData[key].map((item)=> calendarDataArray.push(item)))
-  const gameListPlayed = calendarDataArray.filter((item) => item.date == selectedDate)
-
-  const gameListPlayedSorted = gameListPlayed.sort((a ,b) => a.heure.substring(0,2) - b.heure.substring(0,2))
-
-  // Get and return the number of game for the selected date
-  const nbGame = (date) => {
-    const gamesList = calendarDataArray.filter((item) => item.date == date)
-  return gamesList.length
-  }
-
-  // Set selectedData variable with selected date
-  const dateTrigger = (date) => {
-    setSelectedDate(date)
-  }
-
-    return (
-      <>
-      <View>
-        <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame}/>
-      </View>
-      <SafeAreaView style={{flex:1}}>
-          { loading  ? 
-        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+  return (
+    <>
+    <View>
+      <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame}/>
+    </View>
+    <SafeAreaView style={{flex:1}}>
+        { loading  ? 
+      <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+    :
+        nbGame(selectedDate) != 0 ?
+        <FlatList
+          data={gameListPlayedSorted}
+          ListFooterComponent={() => 
+          <View style={styles.legende}>
+            <Text><Entypo name="video" color='black'/> : Vidéo disponible</Text>
+            <Text><FontAwesome name="table" color='black'/> : Stats disponible</Text>
+          </View>}
+          renderItem={({item}) =>
+          <GameItem navigation={navigation} game={item}/>}
+        />      
       :
-
-          nbGame(selectedDate) != 0 ?
-          <FlatList
-            data={gameListPlayedSorted}
-            ListFooterComponent={() => 
-            <View style={styles.legende}>
-              <Text><Entypo name="video" color='black'/> : Vidéo disponible</Text>
-              <Text><FontAwesome name="table" color='black'/> : Stats disponible</Text>
-            </View>}
-            renderItem={({item}) =>
-            
-            <GameItem navigation={navigation} game={item}/>}
-          />      
-        :
-        <Text style={styles.noGame}>Pas de match</Text>}
-      </SafeAreaView>
-      </>
-    );
-  }
+      <Text style={styles.noGame}>Pas de match</Text>}
+    </SafeAreaView>
+    </>
+  );
+}
 
   const styles = StyleSheet.create({
     noGame: {

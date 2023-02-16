@@ -5,6 +5,7 @@ import GamesScreen from './GamesScreen';
 
 const Stack = createStackNavigator();
 
+// Used in order to navigate between GamesScreen and GameStatsScreen
 export default function GamesStackScreen () {
     return (
         <Stack.Navigator>

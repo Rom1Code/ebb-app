@@ -8,21 +8,30 @@ import { child, get } from "firebase/database";
 
 function HomeScreen() {
 
+  // Get the width and height of the phone used
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
 
+  // Keep track if the modal component is visible or not
   const [modalVisible, setModalVisible] = useState(false);
-
-  const [image, setImage] = useState('');
+  // Fetch the actu data from firebase
   const [actu, setActu] = useState([]);
+  // Fetch the affiche data from firebase
   const [affiche, setAffiche] = useState([]);
+
+  // Set the image in which the user clicked
+  const [image, setImage] = useState('');
+
+  // Keep track if the datas are loading
   const [loading, setLoading] = useState(true)
   const [loading2, setLoading2] = useState(true)
 
+  // Create an array from the actu data
   const arrayActu = actu.map((item)=> item.link)
-
+  // Create an array from the affiche data
   const arrayAffiche= affiche.map((item)=> item.link)
 
+  // Function called in the modalstatsComponent in order to hide the modal
   const modalVisibleTrigger = () => {
     setModalVisible(!modalVisible)
   }
@@ -59,6 +68,19 @@ function HomeScreen() {
           source={require('../Ressources/ebb-logo.png')}
         />
         </View>
+        
+        <Text style={styles.title2}>Match à l'affiche</Text>
+        { loading2  ? 
+        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+      :
+        <ScrollView horizontal={true}>
+          {arrayAffiche.map((item, index) =>
+            <Pressable key={index} onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
+              <Image  style={{ width: width, height: 250, resizeMode:'contain', ver:'center' }} source={{uri: item}} />
+            </Pressable>   
+          )}
+        </ScrollView>}
+
         <Text style={styles.title}>Actualité du club</Text>
         <View style={{justifyContent:'center', alignContent:'center'}}>
         <ModalComponent visible={modalVisible} image={image} modalVisibleTrigger={modalVisibleTrigger}/>
@@ -92,18 +114,6 @@ function HomeScreen() {
                 </View>
             )}
         />}
-        
-        <Text style={styles.title2}>Match à l'affiche</Text>
-        { loading2  ? 
-        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
-      :
-        <ScrollView horizontal={true}>
-          {arrayAffiche.map((item, index) =>
-            <Pressable key={index} onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
-              <Image  style={{ width: width, height: 250, resizeMode:'contain', ver:'center' }} source={{uri: item}} />
-            </Pressable>   
-          )}
-        </ScrollView>}
       </>
     );
   }

@@ -9,6 +9,7 @@ import TeamsStackScreen from './TeamsStackScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
+// Set the navigation bottom tab bar with 4 screens
 function Navigation() {
   return (
     <Tab.Navigator
