@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { StyleSheet, Pressable, Text, View, ScrollView } from 'react-native';
 import TeamCalendarComponent from './TeamCalendarComponent'
 import TeamClassementComponent from './TeamClassementComponent'
-//import { NavigationContainer } from '@react-navigation/native';
-//import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
+// Display calendar and classement component in function of the team the user clicked in teamScreen
+// We get the team name with the route props
  function TeamDataScreen({navigation, route}) {
   const [tabPressed, setTabPressed] = useState(1);
   const team = route.params.team.item.team
@@ -62,23 +62,6 @@ const styles = StyleSheet.create({
     borderBottomColor:'#00A400',
     marginHorizontal:50
   },
-  head: { 
-    flex: 1, 
-    backgroundColor: '#00A400',
-    textAlign: 'center',
-    color: 'white'
-  },
-  row: {  
-    height: 35  }
-    ,
-  text: { 
-    textAlign: 'center',
-    fontSize: 10
-  },
-  textHead: { 
-    textAlign: 'center',
-    color: 'white'
-  }
 })
 
 export default TeamDataScreen

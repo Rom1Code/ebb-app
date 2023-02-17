@@ -7,7 +7,6 @@ import Foundation from 'react-native-vector-icons/Foundation';
 function ContactsScreen({navigation}) {
     return (
       <View style={{flex:1}} >
-        <ImageBackground source={require('../Ressources/background-app.png')} resizeMode="cover" style={{flex:1, }}>
         <View style={styles.container} >
           <Text style={styles.title}>Contact Club</Text>
           <View style={styles.data_container}>
@@ -31,7 +30,6 @@ function ContactsScreen({navigation}) {
             <Pressable onPress={() => Linking.openURL('https://www.instagram.com/eckbolsheim_basket_ball')}><Image style={styles.image} source={require('../Ressources/Instagram.png')} /></Pressable>
           </View>
         </View>
-        </ImageBackground>
       </View>
     );
   }

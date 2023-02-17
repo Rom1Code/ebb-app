@@ -3,6 +3,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect } from 'react';
 import { getWeekEnd } from './getDate';
 import GameItem from './GameItem';
+import GameItem2 from './GameItem2';
+
 import GameDateBar from './GameDateBar';
 import { child, get } from "firebase/database";
 import { dbRef }  from './GetData'
@@ -66,13 +68,8 @@ function GamesScreen({navigation}) {
         nbGame(selectedDate) != 0 ?
         <FlatList
           data={gameListPlayedSorted}
-          ListFooterComponent={() => 
-          <View style={styles.legende}>
-            <Text><Entypo name="video" color='black'/> : Vidéo disponible</Text>
-            <Text><FontAwesome name="table" color='black'/> : Stats disponible</Text>
-          </View>}
           renderItem={({item}) =>
-          <GameItem navigation={navigation} game={item}/>}
+          <GameItem2 navigation={navigation} game={item}/>}
         />      
       :
       <Text style={styles.noGame}>Pas de match</Text>}
@@ -166,14 +163,6 @@ function GamesScreen({navigation}) {
     vs: {
       textAlign: 'center'
     },
-    legende: {
-      flexDirection: 'row',
-      justifyContent:'space-around',
-      backgroundColor:'white',
-      height: 50,
-      alignItems:'center',
-      marginTop: 5
-    }
   });
 
 

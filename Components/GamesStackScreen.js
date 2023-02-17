@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import GameStatsScreen from './GameStatsScreen';
 import GamesScreen from './GamesScreen';
+import GameRecapScreen from './GameRecapScreen';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,10 @@ export default function GamesStackScreen () {
           ),
         }}/>             
             <Stack.Screen name="Stats Match" component={GameStatsScreen} options={{
+              headerTintColor:'#00A400',
+              headerShown:true,
+            }}/>     
+            <Stack.Screen name="Recap Match" component={GameRecapScreen} options={{
               headerTintColor:'#00A400',
               headerShown:true,
             }}/>             

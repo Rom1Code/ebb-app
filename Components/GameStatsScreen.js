@@ -90,15 +90,6 @@ import { WebView } from 'react-native-webview';
             </Table>}
           </View>
         </View>
-        <View style={styles.legende}>
-            <Text><FontAwesome name="star" color='orange'  /> : Meilleur joueur</Text>
-        </View>
-        {match[0].url_video !='' ? <Text style={styles.title}>Résumé du match</Text> : null}
-        <WebView 
-        source={{uri: match[0].url_video}}
-        style={{  }}
-        />
-
       </>
     );
 }
@@ -124,8 +115,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     justifyContent:'center',
     color: '#00A400',
-    borderBottomWidth: 3,
-    borderBottomColor:'#00A400'
     },
   tabText: {
     fontSize: 16,
@@ -156,11 +145,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold'
 
-  },
-  legende: {
-    position:'relative',
-    top: -20,
-    padding: 5
   },
   title: {
     fontSize:15,

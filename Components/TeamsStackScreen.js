@@ -7,6 +7,7 @@ import TeamClassementComponent from './TeamClassementComponent';
 
 const Stack = createStackNavigator();
 
+// Used in order to navigate between TeamsScreen, TeamDataScreen and TeamDataScreen
 export default function TeamsStackScreen () {
     return (
         <Stack.Navigator>

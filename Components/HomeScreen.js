@@ -61,7 +61,7 @@ function HomeScreen() {
     }, []);
   
   return (
-      <>
+      <View style={{flex:1}}>
         <View >
           <Image
           style={styles.icon}
@@ -73,10 +73,10 @@ function HomeScreen() {
         { loading2  ? 
         <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
       :
-        <ScrollView horizontal={true}>
+        <ScrollView horizontal={true} >
           {arrayAffiche.map((item, index) =>
             <Pressable key={index} onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
-              <Image  style={{ width: width, height: 250, resizeMode:'contain', ver:'center' }} source={{uri: item}} />
+              <Image  style={{ width: width, height: 230, resizeMode:'contain' }} source={{uri: item}} />
             </Pressable>   
           )}
         </ScrollView>}
@@ -114,7 +114,7 @@ function HomeScreen() {
                 </View>
             )}
         />}
-      </>
+      </View>
     );
   }
 
@@ -133,13 +133,12 @@ function HomeScreen() {
       fontSize: 20,
       fontWeight: 'bold',
       textAlign:'center',
-      marginTop: -10
     },
     title2: {
       fontSize: 20,
       fontWeight: 'bold',
       textAlign:'center',
-      marginTop: -10,
+      marginTop: -15,
       marginBottom: 10
     },
     modalView: {

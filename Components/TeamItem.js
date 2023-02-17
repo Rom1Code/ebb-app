@@ -1,10 +1,11 @@
 import { Text, View, TouchableOpacity, ScrollView, Image, StyleSheet } from 'react-native';
 
+// Display one item
 function TeamItem({navigation, title, data}) {
     return (
-        <View style={{ margin: 5,}}>
-        <Text style={styles.title}>{title}</Text>
-          <ScrollView horizontal={true} style={{ width: '100%', flex: 1}}>
+        <View style={styles.container}>
+          <Text style={styles.title}>{title}</Text>
+          <ScrollView horizontal={true} style={{ flex: 1}}>
           {data.map((item, index) => {
             return (
               <View key={index} style={styles.teamContainer}>
@@ -29,6 +30,9 @@ function TeamItem({navigation, title, data}) {
 }
 
 const styles = StyleSheet.create({
+  container : {
+    margin: 5,
+  },
     title: {
       fontSize: 18,
       padding: 5,
@@ -54,27 +58,22 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
       flex: 1,
-
     },
     textContainer: {
       flex: 1,
-
     },
     teamContainerBottom: {
       flex :1,
       width: 125,
       justifyContent: 'center',
       width: 150,
-
     },
     logo: {
       height:75,
       width: 75,
-      
     },
     touch: {
       justifyContent: 'center',
- 
     },
     item: {
       fontSize: 18,

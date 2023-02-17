@@ -21,9 +21,6 @@ import Entypo from 'react-native-vector-icons/Entypo';
   // Define an array with the head label
   const tableHead =['#','Date', 'Heure', 'Dom', 'Ext', 'Score', 'G/P']
 
-  // Set an array with the data that will be read for the table
-  const tableData= calendarData.map((row) => [row.match,row.date,row.heure, highlightTeam(row.dom), highlightTeam(row.ext), statsExist(row.match, row.score), win_loose(row.score, row.dom, row.ext) ])
-
   // Display the score and an icon if data for the game exist
   const statsExist = (numMatch, score) => {
     const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == numMatch )
@@ -71,6 +68,9 @@ import Entypo from 'react-native-vector-icons/Entypo';
       return <><Text style={styles.loseText}>P</Text></>
     }
   }
+
+  // Set an array with the data that will be read for the table
+  const tableData= calendarData.map((row) => [row.match,row.date,row.heure, highlightTeam(row.dom), highlightTeam(row.ext), statsExist(row.match, row.score), win_loose(row.score, row.dom, row.ext) ])
 
   
   // Fetch the calendar for the team and the stats for all the game played
