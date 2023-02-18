@@ -8,8 +8,6 @@ import GameItem2 from './GameItem2';
 import GameDateBar from './GameDateBar';
 import { child, get } from "firebase/database";
 import { dbRef }  from './GetData'
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Entypo from 'react-native-vector-icons/Entypo';
 
 // Screen that display the GameDateBar componenet and list the game in function of date selected
 function GamesScreen({navigation}) {
@@ -17,6 +15,7 @@ function GamesScreen({navigation}) {
   const [selectedDate, setSelectedDate] = useState(getWeekEnd(60)[getWeekEnd(60).length /2])
   // Get the calendar data for all the team
   const [calendarData, setCalendarData] = useState([])
+  
   // Keep track if data is loading or not
   const [loading, setLoading] = useState(true)
 
@@ -39,21 +38,23 @@ function GamesScreen({navigation}) {
   // Set selectedData variable with selected date
   const dateTrigger = (date) => {
     setSelectedDate(date)
+    setLoading(true)
   }
 
   // Get the data from the 'calendrier' node in the Firebase realtimebase and save it to calendarData variable
   useEffect(() => {
-    get(child(dbRef, 'calendrier/')).then((snapshot) => {
-    if (snapshot.exists()) {
-      setCalendarData(snapshot.val());
-      setLoading(false)
-    } else {
-        console.log("No data available");
-    }
-    }).catch((error) => {
-    console.error(error);
-    });
-  }, []);
+    if(loading){
+      get(child(dbRef, 'calendrier/')).then((snapshot) => {
+      if (snapshot.exists()) {
+        setCalendarData(snapshot.val());
+        setLoading(false)
+      } else {
+          console.log("No data available");
+      }
+      }).catch((error) => {
+      console.error(error);
+      });}
+  }, [loading]);
   
 
   return (

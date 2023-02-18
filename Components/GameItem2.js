@@ -1,7 +1,8 @@
-import { Text, View, Pressable, StyleSheet, Image } from 'react-native';
+import { Text, View, Pressable, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { useState, useEffect } from 'react';
 import { dbRef }  from './GetData'
 import { child, get } from "firebase/database";
+import { teamCat } from './Datas';
 
 // Game item component used in the GameScreen
 // 1 props is passed
@@ -11,6 +12,8 @@ function GameItem2({ navigation, game }) {
   //const [displayDetailsGame, setDisplayDetailsGame] = useState(false)
   // Save of all the data game for all team
   const [feuilleListData, setFeuilleListData] = useState([])
+  // Save classement data for the team
+  const [classementData, setClassementData] = useState([])
 
   // Fetch the data for the game (return one game)
   const feuilleDataMatch = []
@@ -34,43 +37,88 @@ function GameItem2({ navigation, game }) {
     }
   }
 
+
+  // Fetch the data (level, group) for the team
+  const dataTeam = teamCat.map((item)=> item.teamList.filter((item)=>item.team==game.equipe)).filter((item)=>item.length!=0)[0]
+  const teamLevel = dataTeam[0].level
+  const teamGroup = dataTeam[0].group
+  
+  // Fetch the data (rank, win and lose) for the team
+  const data_dom_team = classementData.filter((item)=>  item.equipe== game.dom)
+  const data_ext_team = classementData.filter((item)=> item.equipe== game.ext)
+
   // Fetch one time all the data for all game
   useEffect(() => {
     // get the data from the 'feuille_match' node in the Firebase realtimebase and save it to feuilleListData variable
       get(child(dbRef, 'feuille_match/')).then((snapshot) => {
         if (snapshot.exists()) {
           setFeuilleListData(snapshot.val());
+          setLoading(false)
         } else {
             console.log("No data available");
         }
         }).catch((error) => {
         });
     }, []);
+
+      // Fetch one time all the data for all game
+
+  useEffect(() => {
+      get(child(dbRef, 'classement/'+game.equipe)).then((snapshot) => {
+        if (snapshot.exists()) {
+          setClassementData(snapshot.val());
+        } else {
+            console.log("No data available");
+        }
+        }).catch((error) => {
+        });
+    }, []);
+
     
     // In order to render presable component if necessary, the code is doubled
     return (
       <>
+      {data_dom_team.length == 0 && data_ext_team.length == 0 ? 
+      
+      <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/> : 
+      <>
         <View style={styles.gameContainer}>
         <View style={styles.gameContainerTop}>
-            <View><Text style={styles.team}>{game.equipe.substring(0,4)}</Text></View>
+            <View><Text style={styles.team}>{game.equipe.substring(0,4)} - {teamLevel} - {teamGroup} </Text></View>
         </View>
             <View style={styles.gameContainerBottom}>
 
               <View style={styles.gameContainerMiddleItem}> 
-              {game.dom.includes("ECKBOLSHEIM") ?  <Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /> : <Text style={styles.game}> {game.dom} </Text>}
+              {game.dom.includes("ECKBOLSHEIM") ?  
+              <View style={styles.logoContainer}>
+                <Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} />
+               <Text style={{textAlign:'center', fontSize:10, flex:1}}>{data_dom_team[0].place}{data_dom_team[0].place==1 ? 'er':'ème'} ({data_dom_team[0].victoire}V - {data_dom_team[0].defaite}D)</Text>
+              </View>
+              : <View> 
+                <Text style={styles.game}> {game.dom} </Text>
+                <Text style={{textAlign:'center', fontSize:10}}>{data_dom_team[0].place}{data_dom_team[0].place==1 ? 'er':'ème'} ({data_dom_team[0].victoire}V - {data_dom_team[0].defaite}D)</Text>
+                </View>}
+              
               </View>
               <View style={styles.gameContainerMiddleItemVS}> 
                 <Text style={styles.score}>{highlighWin(game.heure, game.score, game.dom, game.ext)}</Text>
               </View> 
               <View style={styles.gameContainerMiddleItem}> 
-              {game.ext.includes("ECKBOLSHEIM") ?  <Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /> : <Text style={styles.game}> {game.ext} </Text>}
+              {game.ext.includes("ECKBOLSHEIM") ?  
+              <View style={styles.logoContainer}>
+                  <Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} />
+                  <Text style={{textAlign:'center', fontSize:10, flex:1}}>{data_ext_team[0].place}{data_ext_team[0].place==1 ? 'er':'ème'} ({data_ext_team[0].victoire}V - {data_ext_team[0].defaite}D)</Text>
+              </View>
+            : <View><Text style={styles.game}> {game.ext} </Text>
+               <Text style={{textAlign:'center', fontSize:10}}>{data_ext_team[0].place}{data_ext_team[0].place==1 ? 'er':'ème'} ({data_ext_team[0].victoire}V - {data_dom_team[0].defaite}D)</Text>
+              </View>}
               </View> 
             </View>
 
         </View>
         {feuilleDataMatch.length != 0 ?
         <View style={styles.statsContainer}>
-            <Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#00A400' }} onPress={() => navigation.navigate('Recap Match', {match: {game, feuilleDataMatch}})}>
+            <Pressable style={styles.statsDataContainerLeft} android_ripple={{ color: '#00A400' }} onPress={() => navigation.navigate('Recap Match', {match: {game, feuilleDataMatch}})}>
                 <View >
                     <Text>Stats match</Text>
                 </View>
@@ -83,6 +131,8 @@ function GameItem2({ navigation, game }) {
         </View>
         : null}
         </>
+        }
+        </>
     )
 }
 
@@ -91,11 +141,11 @@ const styles = StyleSheet.create({
       flex:1,
       backgroundColor: 'white',
       elevation: 24,
-      height: 90,
+      height: 110,
       marginTop: 15,
     },
     gameContainerTop: {
-        flex:1.5,
+        flex:1,
         justifyContent: 'center', //Centered horizontally
         backgroundColor:'#00A400'
       },
@@ -105,11 +155,11 @@ const styles = StyleSheet.create({
       justifyContent: 'center', //Centered horizontally
     },
     gameContainerMiddleItem: {
-      flex: 1.5,
+      flex: 2,
       justifyContent: 'center', //Centered horizontally
     },
     gameContainerMiddleItemVS: {
-      flex: 1,
+      flex: 1.5,
       justifyContent: 'center', //Centered horizontally
       flexDirection: 'row',
       alignItems: 'center'
@@ -141,7 +191,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 0.5,
-
     },
     team: {
         textAlign: 'center',
@@ -168,7 +217,6 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     logoContainer: {
-        flexDirection:'row',
         justifyContent: 'center',
         flex: 1,
         marginTop: 6,
@@ -177,10 +225,9 @@ const styles = StyleSheet.create({
     logo: {
         height:100, 
         width:100, 
-        top: -17,
-        left: 20,
-        position:'absolute',
-        opacity:1
+        opacity:1,
+        alignItems: 'center',
+        flex:2
    }
   });
 

@@ -10,7 +10,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
  // 1 prop is passed
  // team : name of the team - used to fetch calendar data
  function TeamCalendarComponent({navigation, team}) {
-
+  console.log(team)
   // Set calendar data
   const [calendarData, setCalendarData] = useState([])
   // Set datas for all the game
@@ -56,16 +56,16 @@ import Entypo from 'react-native-vector-icons/Entypo';
     const score_dom = score.split('-')[0]
     const score_ext = score.split('-')[1]
     if(parseInt(score_dom) > parseInt(score_ext) && dom.includes('ECKBOLSHEIM')){
-      return <><Text style={styles.winText}>G</Text></>
+      return <><Text style={styles.winText}>V</Text></>
     }
     else if(parseInt(score_dom) < parseInt(score_ext) && ext.includes('ECKBOLSHEIM')){
-      return <><Text style={styles.winText}>G</Text></>
+      return <><Text style={styles.winText}>V</Text></>
     }
     else if(score == '-'){
       return <><Text></Text></>
     }
     else{
-      return <><Text style={styles.loseText}>P</Text></>
+      return <><Text style={styles.loseText}>D</Text></>
     }
   }
 
@@ -78,6 +78,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
     get(child(dbRef, 'calendrier/'+team)).then((snapshot) => {
     if (snapshot.exists()) {
       setCalendarData(snapshot.val());
+      setLoading(false)
     } else {
         console.log("No data available");
     }
