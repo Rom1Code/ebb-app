@@ -1,7 +1,6 @@
-import { StyleSheet, Text, View, Image, Dimensions, ScrollView, Pressable, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, Pressable, ActivityIndicator, FlatList } from 'react-native';
 import { useState, useEffect } from 'react';
 import ModalComponent from './ModalComponent';
-
 import Carousel from 'react-native-reanimated-carousel';
 import { dbRef }  from './GetData'
 import { child, get } from "firebase/database";
@@ -73,13 +72,15 @@ function HomeScreen() {
         { loading2  ? 
         <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
       :
-        <ScrollView horizontal={true} >
-          {arrayAffiche.map((item, index) =>
-            <Pressable key={index} onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
-              <Image  style={{ width: width, height: 230, resizeMode:'contain' }} source={{uri: item}} />
-            </Pressable>   
-          )}
-        </ScrollView>}
+        <FlatList
+          data={arrayAffiche}
+          keyExtractor={(index) => index}
+          renderItem={(item) => 
+          <Pressable  onPress={() => {setModalVisible(!modalVisible); setImage(item.item)}}>       
+            <Image  style={{ width: width, height: 230, resizeMode:'contain' }} source={{uri: item.item}} />
+          </Pressable>}
+        />
+        }
 
         <Text style={styles.title}>Actualité du club</Text>
         <View style={{justifyContent:'center', alignContent:'center'}}>
@@ -102,12 +103,7 @@ function HomeScreen() {
             pinchGestureEnabled={true}
             //onSnapToItem={(index) => console.log('current index:', index)}
             renderItem={({ item, index }) => (
-                <View horizontal='true'
-                    style={{
-                        flex: 1,
-                        justifyContent:'center'
-                    }}
-                >
+                <View horizontal='true' style={{ flex: 1, justifyContent:'center'}}>
                   <Pressable onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>
                     <Image key={index} style={{  width: width, height: 300, resizeMode:'contain',  }}  source={{uri :item}} />
                   </Pressable>

@@ -66,14 +66,13 @@ function GamesScreen({navigation}) {
         { loading  ? 
       <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
     :
-        nbGame(selectedDate) != 0 ?
         <FlatList
           data={gameListPlayedSorted}
+          ListEmptyComponent={()=> <Text style={styles.noGame}>Pas de match</Text>}
           renderItem={({item}) =>
           <GameItem2 navigation={navigation} game={item}/>}
         />      
-      :
-      <Text style={styles.noGame}>Pas de match</Text>}
+        }
     </SafeAreaView>
     </>
   );

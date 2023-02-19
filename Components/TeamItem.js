@@ -1,31 +1,36 @@
 import { Text, View, TouchableOpacity, ScrollView, Image, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 // Display one item
 function TeamItem({navigation, title, data}) {
     return (
-        <View style={styles.container}>
-          <Text style={styles.title}>{title}</Text>
-          <ScrollView horizontal={true} style={{ flex: 1}}>
-          {data.map((item, index) => {
-            return (
-              <View key={index} style={styles.teamContainer}>
+      <>
+      <Text style={styles.title}>{title}</Text>
+      <FlatList
+        horizontal={true}
+        style={styles.container}
+        keyExtractor={(item)=>item.team}
+        data={data}
+        renderItem={(item)=> 
+              <View style={styles.teamContainer}>
                 <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {team: {item}})}>
                 <View style={styles.teamContainerTop}> 
                   <View style={styles.imageContainer}>
                     <Image style={styles.logo} source={require('../Ressources/ebb-logo.png')} />
                   </View>
                   <View style={styles.textContainer}>
-                    <Text style={styles.item}>{item.label}</Text>
+                    <Text style={styles.item}>{item.item.label}</Text>
                   </View>
                 </View>
                 <View style={styles.teamContainerBottom}> 
-                    <Text style={styles.item2}>{item.level}</Text>
-                    <Text style={styles.item2}>{item.group}</Text>
+                    <Text style={styles.item2}>{item.item.level}</Text>
+                    <Text style={styles.item2}>{item.item.group}</Text>
                 </View>
                 </TouchableOpacity>
-              </View>)})}
-          </ScrollView>
-          </View>
+              </View>
+              }   
+      />
+</>
     )
 }
 

@@ -45,3 +45,30 @@ useEffect(() => {
         </ScrollView>
       </View>
 
++
+
+
+
+            <FlatList style={styles.container} horizontal={true}
+          data={getWeekEnd(60)}
+          
+          initialScrollIndex={getWeekEnd(60).length /2 +3}
+          initialNumToRender={8}
+          renderItem={(item, index) =>
+          <View style={styles.dateContainer}>
+              {index % 2 == 0 ? <Text style={styles.text}>sam</Text> : <Text style={styles.text}>dim</Text> }
+              <Text style={styles.text}>{item.item.substring(0,5)}</Text>
+              <Text style={styles.text}>{nbGame(item.item)} match</Text>
+          </View>
+          }
+        />      
+
+
+
+        <ScrollView horizontal={true} >
+          {arrayAffiche.map((item, index) =>
+            <Pressable key={index} onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
+              <Image  style={{ width: width, height: 230, resizeMode:'contain' }} source={{uri: item}} />
+            </Pressable>   
+          )}
+        </ScrollView>

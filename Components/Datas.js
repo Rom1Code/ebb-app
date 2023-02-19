@@ -5,8 +5,8 @@
 // 'MU13_2_phase1','MU13_2_phase2','FU13_phase1','FU13_phase2','FU11_phase1','FU11_phase2']
 
 // Defini team per category
-const seniorMasculin = [{'team': 'SM1', 'label': 'SM1','level' : 'Pré réginale', 'group':'(Poule A)'},{'team': 'SM2', 'label': 'SM2', 'level': 'Division 3','group':'(Poule B)'},{'team': 'SM3', 'label': 'SM3', 'level': 'Division 5','group':'(Poule C)'}]
-const seniorFeminin = [{'team': 'SF1', 'label': 'SF1', 'level' : 'Pré nationale', 'group':'(Poule B)'},{'team': 'SF2', 'label': 'SF2', 'level': 'Pré réginale','group':'(Poule A)'},{'team': 'SF3', 'label': 'SF3', 'level': 'Division 3','group':'(Poule D)'}]
+const seniorMasculin = [{'team': 'SM1', 'label': 'SM1','level' : 'Pré régionale', 'group':'(Poule A)'},{'team': 'SM2', 'label': 'SM2', 'level': 'Division 3','group':'(Poule B)'},{'team': 'SM3', 'label': 'SM3', 'level': 'Division 5','group':'(Poule C)'}]
+const seniorFeminin = [{'team': 'SF1', 'label': 'SF1', 'level' : 'Pré nationale', 'group':'(Poule B)'},{'team': 'SF2', 'label': 'SF2', 'level': 'Pré régionale','group':'(Poule A)'},{'team': 'SF3', 'label': 'SF3', 'level': 'Division 3','group':'(Poule D)'}]
 const U17Masculin = [{'team':'MU17_phase1', 'label': 'U17', 'level': 'Divison 1' ,'group': 'Phase 1 (Poule B)'},{'team':'MU17_phase2', 'label': 'U17', 'level': 'Divison 1' ,'group': 'Phase 2 (Poule B)'},
 {'team':'MU17_2_phase1', 'label': 'U17-2', 'level': 'Divison 2' ,'group': 'Phase 1 (Poule D)'},{'team':'MU17_2_phase2', 'label': 'U17-2', 'level': 'Divison 2' ,'group': 'Phase 2 (Poule B)'}]
 const U18Feminin = [{'team':'FU18_phase1', 'label': 'U18', 'level': 'Divison 2' ,'group': 'Phase 1 (Poule B)'},{'team':'FU18_phase2', 'label': 'U18', 'level': 'Divison 2' ,'group': 'Phase 2 (Poule A)'}]

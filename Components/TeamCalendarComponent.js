@@ -10,7 +10,6 @@ import Entypo from 'react-native-vector-icons/Entypo';
  // 1 prop is passed
  // team : name of the team - used to fetch calendar data
  function TeamCalendarComponent({navigation, team}) {
-  console.log(team)
   // Set calendar data
   const [calendarData, setCalendarData] = useState([])
   // Set datas for all the game
@@ -19,7 +18,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
   const [loading, setLoading] = useState(true)
 
   // Define an array with the head label
-  const tableHead =['#','Date', 'Heure', 'Dom', 'Ext', 'Score', 'G/P']
+  const tableHead =['#','Date', 'Dom', 'Ext', 'Score', 'G/P', '', '']
 
   // Display the score and an icon if data for the game exist
   const statsExist = (numMatch, score) => {
@@ -69,8 +68,38 @@ import Entypo from 'react-native-vector-icons/Entypo';
     }
   }
 
+  const score_or_hour = (score, hour) => {
+    if(score == '-'){
+      return <><Text style={styles.text}>{hour.replace(':','h')}</Text></>
+    }
+    else{
+      return <><Text style={styles.text}>{score}</Text></>
+    }
+  }
+
+  const feuilleMatch = (numMatch) => {
+    const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == numMatch )
+    if(feuilleDataMatch.length == 1 ) {
+      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
+            <Text style={styles.text}>feuille de match</Text>
+        </TouchableOpacity>
+    }
+  }
+
+  const recapMatch = (game) => {
+    const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == game.match )
+    if(feuilleDataMatch.length == 1) {
+      return <TouchableOpacity onPress={() => navigation.navigate('Recap Match', {match: {game, feuilleDataMatch}})}>
+            <Text style={styles.text}>Recap match</Text>
+        </TouchableOpacity>
+    }
+  }
+
+  const widthArr= [25, 70, 120, 120, 50, 40, 60, 60]
+
+
   // Set an array with the data that will be read for the table
-  const tableData= calendarData.map((row) => [row.match,row.date,row.heure, highlightTeam(row.dom), highlightTeam(row.ext), statsExist(row.match, row.score), win_loose(row.score, row.dom, row.ext) ])
+  const tableData= calendarData.map((row) => [row.match,row.date, highlightTeam(row.dom), highlightTeam(row.ext), score_or_hour(row.score, row.heure), win_loose(row.score, row.dom, row.ext), feuilleMatch(row.match), recapMatch(row)])
 
   
   // Fetch the calendar for the team and the stats for all the game played
@@ -102,21 +131,18 @@ import Entypo from 'react-native-vector-icons/Entypo';
                     { loading  ? 
         <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
       :
-        <>      
-        <Table borderStyle={{borderWidth: 1}}>
-          <Row data={tableHead} flexArr={[1, 2, 1.5, 3, 3, 2, 1]} style={styles.head}  textStyle={styles.textHead}/>
-        </Table>
-        <ScrollView>
+        <ScrollView horizontal={true}>     
+        <View> 
           <Table borderStyle={{borderWidth: 1}}>
-            <Rows data={tableData} flexArr={[1, 2, 1.5, 3, 3, 2, 1]} style={styles.row} textStyle={styles.text}/>
+            <Row data={tableHead} widthArr={widthArr} style={styles.head}  textStyle={styles.textHead}/>
           </Table>
-        </ScrollView>
-        <View style={styles.legende}>
-              <Text><Entypo name="video" color='black'/> : Vidéo disponible</Text>
-              <Text><FontAwesome name="table" color='black'/> : Stats disponible</Text>
+          <ScrollView>
+            <Table borderStyle={{borderWidth: 1}}>
+              <Rows data={tableData}  widthArr={widthArr}style={styles.row} textStyle={styles.text}/>
+            </Table>
+          </ScrollView>
         </View>
-        </> }
-
+        </ScrollView> }
       </View>
     );
 }
@@ -124,18 +150,17 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 const styles = StyleSheet.create({
   head: { 
-    flex: 1, 
     backgroundColor: '#00A400',
-    textAlign: 'center',
-    color: 'white'
   },
   row: {  
-    height: 40  }
-    ,
+    height: 50,
+  },
   highlightText: {
     color:'#00A400', 
     fontSize:10, 
-    textAlign:'center'
+    textAlign:'center',
+    padding: 5
+
   },
   winText: {
     color:'#00A400', 
@@ -147,21 +172,15 @@ const styles = StyleSheet.create({
   },
   text: { 
     textAlign: 'center',
-    fontSize: 10
+    fontSize: 10,
+    padding: 5
+
   },
   textHead: { 
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
+    fontWeight: 'bold'
   },
-  legende: {
-    flexDirection: 'row',
-    justifyContent:'space-around',
-    backgroundColor:'white',
-    height: 50,
-    alignItems:'center',
-    marginTop: 5
-  }
-
 })
 
 export default TeamCalendarComponent

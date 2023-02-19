@@ -7,7 +7,7 @@ import TeamClassementComponent from './TeamClassementComponent'
 // We get the team name with the route props
  function TeamDataScreen({navigation, route}) {
   const [tabPressed, setTabPressed] = useState(1);
-  const team = route.params.team.item.team
+  const team = route.params.team.item.item.team
     return (
       <View style={{ flex: 1, backgroundColor:'white' }}>
         <View  style={styles.tabContainer}> 

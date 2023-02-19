@@ -56,7 +56,6 @@ function GameRecapScreen({route}) {
                 <Text style={styles.gameDetailsText}>{feuilleDataMatch[0].equipe_dom_3PTS}</Text><Text style={styles.gameDetailsLabel}>3 PTS</Text><Text style={styles.gameDetailsText}>{feuilleDataMatch[0].equipe_dom_3PTS}</Text>
             </View>
             <View style={styles.teamWinContainer}>{teamWin()}</View>
-
           </View>
 
           {feuilleDataMatch[0].url_video !='' ? <Text style={styles.title}>Résumé du match</Text> : null}

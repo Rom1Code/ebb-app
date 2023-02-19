@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { getWeekEnd } from './getDate';
+import GameDateBarItem from './GameDataBarItem';
 
 // Game data bar component used in the GameScreen - get the weekend date with the call of function getWeekEnd
 // 3 props are passed
@@ -8,26 +9,33 @@ import { getWeekEnd } from './getDate';
 // dateTrigger : function used in this componenent and declare in GameScreen - set the selectedDate
 // nbGame : nb game for the selected date
 function GameDateBar({selectedDate, dateTrigger, nbGame}) {
-    return(<>
-        <ScrollView style={styles.container} horizontal={true}>
-        {getWeekEnd(60).map((item, index)=> item == selectedDate ? 
-        <Pressable android_ripple={{ color: '#00A400' }} key={index} style={styles.touch} onPress={() => dateTrigger(item)}>
-            <View style={styles.dateContainerSelected}>
-                {index % 2 == 0 ? <Text style={styles.textSelected}>sam</Text> : <Text style={styles.textSelected}>dim</Text> }
-                <Text style={styles.textSelected}>{item.substring(0,5)}</Text>
-                <Text style={styles.textSelected}>{nbGame(item)} match</Text>
-            </View>
-          </Pressable> 
-          :
-          <Pressable android_ripple={{ color: '#00A400' }} key={index} style={styles.touch} onPress={() => dateTrigger(item)}>
-          <View style={styles.dateContainer}>
-              {index % 2 == 0 ? <Text style={styles.text}>sam</Text> : <Text style={styles.text}>dim</Text> }
-              <Text style={styles.text}>{item.substring(0,5)}</Text>
-              <Text style={styles.text}>{nbGame(item)} match</Text>
-          </View>
-        </Pressable> 
-        )}
-        </ScrollView></>
+    return(
+        <FlatList style={styles.container} horizontal={true}
+          data={getWeekEnd(60)}
+          keyExtractor={(index) => index}
+          initialScrollIndex={getWeekEnd(60).length -1}
+          renderItem={(item, index) =>
+            item.item == selectedDate ? 
+            <Pressable android_ripple={{ color: '#00A400' }} style={styles.touch} onPress={() => dateTrigger(item.item)}>
+              <View style={styles.dateContainerSelected}>
+                {item.index % 2 == 0 ? 
+                <Text style={styles.textSelected}>sam</Text> : <Text style={styles.textSelected}>dim</Text> 
+                }
+                <Text style={styles.textSelected}>{item.item.substring(0,5)}</Text>
+                <Text style={styles.textSelected}>{nbGame(item.item)} match</Text>
+              </View>
+            </Pressable>
+          : <Pressable android_ripple={{ color: '#00A400' }} style={styles.touch} onPress={() => dateTrigger(item.item)}>
+              <View style={styles.dateContainer}>
+                {item.index % 2 == 0 ? 
+                <Text style={styles.text}>sam</Text> : <Text style={styles.text}>dim</Text> 
+                }
+                <Text style={styles.text}>{item.item.substring(0,5)}</Text>
+                <Text style={styles.text}>{nbGame(item.item)} match</Text>
+              </View>
+           </Pressable> 
+          }
+        />      
     )
 }
 

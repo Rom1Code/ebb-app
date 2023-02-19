@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import { teamCat } from './Datas';
 import TeamItem from './TeamItem'
 
@@ -6,11 +6,12 @@ import TeamItem from './TeamItem'
 function TeamsScreen({navigation}) {
 
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.dataContainer}>
-        {teamCat.map((item, index) => <TeamItem key={index} navigation={navigation} title={item.cat} data={item.teamList} />)}
-        </ScrollView>
-      </View>
+      <FlatList style={styles.dataContainer}
+        data={teamCat}
+        keyExtractor={(item, index)=> index}
+        renderItem={(item)=>
+          <TeamItem navigation={navigation} title={item.item.cat} data={item.item.teamList} />
+      } />
     );
   }
 
