@@ -11,7 +11,7 @@ function TeamItem({navigation, title, data}) {
         style={styles.container}
         keyExtractor={(item)=>item.team}
         data={data}
-        renderItem={(item)=> 
+        renderItem={({item})=> 
               <View style={styles.teamContainer}>
                 <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {team: {item}})}>
                 <View style={styles.teamContainerTop}> 
@@ -19,12 +19,12 @@ function TeamItem({navigation, title, data}) {
                     <Image style={styles.logo} source={require('../Ressources/ebb-logo.png')} />
                   </View>
                   <View style={styles.textContainer}>
-                    <Text style={styles.item}>{item.item.label}</Text>
+                    <Text style={styles.item}>{item.label}</Text>
                   </View>
                 </View>
                 <View style={styles.teamContainerBottom}> 
-                    <Text style={styles.item2}>{item.item.level}</Text>
-                    <Text style={styles.item2}>{item.item.group}</Text>
+                    <Text style={styles.item2}>{item.level}</Text>
+                    <Text style={styles.item2}>{item.group}</Text>
                 </View>
                 </TouchableOpacity>
               </View>

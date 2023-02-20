@@ -74,10 +74,10 @@ function HomeScreen() {
       :
         <FlatList
           data={arrayAffiche}
-          keyExtractor={(index) => index}
-          renderItem={(item) => 
-          <Pressable  onPress={() => {setModalVisible(!modalVisible); setImage(item.item)}}>       
-            <Image  style={{ width: width, height: 230, resizeMode:'contain' }} source={{uri: item.item}} />
+          keyExtractor={(item, index) => index}
+          renderItem={({item}) => 
+          <Pressable  onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
+            <Image  style={{ width: width, height: 230, resizeMode:'contain' }} source={{uri: item}} />
           </Pressable>}
         />
         }

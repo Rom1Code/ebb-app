@@ -2,9 +2,7 @@ import { StyleSheet, FlatList, Text, View, ActivityIndicator } from 'react-nativ
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect } from 'react';
 import { getWeekEnd } from './getDate';
-import GameItem from './GameItem';
 import GameItem2 from './GameItem2';
-
 import GameDateBar from './GameDateBar';
 import { child, get } from "firebase/database";
 import { dbRef }  from './GetData'
@@ -68,6 +66,7 @@ function GamesScreen({navigation}) {
     :
         <FlatList
           data={gameListPlayedSorted}
+          keyExtractor={(item,index)=>index}
           ListEmptyComponent={()=> <Text style={styles.noGame}>Pas de match</Text>}
           renderItem={({item}) =>
           <GameItem2 navigation={navigation} game={item}/>}

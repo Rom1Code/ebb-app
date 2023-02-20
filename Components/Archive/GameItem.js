@@ -2,7 +2,7 @@ import { Text, View, Pressable, StyleSheet, Image } from 'react-native';
 import { useState, useEffect } from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
-import { dbRef }  from './GetData'
+import { dbRef }  from '../GetData'
 import { child, get } from "firebase/database";
 import ModalStatsGameComponent from './ModalStatsGameComponent';
 
@@ -96,7 +96,7 @@ function GameItem({ navigation, game }) {
             { feuilleDataMatch.length != 0 ?
               <Pressable android_ripple={{ color: '#00A400' }} style={{flex:1}} onPress={()=> setModalStatsVisible(!modalStatsVisible)}>
                 <View style={styles.gameContainerMiddleItem}> 
-                  { game.dom.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {game.dom}</Text></View>
+                  { game.dom.includes("ECKBOLSHEIM") ?  <View style={styles.logoContainer}><Image source={require('../../Ressources/ebb-logo.png')} style={styles.logo} /><Text style={styles.game}> {game.dom}</Text></View>
                 : <Text style={styles.game}>{game.dom}</Text>}
                 </View>
                 <View style={styles.gameContainerMiddleItemVS}> 

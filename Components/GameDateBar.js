@@ -1,7 +1,5 @@
 import { StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { getWeekEnd } from './getDate';
-import GameDateBarItem from './GameDataBarItem';
 
 // Game data bar component used in the GameScreen - get the weekend date with the call of function getWeekEnd
 // 3 props are passed

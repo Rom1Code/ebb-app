@@ -9,8 +9,8 @@ function TeamsScreen({navigation}) {
       <FlatList style={styles.dataContainer}
         data={teamCat}
         keyExtractor={(item, index)=> index}
-        renderItem={(item)=>
-          <TeamItem navigation={navigation} title={item.item.cat} data={item.item.teamList} />
+        renderItem={({item})=>
+          <TeamItem navigation={navigation} title={item.cat} data={item.teamList} />
       } />
     );
   }

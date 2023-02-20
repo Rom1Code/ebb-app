@@ -40,7 +40,7 @@ function ModalStatsGameComponent({navigation, visible, game, modalStatsVisibleTr
         </View> 
         <Image
           style={{opacity:0.2, position:'absolute', zIndex:1, width:width*0.9, height: height*0.8, alignSelf:'center'}}
-          source={require('../Ressources/ebb-logo.png')}
+          source={require('../../Ressources/ebb-logo.png')}
         />
         <View style={{padding: 10, top:height*0.1, left:width*0.05, width:width*0.9, height: height*0.7, backgroundColor:'white', borderRadius:10, elevation:20}}>
           <View style={styles.gameDetailsMiddle}>
