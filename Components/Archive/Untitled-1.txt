@@ -72,3 +72,7 @@ useEffect(() => {
             </Pressable>   
           )}
         </ScrollView>
+
+
+              <BlurView  tint="dark" intensity={100} style={{position:'absolute',bottom:5,left:3,  padding: 5, borderRadius:10}}>
+              </BlurView>

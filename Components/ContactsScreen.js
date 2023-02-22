@@ -10,13 +10,13 @@ function ContactsScreen({navigation}) {
         <View style={styles.container} >
           <Text style={styles.title}>Contact Club</Text>
           <View style={styles.data_container}>
-            <Foundation style={styles.icon} name="telephone" color='#00A400' />
+            <Foundation style={styles.icon} name="telephone" color='#0bb049' />
             <Pressable onPress={() => Linking.openURL('tel:07 82 28 24 71') }>
               <Text style={styles.text}> : 07 82 28 24 71</Text>
             </Pressable>
           </View>
           <View style={styles.data_container}>
-            <Foundation style={styles.icon} name="mail" color='#00A400' />
+            <Foundation style={styles.icon} name="mail" color='#0bb049' />
             <Pressable onPress={() => Linking.openURL('mailto:communication.team.ebb@gmail.com') }>
               <Text style={styles.text}> : communication.team.ebb@gmail.com</Text>
             </Pressable>

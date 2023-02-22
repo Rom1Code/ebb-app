@@ -11,11 +11,11 @@ import TeamClassementComponent from './TeamClassementComponent'
     return (
       <View style={{ flex: 1, backgroundColor:'white' }}>
         <View  style={styles.tabContainer}> 
-          {tabPressed == 1 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabPressed}><Text style={styles.tabPressedText}>Classement</Text></Pressable></View>
-            : <View style={styles.tab}><Pressable  android_ripple={{ color: '#00A400' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Classement</Text></Pressable></View>
+          {tabPressed == 1 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabPressed}><Text style={styles.tabPressedText}>Classement</Text></Pressable></View>
+            : <View style={styles.tab}><Pressable  android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Classement</Text></Pressable></View>
           }
-          {tabPressed == 2 ? <View style={styles.tab}><Pressable  android_ripple={{ color: '#00A400', borderless: false }} style={styles.tabPressed} ><Text  style={styles.tabPressedText}>Calendrier</Text></Pressable></View>
-            : <View style={styles.tab}><Pressable  android_ripple={{ color: '#00A400' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Calendrier</Text></Pressable></View>
+          {tabPressed == 2 ? <View style={styles.tab}><Pressable  android_ripple={{ color: '#0bb049', borderless: false }} style={styles.tabPressed} ><Text  style={styles.tabPressedText}>Calendrier</Text></Pressable></View>
+            : <View style={styles.tab}><Pressable  android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Calendrier</Text></Pressable></View>
           }
         </View>
         <ScrollView>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     },
   tabPressed: {
     justifyContent:'center',
-    color: '#00A400',
+    color: '#0bb049',
     },
   tabText: {
     fontSize: 16,
@@ -57,9 +57,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     height:30,
-    color: '#00A400',
+    color: '#0bb049',
     borderBottomWidth: 3,
-    borderBottomColor:'#00A400',
+    borderBottomColor:'#0bb049',
     marginHorizontal:50
   },
 })

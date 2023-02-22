@@ -129,7 +129,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
   return (
       <View style={{ flex: 1 }}>
                     { loading  ? 
-        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+        <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
       :
         <ScrollView horizontal={true}>     
         <View> 
@@ -150,20 +150,20 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 const styles = StyleSheet.create({
   head: { 
-    backgroundColor: '#00A400',
+    backgroundColor: '#0bb049',
   },
   row: {  
     height: 50,
   },
   highlightText: {
-    color:'#00A400', 
+    color:'#0bb049', 
     fontSize:10, 
     textAlign:'center',
     padding: 5
 
   },
   winText: {
-    color:'#00A400', 
+    color:'#0bb049', 
     textAlign:'center'
   },
   loseText: {

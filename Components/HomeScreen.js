@@ -4,6 +4,9 @@ import ModalComponent from './ModalComponent';
 import Carousel from 'react-native-reanimated-carousel';
 import { dbRef }  from './GetData'
 import { child, get } from "firebase/database";
+import { ScrollView } from 'react-native-gesture-handler';
+import { BlurView } from 'expo-blur';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 function HomeScreen() {
 
@@ -18,6 +21,7 @@ function HomeScreen() {
   // Fetch the affiche data from firebase
   const [affiche, setAffiche] = useState([]);
 
+  const [carouselInddex, setCarouselInddex] = useState(0)
   // Set the image in which the user clicked
   const [image, setImage] = useState('');
 
@@ -60,40 +64,47 @@ function HomeScreen() {
     }, []);
   
   return (
-      <View style={{flex:1}}>
-        <View >
-          <Image
-          style={styles.icon}
-          source={require('../Ressources/ebb-logo.png')}
-        />
+    <>
+      <ScrollView >
+        < View style={{backgroundColor:'#0bb049', height:70}}>
         </View>
-        
-        <Text style={styles.title2}>Match à l'affiche</Text>
-        { loading2  ? 
-        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
-      :
-        <FlatList
-          data={arrayAffiche}
-          keyExtractor={(item, index) => index}
-          renderItem={({item}) => 
-          <Pressable  onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>       
-            <Image  style={{ width: width, height: 230, resizeMode:'contain' }} source={{uri: item}} />
-          </Pressable>}
+        <Image
+          style={styles.icon}
+          source={require('../Ressources/3ebb-logo.png')}
         />
-        }
+        { loading2  ? 
+        <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
+      :   <View style={{marginBottom:20}}>
+            <Pressable  onPress={() => {setModalVisible(!modalVisible); setImage(arrayAffiche[0])}}>       
+              <Image  style={{ width: width, height: 400, resizeMode:'contain', marginTop:-3}} source={{uri: arrayAffiche[0]}} />
+            </Pressable>
+          </View>}
 
         <Text style={styles.title}>Actualité du club</Text>
         <View style={{justifyContent:'center', alignContent:'center'}}>
         <ModalComponent visible={modalVisible} image={image} modalVisibleTrigger={modalVisibleTrigger}/>
         </View>
         { loading  ? 
-        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
-      :
+        <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
+      : <>
+              <View style={{flexDirection:'row', justifyContent:'center', marginBottom: -30}}>
+          {carouselInddex == 0 ? 
+          <Entypo  style={{marginTop:-5}}name="dot-single" color='#0bb049' size={50} />
+          : <Entypo name="dot-single" color='grey' size={40} />}
+          {carouselInddex == 1 ? 
+          <Entypo  style={{marginTop:-5}}name="dot-single" color='#0bb049' size={50} />
+          : <Entypo  name="dot-single" color='grey' size={40} />}
+          {carouselInddex == 2 ? 
+          <Entypo  style={{marginTop:-5}} name="dot-single" color='#0bb049' size={50} />
+          : <Entypo name="dot-single" color='grey' size={40} />}
+        </View>
+
         <Carousel
-        style={{border:'none'}}
+        style={{border:'none', marginTop:-10}}
             loop
+            pagingEnabled={true}
             width={width}
-            height={300 }
+            height={400 }
             autoPlay={true}
             data={arrayActu}
             scrollAnimationDuration={2000}
@@ -101,25 +112,28 @@ function HomeScreen() {
             //paralaxScrollingScale={2.9}
             //paralaxScrollingOffset={50}
             pinchGestureEnabled={true}
-            //onSnapToItem={(index) => console.log('current index:', index)}
+            onSnapToItem={(index) => setCarouselInddex(index)}
             renderItem={({ item, index }) => (
-                <View horizontal='true' style={{ flex: 1, justifyContent:'center'}}>
                   <Pressable onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>
-                    <Image key={index} style={{  width: width, height: 300, resizeMode:'contain',  }}  source={{uri :item}} />
+                    <Image key={index} style={{  width: width, height: 400,  borderRadius:10, resizeMode:'stretch' }}  source={{uri :item}} />
                   </Pressable>
-                </View>
             )}
-        />}
-      </View>
+        />
+        </>
+        }
+      </ScrollView>
+      </>
     );
   }
 
   const styles = StyleSheet.create({
     icon: {
-      width: 150,
-      height: 150,
-      alignSelf: 'center'
-    },
+      width: 125,
+      height: 125,
+      alignSelf: 'center',
+      position:'absolute', 
+      top:-30,
+  },
     text: {
         fontSize: 16,
         fontWeight: 'bold',
@@ -136,24 +150,7 @@ function HomeScreen() {
       textAlign:'center',
       marginTop: -15,
       marginBottom: 10
-    },
-    modalView: {
-      margin: 20,
-      backgroundColor: 'white',
-      borderRadius: 20,
-      padding: 35,
-      alignItems: 'center',
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      }},
-      modalImage: {
-        width: 300,
-        resizeMode:'contain',
-        backgroundColor:'green'
-      }
-
+    }
   })
   
   export default HomeScreen;

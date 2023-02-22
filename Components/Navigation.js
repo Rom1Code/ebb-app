@@ -13,11 +13,12 @@ const Tab = createMaterialBottomTabNavigator();
 function Navigation() {
   return (
     <Tab.Navigator
-     activeColor='#00A400'
+     activeColor='#0bb049' 
     >
-      <Tab.Screen name="Accueil" component={HomeScreen} options={{
+      <Tab.Screen name="Accueil" style={{backgroundColor:'white'}} component={HomeScreen} options={{
           tabBarLabel: 'Accueil',
-          headerTintColor:'#00A400',
+          headerTintColor:'#0bb049',
+          
           headerShown:false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={24} />
@@ -25,7 +26,7 @@ function Navigation() {
         }}/>
       <Tab.Screen name="MatchsStack" component={GamesStackScreen} options={{
           tabBarLabel: 'Matchs',
-          headerTintColor:'#00A400',
+          headerTintColor:'#0bb049',
           headerShown:false,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="basketball-ball" color={color} size={24} />
@@ -35,7 +36,7 @@ function Navigation() {
       <Tab.Screen name="EquipesStack" component={TeamsStackScreen} options={{
           tabBarLabel: 'Equipes',
           headerShown:false,
-          headerTintColor:'#00A400',
+          headerTintColor:'#0bb049',
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="team" color={color} size={24} />
           ),
@@ -43,7 +44,7 @@ function Navigation() {
       <Tab.Screen name="Contacts" component={ContactsScreen} options={{
           tabBarLabel: 'Contacts',
           headerShown:false,
-          headerTintColor:'#00A400',
+          headerTintColor:'#0bb049',
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="form" color={color} size={24} />
           ),

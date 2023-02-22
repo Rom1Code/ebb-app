@@ -24,10 +24,10 @@ function GameItem2({ navigation, game }) {
     const score_dom = score.split('-')[0]
     const score_ext = score.split('-')[1]
     if(parseInt(score_dom) > parseInt(score_ext) && dom.includes('ECKBOLSHEIM')){
-      return <><Text style={{color:'#00A400'}}>{score_dom}-{score_ext}</Text></>
+      return <><Text style={{color:'#0bb049'}}>{score_dom}-{score_ext}</Text></>
     }
     else if(parseInt(score_dom) < parseInt(score_ext) && ext.includes('ECKBOLSHEIM')){
-      return <><Text style={{color:'#00A400'}}>{score_dom}-{score_ext}</Text></>
+      return <><Text style={{color:'#0bb049'}}>{score_dom}-{score_ext}</Text></>
     }
     else if(score == '-') {
       return <><Text style={{color:'black'}}>{heure.replace(':','h')}</Text></>
@@ -80,7 +80,7 @@ function GameItem2({ navigation, game }) {
       <>
       {data_dom_team.length == 0 && data_ext_team.length == 0 ? 
       
-      <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/> : 
+      <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/> : 
       <>
         <View style={styles.gameContainer}>
         <View style={styles.gameContainerTop}>
@@ -118,12 +118,12 @@ function GameItem2({ navigation, game }) {
         </View>
         {feuilleDataMatch.length != 0 ?
         <View style={styles.statsContainer}>
-            <Pressable style={styles.statsDataContainerLeft} android_ripple={{ color: '#00A400' }} onPress={() => navigation.navigate('Recap Match', {match: {game, feuilleDataMatch}})}>
+            <Pressable style={styles.statsDataContainerLeft} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Recap Match', {match: {game, feuilleDataMatch}})}>
                 <View >
                     <Text>Stats match</Text>
                 </View>
             </Pressable>
-            <Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#00A400' }} onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
+            <Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
             <View >
                 <Text>Feuille de match</Text>
             </View>
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     gameContainerTop: {
         flex:1,
         justifyContent: 'center', //Centered horizontally
-        backgroundColor:'#00A400'
+        backgroundColor:'#0bb049'
       },
       gameContainerBottom: {
       flexDirection: 'row',

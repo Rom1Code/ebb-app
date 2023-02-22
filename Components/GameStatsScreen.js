@@ -70,11 +70,11 @@ import { WebView } from 'react-native-webview';
       <>
         <View style={{ flex: 1, marginBottom: 220 }}>
           <View  style={styles.tabContainer}> 
-            {tabPressed == 1 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></Pressable></View>
-              : <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></Pressable></View>
+            {tabPressed == 1 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></Pressable></View>
+              : <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></Pressable></View>
             }
-            {tabPressed == 2 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabPressed}><Text style={styles.tabPressedText}>Visiteur</Text></Pressable></View>
-              : <View style={styles.tab}><Pressable android_ripple={{ color: '#00A400' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></Pressable></View>
+            {tabPressed == 2 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabPressed}><Text style={styles.tabPressedText}>Visiteur</Text></Pressable></View>
+              : <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></Pressable></View>
             }
           </View>
           <View>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   tabPressed: {
     backgroundColor: 'white',
     justifyContent:'center',
-    color: '#00A400',
+    color: '#0bb049',
     },
   tabText: {
     fontSize: 16,
@@ -126,13 +126,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     height:30,
-    color: '#00A400',
+    color: '#0bb049',
     borderBottomWidth: 3,
-    borderBottomColor:'#00A400',
+    borderBottomColor:'#0bb049',
     marginHorizontal:50
   },
   head: { 
-    backgroundColor: '#00A400',
+    backgroundColor: '#0bb049',
   },
   row: {  
     height: 35 

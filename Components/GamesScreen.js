@@ -62,7 +62,7 @@ function GamesScreen({navigation}) {
     </View>
     <SafeAreaView style={{flex:1}}>
         { loading  ? 
-      <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+      <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
     :
         <FlatList
           data={gameListPlayedSorted}
@@ -98,7 +98,7 @@ function GamesScreen({navigation}) {
       padding: 2,
       borderWidth: 0.5,
       height:40,
-      backgroundColor: '#00A400',
+      backgroundColor: '#0bb049',
       justifyContent: 'center',
       borderBottomRightRadius: 10,
       borderBottomLeftRadius: 10
@@ -118,7 +118,7 @@ function GamesScreen({navigation}) {
     },
     gameContainerLeft: {
       flex:1.5,
-      backgroundColor: '#00A400',
+      backgroundColor: '#0bb049',
     },
     gameContainerMiddle: {
       flex:4,
@@ -128,7 +128,7 @@ function GamesScreen({navigation}) {
       justifyContent: 'center', //Centered horizontally
       flex:1,
       borderLeftWidth: 2,
-      borderLeftColor: '#00A400'    
+      borderLeftColor: '#0bb049'    
     },
     teamContainer: {
       flex: 1,

@@ -11,18 +11,18 @@ export default function GamesStackScreen () {
     return (
         <Stack.Navigator>
             <Stack.Screen name="Matchs" component={GamesScreen} options={{
-              headerTintColor:'#00A400',
+              headerTintColor:'#0bb049',
               headerShown:false,
               tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="basketball-ball" color={color} size={size} />
           ),
         }}/>             
             <Stack.Screen name="Stats Match" component={GameStatsScreen} options={{
-              headerTintColor:'#00A400',
+              headerTintColor:'#0bb049',
               headerShown:true,
             }}/>     
             <Stack.Screen name="Recap Match" component={GameRecapScreen} options={{
-              headerTintColor:'#00A400',
+              headerTintColor:'#0bb049',
               headerShown:true,
             }}/>             
         </Stack.Navigator>

@@ -14,7 +14,7 @@ import database from '@react-native-firebase/database';
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar backgroundColor={'#00A400'}/>
+      <StatusBar backgroundColor={'#0bb049'}/>
       <Navigation />
     </NavigationContainer>
   );

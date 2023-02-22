@@ -14,7 +14,7 @@ function GameDateBar({selectedDate, dateTrigger, nbGame}) {
           initialScrollIndex={getWeekEnd(60).length -1}
           renderItem={(item, index) =>
             item.item == selectedDate ? 
-            <Pressable android_ripple={{ color: '#00A400' }} style={styles.touch} onPress={() => dateTrigger(item.item)}>
+            <Pressable android_ripple={{ color: '#0bb049' }} style={styles.touch} onPress={() => dateTrigger(item.item)}>
               <View style={styles.dateContainerSelected}>
                 {item.index % 2 == 0 ? 
                 <Text style={styles.textSelected}>sam</Text> : <Text style={styles.textSelected}>dim</Text> 
@@ -23,7 +23,7 @@ function GameDateBar({selectedDate, dateTrigger, nbGame}) {
                 <Text style={styles.textSelected}>{nbGame(item.item)} match</Text>
               </View>
             </Pressable>
-          : <Pressable android_ripple={{ color: '#00A400' }} style={styles.touch} onPress={() => dateTrigger(item.item)}>
+          : <Pressable android_ripple={{ color: '#0bb049' }} style={styles.touch} onPress={() => dateTrigger(item.item)}>
               <View style={styles.dateContainer}>
                 {item.index % 2 == 0 ? 
                 <Text style={styles.text}>sam</Text> : <Text style={styles.text}>dim</Text> 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
       padding: 2,
       height:65,
       width: 65,
-      backgroundColor: '#00A400',
+      backgroundColor: '#0bb049',
       justifyContent: 'center',
       borderBottomRightRadius: 15,
       borderBottomLeftRadius: 15,

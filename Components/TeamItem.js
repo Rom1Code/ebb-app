@@ -82,13 +82,13 @@ const styles = StyleSheet.create({
     },
     item: {
       fontSize: 18,
-      color: '#00A400',
+      color: '#0bb049',
       //borderRadius:10,
       textAlign: 'center',
     },
     item2: {
       fontSize: 15,
-      color: '#00A400',
+      color: '#0bb049',
       //borderRadius:10,
       textAlign: 'center',
     },

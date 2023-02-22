@@ -45,7 +45,7 @@ import { child, get } from "firebase/database";
   // Hightlight Eckbolsheim team
   const highlightTeam = (team) => {
     if(team.includes('ECKBOLSHEIM')){
-      return <Text style={{color:'#00A400', fontWeight:'bold', fontSize:12}}>{team}</Text>
+      return <Text style={{color:'#0bb049', fontWeight:'bold', fontSize:12}}>{team}</Text>
     }
     else {
       return team
@@ -55,7 +55,7 @@ import { child, get } from "firebase/database";
   // Hightlight the data for Eckbolsheim team
   const highlightData = (team, data) => {
     if(team.includes('ECKBOLSHEIM')){
-      return <Text style={{color:'#00A400', fontWeight:'bold', textAlign:'center', fontSize:12}}>{data}</Text>
+      return <Text style={{color:'#0bb049', fontWeight:'bold', textAlign:'center', fontSize:12}}>{data}</Text>
     }
     else {
       return data
@@ -84,7 +84,7 @@ import { child, get } from "firebase/database";
     return (
     <View style={{ flex: 1 }}>
             { loading  ? 
-        <ActivityIndicator size='large' color='#00A400' style={{ marginTop: 50}}/>
+        <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
       :
         <ScrollView>
          <Table borderStyle={{borderWidth: 1}}>
@@ -104,7 +104,7 @@ import { child, get } from "firebase/database";
 const styles = StyleSheet.create({
   head: { 
     flex: 1, 
-    backgroundColor: '#00A400',
+    backgroundColor: '#0bb049',
     textAlign: 'center',
     color: 'white'
   },
