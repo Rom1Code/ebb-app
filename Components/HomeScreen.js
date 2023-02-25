@@ -5,7 +5,6 @@ import Carousel from 'react-native-reanimated-carousel';
 import { dbRef }  from './GetData'
 import { child, get } from "firebase/database";
 import { ScrollView } from 'react-native-gesture-handler';
-import { BlurView } from 'expo-blur';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 function HomeScreen() {
@@ -33,6 +32,9 @@ function HomeScreen() {
   const arrayActu = actu.map((item)=> item.link)
   // Create an array from the affiche data
   const arrayAffiche= affiche.map((item)=> item.link)
+  const affiche2 = [{link:require('../Ressources/match_affiche.jpg')}]
+
+  const actu2 = [{link:require('../Ressources/annee_80.jpg')}, {link:require('../Ressources/annonce.jpg')}, {link:require('../Ressources/label_or.jpg')}]
 
   // Function called in the modalstatsComponent in order to hide the modal
   const modalVisibleTrigger = () => {
@@ -62,21 +64,24 @@ function HomeScreen() {
         }).catch((error) => {
         });
     }, []);
-  
+
   return (
     <>
       <ScrollView >
         < View style={{backgroundColor:'#0bb049', height:70}}>
         </View>
+
         <Image
           style={styles.icon}
-          source={require('../Ressources/3ebb-logo.png')}
+          source={require('../Ressources/5ebb-logo.png')}
         />
+
         { loading2  ? 
         <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
-      :   <View style={{marginBottom:20}}>
-            <Pressable  onPress={() => {setModalVisible(!modalVisible); setImage(arrayAffiche[0])}}>       
-              <Image  style={{ width: width, height: 400, resizeMode:'contain', marginTop:-3}} source={{uri: arrayAffiche[0]}} />
+      :   <View style={{marginBottom:20, marginTop:-3}}>
+
+            <Pressable  onPress={() => {setModalVisible(!modalVisible); setImage(affiche2[0].link)}}>       
+              <Image  style={{ width: width, height: 400, resizeMode:'contain'}} source={affiche2[0].link} />
             </Pressable>
           </View>}
 
@@ -87,16 +92,12 @@ function HomeScreen() {
         { loading  ? 
         <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
       : <>
-              <View style={{flexDirection:'row', justifyContent:'center', marginBottom: -30}}>
-          {carouselInddex == 0 ? 
-          <Entypo  style={{marginTop:-5}}name="dot-single" color='#0bb049' size={50} />
-          : <Entypo name="dot-single" color='grey' size={40} />}
-          {carouselInddex == 1 ? 
-          <Entypo  style={{marginTop:-5}}name="dot-single" color='#0bb049' size={50} />
-          : <Entypo  name="dot-single" color='grey' size={40} />}
-          {carouselInddex == 2 ? 
-          <Entypo  style={{marginTop:-5}} name="dot-single" color='#0bb049' size={50} />
-          : <Entypo name="dot-single" color='grey' size={40} />}
+
+        <View style={{flexDirection:'row', justifyContent:'center', marginBottom: -30}}>
+          {actu2.map((item, index)=> index == carouselInddex ? 
+          <Entypo key={index} style={{marginTop:-5}}name="dot-single" color='#0bb049' size={50} />
+          : <Entypo key={index} name="dot-single" color='grey' size={40} />
+          )}
         </View>
 
         <Carousel
@@ -106,7 +107,7 @@ function HomeScreen() {
             width={width}
             height={400 }
             autoPlay={true}
-            data={arrayActu}
+            data={actu2}
             scrollAnimationDuration={2000}
             mode='parallax'
             //paralaxScrollingScale={2.9}
@@ -114,8 +115,8 @@ function HomeScreen() {
             pinchGestureEnabled={true}
             onSnapToItem={(index) => setCarouselInddex(index)}
             renderItem={({ item, index }) => (
-                  <Pressable onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>
-                    <Image key={index} style={{  width: width, height: 400,  borderRadius:10, resizeMode:'stretch' }}  source={{uri :item}} />
+                  <Pressable onPress={() => {setModalVisible(!modalVisible); setImage(item.link)}}>
+                    <Image key={index} style={{  width: width, height: 400,  borderRadius:10, resizeMode:'stretch' }}  source={item.link} />
                   </Pressable>
             )}
         />
@@ -132,7 +133,7 @@ function HomeScreen() {
       height: 125,
       alignSelf: 'center',
       position:'absolute', 
-      top:-30,
+      top:-28,
   },
     text: {
         fontSize: 16,

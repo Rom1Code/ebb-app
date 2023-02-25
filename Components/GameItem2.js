@@ -73,7 +73,6 @@ function GameItem2({ navigation, game }) {
         }).catch((error) => {
         });
     }, []);
-
     
     // In order to render presable component if necessary, the code is doubled
     return (
@@ -123,7 +122,7 @@ function GameItem2({ navigation, game }) {
                     <Text>Stats match</Text>
                 </View>
             </Pressable>
-            <Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
+            <Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch, game}})}>
             <View >
                 <Text>Feuille de match</Text>
             </View>

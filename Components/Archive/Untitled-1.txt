@@ -76,3 +76,26 @@ useEffect(() => {
 
               <BlurView  tint="dark" intensity={100} style={{position:'absolute',bottom:5,left:3,  padding: 5, borderRadius:10}}>
               </BlurView>
+
+
+
+  <Carousel
+        style={{border:'none', marginTop:-10}}
+            loop
+            pagingEnabled={true}
+            width={width}
+            height={400 }
+            autoPlay={true}
+            data={arrayActu}
+            scrollAnimationDuration={2000}
+            mode='parallax'
+            //paralaxScrollingScale={2.9}
+            //paralaxScrollingOffset={50}
+            pinchGestureEnabled={true}
+            onSnapToItem={(index) => setCarouselInddex(index)}
+            renderItem={({ item, index }) => (
+                  <Pressable onPress={() => {setModalVisible(!modalVisible); setImage(item)}}>
+                    <Image key={index} style={{  width: width, height: 400,  borderRadius:10, resizeMode:'stretch' }}  source={{uri :item}} />
+                  </Pressable>
+            )}
+        />

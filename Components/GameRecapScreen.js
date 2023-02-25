@@ -1,7 +1,7 @@
 import { StyleSheet, Image, Dimensions,  Modal, View , Text, Pressable} from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import { WebView } from 'react-native-webview';
+import { Table, Row, Rows } from 'react-native-table-component';
 
 // Modal component used in order to display the stats and video of the game the user has cliked
 // 4 props are passed
@@ -20,12 +20,12 @@ function GameRecapScreen({route}) {
   // Return the name of the team that win the game
   const teamWin = () => {
     if(game.score.split('-')[0] > game.score.split('-')[1]){
-        return <Text style={styles.winnerText}><EvilIcons name="trophy" color='gold' size={26}/>
-        Vainqueur {game.dom}<EvilIcons name="trophy" color='gold' size={26}/></Text>
+        return <View style={{height: 30, borderWidth: 1, borderRadius: 10, elevation: 25, backgroundColor:'white', marginHorizontal: 10}}><Text style={styles.winnerText}><EvilIcons name="trophy" color='gold' size={26}/>
+        Vainqueur {game.dom}<EvilIcons name="trophy" color='gold' size={26}/></Text></View>
     }
     else {
-        return <Text style={styles.winnerText}><EvilIcons name="trophy" color='gold' size={26}/>
-        Vainqueur {game.ext}<EvilIcons name="trophy" color='gold' size={26}/></Text>
+        return <View><Text style={styles.winnerText}><EvilIcons name="trophy" color='gold' size={26}/>
+        Vainqueur {game.ext}<EvilIcons name="trophy" color='gold' size={26}/></Text></View>
     }
   }
 
@@ -38,10 +38,7 @@ function GameRecapScreen({route}) {
           <View style={styles.gameDetailsMiddle}>
             <Text style={styles.title}>Stats match</Text>
             <View style={styles.gameDetailsRow1}>
-                <Text style={styles.gameDetailsText}>{game.dom}</Text><Text style={styles.gameDetailsLabel}>vs</Text><Text style={styles.gameDetailsText}>{game.ext}</Text>
-            </View>
-            <View style={styles.gameDetailsRow1}>
-                <Text style={styles.gameDetailsText}>{game.score.split('-')[0]}</Text><Text style={styles.gameDetailsLabel}>Score</Text><Text style={styles.gameDetailsText}>{game.score.split('-')[1]}</Text>
+                <Text style={styles.teamText}>{game.dom}</Text><Text style={styles.gameDetailsLabel}>{game.score.split('-')[0]} - {game.score.split('-')[1]}</Text><Text style={styles.teamText}>{game.ext}</Text>
             </View>
             <View style={styles.gameDetailsRow1}>
                 <Text style={styles.gameDetailsText}>{feuilleDataMatch[0].equipe_dom_LF}</Text><Text style={styles.gameDetailsLabel}>LF</Text><Text style={styles.gameDetailsText}>{feuilleDataMatch[0].equipe_ext_LF}</Text>
@@ -74,7 +71,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign:'center',
-    padding:10
+    padding:10,
+    fontWeight:'bold'
   },
   winnerText: {
     textAlign:'center', 
@@ -94,20 +92,29 @@ const styles = StyleSheet.create({
   },
   gameDetailsRow1: {
     flexDirection: 'row',
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    marginHorizontal: 10
   },
-  gameDetailsText: {
+  teamText: {
     flex: 1,
     fontSize: 14,
     textAlign: 'center',
     fontWeight:'bold',
   },
-  gameDetailsLabel: {
-    flex: 0.7,
+
+  gameDetailsText: {
+    flex: 1,
+    fontSize: 16,
     textAlign: 'center',
     fontWeight:'bold',
+  },
+  gameDetailsLabel: {
+    flex: 0.6,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontWeight:'bold',
     color: 'white',
-    fontSize: 14,
+    fontSize: 16,
     backgroundColor: '#0bb049'
   }
 });

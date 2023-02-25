@@ -10,28 +10,42 @@ import { dbRef }  from './GetData'
 // Screen that display the GameDateBar componenet and list the game in function of date selected
 function GamesScreen({navigation}) {
   // Keep track of the date selected by the user
-  const [selectedDate, setSelectedDate] = useState(getWeekEnd(60)[getWeekEnd(60).length /2])
+  const [selectedDate, setSelectedDate] = useState(getWeekEnd(60)[(getWeekEnd(60).length /2)-1])
   // Get the calendar data for all the team
   const [calendarData, setCalendarData] = useState([])
-  
   // Keep track if data is loading or not
   const [loading, setLoading] = useState(true)
 
-  // Fetch the data for the date selected
+  // initialize an array with all the game
   const calendarDataArray = []
-
-  // !!!mettre sur une ligne comme pour gameItem
   Object.keys(calendarData).map((key)=>calendarData[key].map((item)=> calendarDataArray.push(item)))
-  const gameListPlayed = calendarDataArray.filter((item) => item.date == selectedDate)
 
-  // Array ordered by date
+  // Initalize an array with all the game in the selected date
+  const gameListPlayed = calendarDataArray.filter((item) => item.date == selectedDate)
+  // Array ordered by hour
   const gameListPlayedSorted = gameListPlayed.sort((a ,b) => a.heure.substring(0,2) - b.heure.substring(0,2))
 
   // Get and return the number of game for the selected date
   const nbGame = (date) => {
     const gamesList = calendarDataArray.filter((item) => item.date == date)
-  return gamesList.length
+    return gamesList.length
   }
+
+  // ---For the gameDateBar---
+
+  // Initialize and sort an array with all the date with a game
+  const dateList =[]
+  Object.keys(calendarData).map((key)=>calendarData[key].map((item)=> dateList.push(item.date)))
+  let dateListFinal = [...new Set(dateList)];
+
+  // Sort the date array
+  dateListFinal.sort(function(a,b) {
+    a = a.split('/').reverse().join('');
+    b = b.split('/').reverse().join('');
+    return a > b ? 1 : a < b ? -1 : 0;
+  });
+
+  // ---End---
 
   // Set selectedData variable with selected date
   const dateTrigger = (date) => {
@@ -53,12 +67,11 @@ function GamesScreen({navigation}) {
       console.error(error);
       });}
   }, [loading]);
-  
 
   return (
     <>
     <View>
-      <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame}/>
+      <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame} dateArray={dateListFinal}/>
     </View>
     <SafeAreaView style={{flex:1}}>
         { loading  ? 

@@ -12,7 +12,6 @@ function ModalComponent({visible, image, modalVisibleTrigger}) {
   // Get the width and height of the phone used
   const width = Dimensions.get('window').width;
   const height = Dimensions.get('window').height;
-
     return(
         <Modal
         animationType="fade"
@@ -34,7 +33,7 @@ function ModalComponent({visible, image, modalVisibleTrigger}) {
                 <View style={{top:height*0.1, left:width*0.1, width:width*0.8, height: height*0.7 , resizeMode:'contain', backgroundColor:'white', justifyContent:'center', alignItems:'center', borderRadius:10, elevation:20}}>
                   <Image
                     style={{width:width*0.6, height: height *0.6, resizeMode:'contain'}}
-                    source={{uri: image}}
+                    source={image}
                   />
                 </View>
             </ImageZoom>

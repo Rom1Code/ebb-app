@@ -2,7 +2,6 @@ import { StyleSheet, Pressable, Text, View } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
-import { WebView } from 'react-native-webview';
 
   // Screen that display the the stats for the two time
  function GameStatsScreen({route}) { 
@@ -11,7 +10,7 @@ import { WebView } from 'react-native-webview';
   const [tabPressed, setTabPressed] = useState(1);
   // Get the data passed in the props
   const match = route.params.match.feuilleDataMatch
-
+  const score = route.params.match.game.score
   // Set the head for the table
   const tableHead =['Num','Nom', 'Pts', 'LF', '2PTS int', '2PTS ext', '3PTS']
 
@@ -49,8 +48,14 @@ import { WebView } from 'react-native-webview';
     [match[0].joueur7Num_dom, match[0].joueur7Nom_dom, onFire("dom", match[0].joueur7PTS_dom), match[0].joueur7_LF_dom, match[0].joueur7_2PTS_int_dom, match[0].joueur7_2PTS_ext_dom, match[0].joueur7_3PTS_dom],
     [match[0].joueur8Num_dom, match[0].joueur8Nom_dom, onFire("dom", match[0].joueur8PTS_dom), match[0].joueur8_LF_dom, match[0].joueur8_2PTS_int_dom, match[0].joueur8_2PTS_ext_dom, match[0].joueur8_3PTS_dom],
     [match[0].joueur9Num_dom, match[0].joueur9Nom_dom, onFire("dom", match[0].joueur9PTS_dom), match[0].joueur9_LF_dom, match[0].joueur9_2PTS_int_dom, match[0].joueur9_2PTS_ext_dom, match[0].joueur9_3PTS_dom],
-    [match[0].joueur10Num_dom, match[0].joueur10Nom_dom, onFire("dom", match[0].joueur10PTS_dom), match[0].joueur10_LF_dom, match[0].joueur10_2PTS_int_dom, match[0].joueur10_2PTS_ext_dom, match[0].joueur10_3PTS_dom]
+    [match[0].joueur10Num_dom, match[0].joueur10Nom_dom, onFire("dom", match[0].joueur10PTS_dom), match[0].joueur10_LF_dom, match[0].joueur10_2PTS_int_dom, match[0].joueur10_2PTS_ext_dom, match[0].joueur10_3PTS_dom, ]
   ]
+
+  // Set the footer for the table
+  const tableFoot_dom =['','TOTAL', score.split('-')[0], match[0].equipe_dom_LF, match[0].equipe_dom_2PTS_int, match[0].equipe_dom_2PTS_ext, match[0].equipe_dom_3PTS]
+  // Set the footer for the table
+  const tableFoot_ext =['','TOTAL', score.split('-')[1], match[0].equipe_ext_LF, match[0].equipe_ext_2PTS_int, match[0].equipe_ext_2PTS_ext, match[0].equipe_ext_3PTS]
+
 
   // Set the data table for ext team
   const tableData_ext = [
@@ -68,7 +73,7 @@ import { WebView } from 'react-native-webview';
 
     return (
       <>
-        <View style={{ flex: 1, marginBottom: 220 }}>
+        <View style={{ flex: 1 }}>
           <View  style={styles.tabContainer}> 
             {tabPressed == 1 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></Pressable></View>
               : <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></Pressable></View>
@@ -77,18 +82,29 @@ import { WebView } from 'react-native-webview';
               : <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></Pressable></View>
             }
           </View>
-          <View>
+          <View style={{height: 385}}>
             {tabPressed == 1 ? 
             <Table borderStyle={{borderWidth: 1}}>
-              <Row data={tableHead} flexArr={[1, 3, 2]} style={styles.head} textStyle={styles.textHead}/>
-              <Rows data={tableData_dom} flexArr={[1, 3, 2]} style={styles.row} textStyle={styles.text}/>
-            </Table>
+              <Row data={tableHead} flexArr={[1, 3, 1, 1, 1, 1, 1]} style={styles.head} textStyle={styles.textHead}/>
+              <Rows data={tableData_dom} flexArr={[1, 3, 1, 1, 1, 1, 1]} style={styles.row} textStyle={styles.text}/>
+             </Table>
             :
             <Table borderStyle={{borderWidth: 1 }}>
-              <Row data={tableHead} flexArr={[1, 3, 2]} style={styles.head} textStyle={styles.textHead}/>
-              <Rows data={tableData_ext} flexArr={[1, 3, 2]} style={styles.row} textStyle={styles.text}/>
+              <Row data={tableHead} flexArr={[1, 3, 1, 1, 1, 1, 1]} style={styles.head} textStyle={styles.textHead}/>
+              <Rows data={tableData_ext} flexArr={[1, 3, 1, 1, 1, 1, 1]} style={styles.row} textStyle={styles.text}/>
             </Table>}
           </View>
+          <View >
+            {tabPressed == 1 ? 
+            <Table borderStyle={{borderWidth: 1}}>
+              <Row data={tableFoot_dom} flexArr={[1, 3, 1, 1, 1, 1, 1]} style={styles.footer} textStyle={styles.textFooter}/>
+            </Table>
+            :
+            <Table borderStyle={{borderWidth: 1}}>
+              <Row data={tableFoot_ext} flexArr={[1, 3, 1, 1, 1, 1, 1]} style={styles.footer} textStyle={styles.textFooter}/>
+            </Table>}
+          </View>
+
         </View>
       </>
     );
@@ -133,6 +149,7 @@ const styles = StyleSheet.create({
   },
   head: { 
     backgroundColor: '#0bb049',
+    height: 35 
   },
   row: {  
     height: 35 
@@ -144,16 +161,17 @@ const styles = StyleSheet.create({
     color: 'white', 
     textAlign: 'center',
     fontWeight: 'bold'
-
   },
-  title: {
-    fontSize:15,
+  footer: { 
+    backgroundColor: '#0bb049',
+    heigth: 35,
+  },
+  textFooter: { 
+    color: 'white', 
     textAlign: 'center',
-    paddingBottom:5,
-    position: 'relative',
-    top:-10,
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
+
 })
 
 export default GameStatsScreen

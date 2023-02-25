@@ -76,11 +76,12 @@ import Entypo from 'react-native-vector-icons/Entypo';
       return <><Text style={styles.text}>{score}</Text></>
     }
   }
-
-  const feuilleMatch = (numMatch) => {
-    const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == numMatch )
+  // Declare game = match in order to correspond with the gameItem2.js file when we navigate to the GameStatsScreen
+  const feuilleMatch = (match) => {
+    const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == match.match )
+    const game = match
     if(feuilleDataMatch.length == 1 ) {
-      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
+      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch, game }})}>
             <Text style={styles.text}>feuille de match</Text>
         </TouchableOpacity>
     }
@@ -99,7 +100,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 
   // Set an array with the data that will be read for the table
-  const tableData= calendarData.map((row) => [row.match,row.date, highlightTeam(row.dom), highlightTeam(row.ext), score_or_hour(row.score, row.heure), win_loose(row.score, row.dom, row.ext), feuilleMatch(row.match), recapMatch(row)])
+  const tableData= calendarData.map((row) => [row.match,row.date, highlightTeam(row.dom), highlightTeam(row.ext), score_or_hour(row.score, row.heure), win_loose(row.score, row.dom, row.ext), feuilleMatch(row), recapMatch(row)])
 
   
   // Fetch the calendar for the team and the stats for all the game played

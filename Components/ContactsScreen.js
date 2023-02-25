@@ -22,7 +22,6 @@ function ContactsScreen({navigation}) {
             </Pressable>
           </View>
         </View>
-
         <View style={styles.container_2} >
           <Text style={styles.title}>Réseaux sociaux</Text>
           <View style={styles.data_container_2}>
