@@ -20,6 +20,17 @@ function GamesScreen({navigation}) {
   const calendarDataArray = []
   Object.keys(calendarData).map((key)=>calendarData[key].map((item)=> calendarDataArray.push(item)))
 
+  const lastDate = []
+  Object.keys(calendarData).map((key)=>calendarData[key].map((item)=> lastDate.push(item)))
+  const lastDateSort = lastDate.sort(function(a,b) {
+    a = a.date.split('/').reverse().join('');
+    b = b.date.split('/').reverse().join('');
+    return a > b ? 1 : a < b ? -1 : 0;
+  });
+ const lastDateSortFinal = lastDateSort.filter((item)=> item.score != '-').map((item)=> item.date)
+ const lastDateSortFinal2 = [...new Set(lastDateSortFinal)];
+  console.log(lastDateSortFinal2.length)
+
   // Initalize an array with all the game in the selected date
   const gameListPlayed = calendarDataArray.filter((item) => item.date == selectedDate)
   // Array ordered by hour

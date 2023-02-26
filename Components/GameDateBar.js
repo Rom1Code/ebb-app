@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 // dateTrigger : function used in this componenent and declare in GameScreen - set the selectedDate
 // nbGame : nb game for the selected date
 function GameDateBar({selectedDate, dateTrigger, nbGame, dateArray}) {
-  
+//console.log(dateArray.indexOf(selectedDate))
   // Return the name of the day
   const dateName = (date) => {
     date = date.split('/')[1] + "/" + date.split('/')[0] + "/" + date.split('/')[2];
@@ -16,10 +16,13 @@ function GameDateBar({selectedDate, dateTrigger, nbGame, dateArray}) {
   }
   
     return(
-        <FlatList style={styles.container} horizontal={true}
+        <FlatList horizontal={true}
           data={dateArray}
           keyExtractor={(index) => index}
-          //initialScrollIndex={dateArray.length -1}
+          getItemLayout={(data, index) => (
+            {length: 65, offset: 65 * index, index}
+          )}
+          initialScrollIndex={dateArray.indexOf(selectedDate)-2}
           renderItem={({item, index}) =>
             item == selectedDate ? 
             <Pressable android_ripple={{ color: '#0bb049' }} style={styles.touch} onPress={() => dateTrigger(item)}>
@@ -42,9 +45,6 @@ function GameDateBar({selectedDate, dateTrigger, nbGame, dateArray}) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    height:65,
-  },
     dateContainer: {
       padding: 2,
       borderWidth: 0.5,
