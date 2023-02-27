@@ -11,76 +11,63 @@ import { dbRef }  from './GetData'
 function GamesScreen({navigation}) {
   // Keep track if data is loading or not
   const [loading, setLoading] = useState(true)
-  // Keep track of the last date with a game has been played
-  const [dateNextDayIndex, setDateNextDayIndex] = useState(0)
   // keep track of the list of the date with minimum one game
   const [listDate, setListDate] = useState([])
   // Keep track of the date selected by the user
-  const [selectedDate, setSelectedDate] = useState(listDate[dateNextDayIndex])
+  const [selectedDate, setSelectedDate] = useState('')
   // Keep track of the list of the game played in the selected date
   const [gameListOfTheDay, setGameListOfTheDay] = useState([])
 
+  const [calendarData, setCalendarData] = useState([])
   // Return all the game in the selected date
   const getGameListOfTheDay = (data) => {
+    let date = ''
+    if(selectedDate == ''){
+      console.log('init date')
+      date = InitSelectedDate(data)
+    }
+    else {
+      console.log('change date')
+
+      date = selectedDate
+    }
     // Initalize an array with all the game in the selected date
-    //const gameListPlayed = Object.keys(data).map((key)=>data[key].map((item)=> item.filter((item2) => item2.date == selectedDate))).map((item3)=> item3)
-    const gameListPlayed = Object.keys(data).map((key)=>data[key].map((item)=> item.filter((item2) => item2.date == selectedDate)))
-    console.log('gameListPlayed', gameListPlayed)
-    //const gameListPlayed = []
-    //Object.keys(data).map((key)=>data[key].map((item)=> item.filter((item2) => item2.date == selectedDate? gameListPlayed.push(item2) : null)))
+    const gameListPlayed = data.filter((item) => item.date == date).map((item2) =>item2)
     // Array ordered by hour
     const gameListPlayedSorted = gameListPlayed.sort((a ,b) => a.heure.substring(0,2) - b.heure.substring(0,2))
     setGameListOfTheDay(gameListPlayedSorted)
-    console.log('GameListOfTheDay', gameListPlayedSorted)
   }
 
   // Return the index of the last day played
-  const getDateNextDayIndex= (data) => {
-    //const dateListWithGamePlayed = Object.keys(data).map((key)=>data[key].map((item)=> item.filter((item2) =>  item2.score != '-' ))).map((item3)=> item3.date)
-    const dateListWithGamePlayed = Object.keys(data).map((key)=>data[key].map((item)=> item.filter((item2) =>  item2.score != '-' )))
-    console.log('dateListWithGamePlayed', dateListWithGamePlayed)
-    //const dateListWithGamePlayed = []
-    //Object.keys(data).map((key)=>data[key].map((item)=> item.filter((item2) =>  item2.score != '-' ? dateListWithGamePlayed.push(item2) : null
+  const InitSelectedDate = (data) => {
+    // Initalize an array with all the game in the selected date
+    const dateListWithGamePlayed = data.filter((item) => item.score != '-').map((item)=>item.date)
     // Delete doublon
     const dateListWithGamePlayedFinal = [...new Set(dateListWithGamePlayed)];
     // Sort by date
     dateListWithGamePlayedFinal.sort(function(a,b) {
-      a = a.date.split('/').reverse().join('');
-      b = b.date.split('/').reverse().join('');
+      a = a.split('/').reverse().join('');
+      b = b.split('/').reverse().join('');
       return a > b ? 1 : a < b ? -1 : 0;
     });
-    //const lastDateSortFinal = lastDateSort.filter((item)=> item.score != '-').map((item)=> item.date)
-    setDateNextDayIndex(dateListWithGamePlayedFinal.lenght -1)
-    console.log('dateListWithGamePlayedFinal',dateListWithGamePlayedFinal.length - 1)
-  }
-
-  // Get and return the number of game for the selected date
-  const nbGame = (date) => {
-    //const gamesList = Object.keys(data).map((key)=>data[key].map((item)=> item.filter((item2) => item2.date == date ))).map((item3)=> item3)
-    const gamesList = Object.keys(data).map((key)=>data[key].map((item)=> item.filter((item2) => item2.date == date )))
-
-    //const gamesList = []
-    //Object.keys(data).map((key)=>data[key].map((item)=> item.filter((item2) => item2.date == date ? gamesList.push(item2) : null)))
-    return gamesList.length
+    setSelectedDate(dateListWithGamePlayedFinal[dateListWithGamePlayedFinal.length -1])
+    return dateListWithGamePlayedFinal[dateListWithGamePlayedFinal.length -1]
   }
 
   // ---For the gameDateBar---
-const getListDate = (data) => {
-  // Initialize and sort an array with all the date with a game
-  const dateList = Object.keys(data).map((key)=>data[key].map((item)=> item.date))
-
-  //const dateList =[]
-  //Object.keys(data).map((key)=>data[key].map((item)=> dateList.push(item.date)))
-  // Delete double
-  let dateListFinal = [...new Set(dateList)];
-  // Sort the date array
-  dateListFinal.sort(function(a,b) {
-    a = a.split('/').reverse().join('');
-    b = b.split('/').reverse().join('');
-    return a > b ? 1 : a < b ? -1 : 0;
-  });
-  setListDate(dateListFinal)
-}
+  const getListDate = (data) => {
+    // Initialize and sort an array with all the date with a game
+    const dateList = data.map((item) =>  item.date)
+    // Delete double
+    let dateListFinal = [...new Set(dateList)];
+    // Sort the date array
+    dateListFinal.sort(function(a,b) {
+      a = a.split('/').reverse().join('');
+      b = b.split('/').reverse().join('');
+      return a > b ? 1 : a < b ? -1 : 0;
+    });
+    setListDate(dateListFinal)
+  }
 
 
   // Set selectedData variable with selected date
@@ -89,15 +76,25 @@ const getListDate = (data) => {
     setLoading(true)
   }
 
+  // Get and return the number of game for the selected date
+  const nbGame = (date) => {
+    const gamesList = calendarData.filter((item)=> item.date == date ).map((item2) => item2)
+    return gamesList.length
+  }
+  
   // Get the data from the 'calendrier' node in the Firebase realtimebase and save it to calendarData variable
   useEffect(() => {
     if(loading){
+      console.log('use')
+
       get(child(dbRef, 'calendrier/')).then((snapshot) => {
       if (snapshot.exists()) {
-        //setCalendarData(snapshot.val());
-        getListDate(snapshot.val())
-        getDateNextDayIndex(snapshot.val())
-        getGameListOfTheDay(snapshot.val())
+        const result = snapshot.val()
+        const resultArray = []
+        Object.keys(result).map((key)=>result[key].map((item)=> resultArray.push(item)))
+        setCalendarData(resultArray);
+        getListDate(resultArray)
+        getGameListOfTheDay(resultArray)
         setLoading(false)
       } else {
           console.log("No data available");
@@ -107,10 +104,11 @@ const getListDate = (data) => {
       });}
   }, [loading]);
 
+
   return (
     <>
     <View>
-      <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame} dateArray={dateListFinal}/>
+      <GameDateBar selectedDate={selectedDate} dateTrigger={dateTrigger} nbGame={nbGame} dateArray={listDate}/>
     </View>
     <SafeAreaView style={{flex:1}}>
         { loading  ? 

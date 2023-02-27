@@ -87,9 +87,9 @@ import { child, get } from "firebase/database";
         <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
       :
         <ScrollView>
-         <Table borderStyle={{borderWidth: 1}}>
-            <Row data={tableHead} flexArr={[1, 6, 1, 1]} style={styles.head}  textStyle={styles.textHead}/>
-            <Rows data={tableData} flexArr={[1, 6, 1, 1]} style={styles.row} textStyle={styles.text}/>
+         <Table borderStyle={{borderWidth: 0.5}}>
+            <Row data={tableHead} flexArr={[1, 8, 1.5, 1.5, 1.5, 1.5, 2, 2, 2]} style={styles.head}  textStyle={styles.textHead}/>
+            <Rows data={tableData} flexArr={[1, 8, 1.5, 1.5, 1.5, 1.5, 2, 2, 2]} style={styles.row} textStyle={styles.text}/>
          </Table>
          <View style={styles.legende}>
           <Text><FontAwesome name="fire" color='orange'  /> : Meilleur attaque</Text>
@@ -106,18 +106,20 @@ const styles = StyleSheet.create({
     flex: 1, 
     backgroundColor: '#0bb049',
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
+    height:30
   },
   row: {  
-    height: 35  }
+    height: 45  }
     ,
   text: { 
     textAlign: 'center',
-    fontSize: 10
+    fontSize: 12
   },
   textHead: { 
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
+    fontWeight: 'bold'
   },
   icon: {
     height:5,

@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
 // dateTrigger : function used in this componenent and declare in GameScreen - set the selectedDate
 // nbGame : nb game for the selected date
 function GameDateBar({selectedDate, dateTrigger, nbGame, dateArray}) {
-//console.log(dateArray.indexOf(selectedDate))
+  
   // Return the name of the day
   const dateName = (date) => {
     date = date.split('/')[1] + "/" + date.split('/')[0] + "/" + date.split('/')[2];

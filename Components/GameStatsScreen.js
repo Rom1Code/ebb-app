@@ -11,6 +11,9 @@ import { useState } from 'react';
   // Get the data passed in the props
   const match = route.params.match.feuilleDataMatch
   const score = route.params.match.game.score
+  const team_dom =route.params.match.game.dom
+  const team_ext =route.params.match.game.ext
+
   // Set the head for the table
   const tableHead =['Num','Nom', 'Pts', 'LF', '2PTS int', '2PTS ext', '3PTS']
 
@@ -75,11 +78,11 @@ import { useState } from 'react';
       <>
         <View style={{ flex: 1 }}>
           <View  style={styles.tabContainer}> 
-            {tabPressed == 1 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabPressed} ><Text style={styles.tabPressedText}>Domicile</Text></Pressable></View>
-              : <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>Domicile</Text></Pressable></View>
+            {tabPressed == 1 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabPressed} ><Text style={styles.tabPressedText}>{team_dom}</Text></Pressable></View>
+              : <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(1)} ><Text style={styles.tabText}>{team_dom}</Text></Pressable></View>
             }
-            {tabPressed == 2 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabPressed}><Text style={styles.tabPressedText}>Visiteur</Text></Pressable></View>
-              : <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>Visiteur</Text></Pressable></View>
+            {tabPressed == 2 ? <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabPressed}><Text style={styles.tabPressedText}>{team_ext}</Text></Pressable></View>
+              : <View style={styles.tab}><Pressable android_ripple={{ color: '#0bb049' }} style={styles.tabNotPressed} onPress={()=>setTabPressed(2)} ><Text style={styles.tabText}>{team_ext}</Text></Pressable></View>
             }
           </View>
           <View style={{height: 385}}>
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
     },
   tab: {
     flex:1, 
-    borderRadius:10, 
+    borderRadius:5, 
     overflow: 'hidden'
   },
   tabNotPressed: {
@@ -133,19 +136,18 @@ const styles = StyleSheet.create({
     color: '#0bb049',
     },
   tabText: {
-    fontSize: 16,
+    fontSize: 14,
     textAlign: 'center',
-    height:30,
+    height:40,
     color:'grey'
   },
   tabPressedText: {
-    fontSize: 16,
+    fontSize: 14,
     textAlign: 'center',
-    height:30,
+    height:40,
     color: '#0bb049',
     borderBottomWidth: 3,
     borderBottomColor:'#0bb049',
-    marginHorizontal:50
   },
   head: { 
     backgroundColor: '#0bb049',

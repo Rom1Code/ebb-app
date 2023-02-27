@@ -134,11 +134,11 @@ import Entypo from 'react-native-vector-icons/Entypo';
       :
         <ScrollView horizontal={true}>     
         <View> 
-          <Table borderStyle={{borderWidth: 1}}>
+          <Table borderStyle={{borderWidth: 0.5}}>
             <Row data={tableHead} widthArr={widthArr} style={styles.head}  textStyle={styles.textHead}/>
           </Table>
           <ScrollView>
-            <Table borderStyle={{borderWidth: 1}}>
+            <Table borderStyle={{borderWidth: 0.5}}>
               <Rows data={tableData}  widthArr={widthArr}style={styles.row} textStyle={styles.text}/>
             </Table>
           </ScrollView>
@@ -152,6 +152,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 const styles = StyleSheet.create({
   head: { 
     backgroundColor: '#0bb049',
+    height:30
   },
   row: {  
     height: 50,
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
   },
   text: { 
     textAlign: 'center',
-    fontSize: 10,
+    fontSize: 11,
     padding: 5
 
   },
