@@ -17,18 +17,14 @@ function GamesScreen({navigation}) {
   const [selectedDate, setSelectedDate] = useState('')
   // Keep track of the list of the game played in the selected date
   const [gameListOfTheDay, setGameListOfTheDay] = useState([])
-
   const [calendarData, setCalendarData] = useState([])
   // Return all the game in the selected date
   const getGameListOfTheDay = (data) => {
     let date = ''
     if(selectedDate == ''){
-      console.log('init date')
       date = InitSelectedDate(data)
     }
     else {
-      console.log('change date')
-
       date = selectedDate
     }
     // Initalize an array with all the game in the selected date
@@ -85,15 +81,15 @@ function GamesScreen({navigation}) {
   // Get the data from the 'calendrier' node in the Firebase realtimebase and save it to calendarData variable
   useEffect(() => {
     if(loading){
-      console.log('use')
-
       get(child(dbRef, 'calendrier/')).then((snapshot) => {
       if (snapshot.exists()) {
         const result = snapshot.val()
         const resultArray = []
         Object.keys(result).map((key)=>result[key].map((item)=> resultArray.push(item)))
         setCalendarData(resultArray);
-        getListDate(resultArray)
+        if(listDate.length == 0){
+          getListDate(resultArray)
+        }
         getGameListOfTheDay(resultArray)
         setLoading(false)
       } else {
@@ -118,6 +114,8 @@ function GamesScreen({navigation}) {
           data={gameListOfTheDay}
           keyExtractor={(item,index)=>index}
           ListEmptyComponent={()=> <Text style={styles.noGame}>Pas de match</Text>}
+          refreshing={false}
+          onRefresh={()=> setLoading(true)}
           renderItem={({item}) =>
           <GameItem2 navigation={navigation} game={item}/>}
         />      

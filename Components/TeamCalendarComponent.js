@@ -1,10 +1,9 @@
 import { StyleSheet, TouchableOpacity, Text, View, ScrollView, ActivityIndicator } from 'react-native';
 import { Table, Row, Rows } from 'react-native-table-component';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Entypo from 'react-native-vector-icons/Entypo';
 import { dbRef }  from './GetData'
 import { useEffect, useState } from 'react';
 import { child, get } from "firebase/database";
-import Entypo from 'react-native-vector-icons/Entypo';
 
  // Team calendar component that show calendar for one team
  // 1 prop is passed
@@ -18,71 +17,16 @@ import Entypo from 'react-native-vector-icons/Entypo';
   const [loading, setLoading] = useState(true)
 
   // Define an array with the head label
-  const tableHead =['#','Date', 'Dom', 'Ext', 'Score', 'G/P', '', '']
+  const tableHead =['#','Date', 'Lieu', 'Adversaire', 'Score', 'Stats', 'Recap']
 
-  // Display the score and an icon if data for the game exist
-  const statsExist = (numMatch, score) => {
-    const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == numMatch )
-    if(feuilleDataMatch.length == 1 && feuilleDataMatch[0].url_video !='') {
-      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
-            <Text style={styles.text}>{score}</Text>
-            <Text style={styles.text}><FontAwesome name="table" color='black'/> <Entypo name="video" color='black'/></Text>
-        </TouchableOpacity>
-    }
-    else if(feuilleDataMatch.length == 1) {
-      return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch}})}>
-            <Text style={styles.text}>{score}</Text>
-            <Text style={styles.text}><FontAwesome name="table" color='black'/></Text>
-        </TouchableOpacity>
-    }
-    else{
-      return <Text style={styles.text}>{score}</Text>
-    }
-  }
 
-  // Return Eckbolsheim team in bold
-  const highlightTeam = (team) => {
-    if(team.includes('ECKBOLSHEIM')){
-      return <Text style={styles.highlightText}>{team}</Text>
-    }
-    else {
-      return team
-    }
-  }
-
-  // Return G or P in order the team win or lose the game
-  const win_loose = (score, dom, ext) => {
-    const score_dom = score.split('-')[0]
-    const score_ext = score.split('-')[1]
-    if(parseInt(score_dom) > parseInt(score_ext) && dom.includes('ECKBOLSHEIM')){
-      return <><Text style={styles.winText}>V</Text></>
-    }
-    else if(parseInt(score_dom) < parseInt(score_ext) && ext.includes('ECKBOLSHEIM')){
-      return <><Text style={styles.winText}>V</Text></>
-    }
-    else if(score == '-'){
-      return <><Text></Text></>
-    }
-    else{
-      return <><Text style={styles.loseText}>D</Text></>
-    }
-  }
-
-  const score_or_hour = (score, hour) => {
-    if(score == '-'){
-      return <><Text style={styles.text}>{hour.replace(':','h')}</Text></>
-    }
-    else{
-      return <><Text style={styles.text}>{score}</Text></>
-    }
-  }
   // Declare game = match in order to correspond with the gameItem2.js file when we navigate to the GameStatsScreen
   const feuilleMatch = (match) => {
     const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == match.match )
     const game = match
     if(feuilleDataMatch.length == 1 ) {
       return <TouchableOpacity onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch, game }})}>
-            <Text style={styles.text}>feuille de match</Text>
+            <Entypo name="check" color='green' size={20} style={{textAlign:'center'}}/>
         </TouchableOpacity>
     }
   }
@@ -91,16 +35,34 @@ import Entypo from 'react-native-vector-icons/Entypo';
     const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == game.match )
     if(feuilleDataMatch.length == 1) {
       return <TouchableOpacity onPress={() => navigation.navigate('Recap Match', {match: {game, feuilleDataMatch}})}>
-            <Text style={styles.text}>Recap match</Text>
+            <Entypo name="check" color='green' size={20} style={{textAlign:'center'}}/>
         </TouchableOpacity>
     }
   }
 
-  const widthArr= [25, 70, 120, 120, 50, 40, 60, 60]
+  const adversaire = (game) => {
+    if(game.dom.includes('ECKBOLSHEIM')) {
+      return <Text style={styles.text}>{game.ext}</Text>
+    }
+    else {
+      return <Text style={styles.text}>{game.dom}</Text>
+    }
+  }
 
+  const lieu = (game) => {
+    if(game.dom.includes('ECKBOLSHEIM')) {
+      return <Text style={styles.text}>Ext</Text>
+    }
+    else {
+      return <Text style={styles.text}>Dom</Text>
+    }
+  }
+
+  //const widthArr= [20, 70, 50, 120, 50, 30, 30]
+  const flexArr=[0.75, 2.5, 1.5, 4, 2, 1.5, 1.5]
 
   // Set an array with the data that will be read for the table
-  const tableData= calendarData.map((row) => [row.match,row.date, highlightTeam(row.dom), highlightTeam(row.ext), score_or_hour(row.score, row.heure), win_loose(row.score, row.dom, row.ext), feuilleMatch(row), recapMatch(row)])
+  const tableData= calendarData.map((row) => [row.match,row.date + ' ' + row.heure, lieu(row),adversaire(row), row.score, feuilleMatch(row), recapMatch(row)])
 
   
   // Fetch the calendar for the team and the stats for all the game played
@@ -132,18 +94,17 @@ import Entypo from 'react-native-vector-icons/Entypo';
                     { loading  ? 
         <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
       :
-        <ScrollView horizontal={true}>     
         <View> 
           <Table borderStyle={{borderWidth: 0.5}}>
-            <Row data={tableHead} widthArr={widthArr} style={styles.head}  textStyle={styles.textHead}/>
+            <Row data={tableHead} flexArr={flexArr} style={styles.head}  textStyle={styles.textHead}/>
           </Table>
           <ScrollView>
             <Table borderStyle={{borderWidth: 0.5}}>
-              <Rows data={tableData}  widthArr={widthArr}style={styles.row} textStyle={styles.text}/>
+              <Rows data={tableData}  flexArr={flexArr}style={styles.row} textStyle={styles.text}/>
             </Table>
           </ScrollView>
         </View>
-        </ScrollView> }
+         }
       </View>
     );
 }

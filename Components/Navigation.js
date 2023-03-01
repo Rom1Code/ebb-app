@@ -1,9 +1,11 @@
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import HomeScreen from './HomeScreen';
-import ContactsScreen from './ContactsScreen';
+import OthersScreen from './OthersScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Entypo from 'react-native-vector-icons/Entypo';
+
 import GamesStackScreen from './GamesStackScreen';
 import TeamsStackScreen from './TeamsStackScreen';
 
@@ -41,12 +43,12 @@ function Navigation() {
             <AntDesign name="team" color={color} size={24} />
           ),
         }}/>
-      <Tab.Screen name="Contacts" component={ContactsScreen} options={{
-          tabBarLabel: 'Contacts',
+      <Tab.Screen name="Autres" component={OthersScreen} options={{
+          tabBarLabel: 'Autres',
           headerShown:false,
           headerTintColor:'#0bb049',
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="form" color={color} size={24} />
+            <Entypo name="dots-three-horizontal" color={color} size={24} />
           ),
         }}/>
     </Tab.Navigator>

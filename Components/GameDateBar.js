@@ -61,13 +61,15 @@ const styles = StyleSheet.create({
       padding: 2,
       height:65,
       width: 65,
-      backgroundColor: '#0bb049',
+      //olor: '#0bb049',
       justifyContent: 'center',
-      borderBottomRightRadius: 15,
-      borderBottomLeftRadius: 15,
+      //borderBottomRightRadius: 15,
+      //borderBottomLeftRadius: 15,
+      borderWidth: 0.5,
+
     },
     textSelected: {
-      color: 'white',
+      color: '#0bb049',
       fontSize: 12,
       textAlign: 'center',
     }
