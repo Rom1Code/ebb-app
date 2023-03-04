@@ -58,11 +58,32 @@ import { child, get } from "firebase/database";
     }
   }
 
+  // Display green or red score in order if Eckbolshein win or not
+  const highlighWin = (game) => {
+    const score_dom = game.score.split('-')[0]
+    const score_ext = game.score.split('-')[1]
+    const dom = game.dom
+    const ext = game.ext
+    if(parseInt(score_dom) > parseInt(score_ext) && dom.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#0bb049', textAlign:'center'}}>{score_dom}-{score_ext}</Text></>
+    }
+    else if(parseInt(score_dom) < parseInt(score_ext) && ext.includes('ECKBOLSHEIM')){
+      return <><Text style={{color:'#0bb049', textAlign:'center'}}>{score_dom}-{score_ext}</Text></>
+    }
+    else if(game.score == '-') {
+      return <><Text style={{color:'black', textAlign:'center'}}>{game.score}</Text></>
+    }
+    else{
+      return <><Text style={{color:'red', textAlign:'center'}}>{score_dom}-{score_ext}</Text></>
+    }
+  }
+  
+
   //const widthArr= [20, 70, 50, 120, 50, 30, 30]
   const flexArr=[0.75, 2.5, 1.5, 4, 2, 1.5, 1.5]
 
   // Set an array with the data that will be read for the table
-  const tableData= calendarData.map((row) => [row.match,row.date + ' ' + row.heure, lieu(row),adversaire(row), row.score, feuilleMatch(row), recapMatch(row)])
+  const tableData= calendarData.map((row) => [row.match,row.date + ' ' + row.heure, lieu(row),adversaire(row), highlighWin(row), feuilleMatch(row), recapMatch(row)])
 
   
   // Fetch the calendar for the team and the stats for all the game played
