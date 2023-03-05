@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1026847269649",
+    "firebase_url": "https://ebb-app-32a47-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ebb-app-32a47",
+    "storage_bucket": "ebb-app-32a47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026847269649:android:4ba2c6ad3c4d7024c662b0",
+        "android_client_info": {
+          "package_name": "com.ebbapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026847269649-aip4iohnkmmb897lt9424ld93p7hpnjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_9AAv8TJos-u25aMGtV4xC9p-PUNtt0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026847269649-aip4iohnkmmb897lt9424ld93p7hpnjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

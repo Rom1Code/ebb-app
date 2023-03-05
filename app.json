@@ -28,7 +28,8 @@
         "foregroundImage": "./Ressources/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.rom1code.ebbapp"
+      "package": "com.rom1code.ebbapp",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
