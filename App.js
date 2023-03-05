@@ -84,12 +84,6 @@ async function schedulePushNotification() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={'#0bb049'}/>
-      <Button
-        title="Press to schedule a notification"
-        onPress={async () => {
-          await schedulePushNotification();
-        }}
-      />
       <Navigation />
     </NavigationContainer>
   );
