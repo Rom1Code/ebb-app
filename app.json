@@ -41,6 +41,15 @@
     "owner": "rom1code",
     "runtimeVersion": {
       "policy": "sdkVersion"
-    }
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./Ressources/ebb_notif_logo.png",
+          "color": "#ffffff"
+        }
+      ]
+    ]
   }
 }

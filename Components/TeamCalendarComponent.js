@@ -51,10 +51,10 @@ import { child, get } from "firebase/database";
 
   const lieu = (game) => {
     if(game.dom.includes('ECKBOLSHEIM')) {
-      return <Text style={styles.text}>Ext</Text>
+      return <Text style={styles.text}>Dom</Text>
     }
     else {
-      return <Text style={styles.text}>Dom</Text>
+      return <Text style={styles.text}>Ext</Text>
     }
   }
 
