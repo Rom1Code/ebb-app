@@ -1,9 +1,4 @@
 import { StyleSheet, Text, View, SectionList, Image, Share, Pressable } from 'react-native';
-import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Octicons from 'react-native-vector-icons/Octicons';
-import Foundation from 'react-native-vector-icons/Foundation';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 
 //import DeviceInfo from 'react-native-device-info';
 

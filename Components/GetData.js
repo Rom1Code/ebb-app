@@ -15,5 +15,6 @@ const firebaseConfig = {
   
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+
   //export const db = getDatabase();  // voir ce que ca renvoi, avec et sans le app
   export const dbRef = ref(getDatabase()); // voir ce que ca renvoi

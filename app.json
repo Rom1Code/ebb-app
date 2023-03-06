@@ -28,8 +28,7 @@
         "foregroundImage": "./Ressources/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.rom1code.ebbapp",
-      "googleServicesFile": "./google-services.json"
+      "package": "com.rom1code.ebbapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -42,15 +41,6 @@
     "owner": "rom1code",
     "runtimeVersion": {
       "policy": "sdkVersion"
-    },
-    "plugins": [
-      [
-        "expo-notifications",
-        {
-          "icon": "./Ressources/ebb_notif_logo.png",
-          "color": "#ffffff"
-        }
-      ]
-    ]
+    }
   }
 }
