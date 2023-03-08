@@ -122,11 +122,11 @@ function GameItem2({ navigation, game }) {
                     <Text>Stats match</Text>
                 </View>
             </Pressable>
-            <Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch, game}})}>
+            {/*<Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch, game}})}>
             <View >
                 <Text>Feuille de match</Text>
             </View>
-            </Pressable>
+            </Pressable>*/}
         </View>
         : null}
         </>

@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, Linking, Image, Share, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Linking, Image, Share, Pressable, ScrollView } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // Contact Screen- information about the club
 function OthersScreen({navigation}) {
@@ -29,64 +30,72 @@ function OthersScreen({navigation}) {
     };
 
     return (
-      <View style={{flex:1, marginTop: 10}} >
+      <ScrollView style={{flex:1, marginTop: 10}} >
         <Text style={styles.title}>Autres Catégories</Text>
         <View style={styles.container} >
           <View style={styles.data_container}>
-            <Entypo style={styles.icon} name="traffic-cone" color='orange' />
-            <Pressable onPress={() => navigation.navigate('Créneaux entrainements')}>
-              <Text style={styles.text}>  Les crénaux d'entrainement</Text>
-            </Pressable>
+              <Pressable style={styles.pressable_container} onPress={() => navigation.navigate('Espace coach')}>
+                <MaterialCommunityIcons style={styles.icon} name="clipboard-text-outline" color='white' />
+                <Text style={styles.text}>  Espace coach</Text>
+              </Pressable>
           </View>
-        <View style={styles.data_container}>
-          <Octicons style={styles.icon} name="graph" color='black' />
-          <Pressable>
-            <Text style={styles.text}>  Statistiques</Text>
-          </Pressable>
-        </View>
+          {/*<View style={styles.data_container}>
+            <Pressable style={styles.pressable_container} onPress={() => navigation.navigate('Créneaux entrainements')}>
+              <Entypo style={styles.icon} name="traffic-cone" color='orange' />
+              <Text style={styles.text}>  Crénaux d'entrainement</Text>
+            </Pressable>
+            </View>
+          <View style={styles.data_container}>
+            <Pressable style={styles.pressable_container}>
+              <Octicons style={styles.icon} name="graph" color='black' />
+              <Text style={styles.text}>  Statistiques</Text>
+            </Pressable>
+          </View>*/}
 
         </View>
         <Text style={styles.title}>Contact</Text>
         <View style={styles.container} >
           <View style={styles.data_container}>
-            <Foundation style={styles.icon} name="telephone" color='white' />
-            <Pressable onPress={() => Linking.openURL('tel:07 82 28 24 71') }>
+            <Pressable style={styles.pressable_container} onPress={() => Linking.openURL('tel:07 82 28 24 71') }>
+              <Foundation style={styles.icon} name="telephone" color='white' />
               <Text style={styles.text}>  07 82 28 24 71</Text>
             </Pressable>
           </View>
           <View style={styles.data_container}>
-            <Foundation style={styles.icon} name="mail" color='white' />
-            <Pressable onPress={() => Linking.openURL('mailto:communication.team.ebb@gmail.com') }>
+            <Pressable style={styles.pressable_container} onPress={() => Linking.openURL('mailto:communication.team.ebb@gmail.com') }>
+              <Foundation style={styles.icon} name="mail" color='white' />
               <Text style={styles.text}>  Nous contacter</Text>
             </Pressable>
           </View>
-          <View>
-            <Pressable style={styles.data_container} onPress={() => Linking.openURL('https://www.facebook.com/EBB.EckbolsheimBasketBall')}><Image style={styles.image} source={require('../Ressources/facebook.png')} />
+          <View style={styles.data_container}>
+            <Pressable style={styles.pressable_container} onPress={() => Linking.openURL('https://www.facebook.com/EBB.EckbolsheimBasketBall')}>
+              <Image style={styles.image} source={require('../Ressources/facebook.png')} />
               <Text style={styles.text}>  Suivez nous sur Facebook</Text>
             </Pressable>
           </View>
-          <View>
-            <Pressable style={styles.data_container} onPress={() => Linking.openURL('https://www.instagram.com/eckbolsheim_basket_ball')}><Image style={styles.image} source={require('../Ressources/Instagram.png')} />
+          <View style={styles.data_container}>
+            <Pressable style={styles.pressable_container} onPress={() => Linking.openURL('https://www.instagram.com/eckbolsheim_basket_ball')}>
+              <Image style={styles.image} source={require('../Ressources/Instagram.png')} />
               <Text style={styles.text}>  Suivez nous sur Instagram</Text>
             </Pressable>
           </View>
         </View>
         <Text style={styles.title}>A propos de l'application</Text>
         <View style={styles.container} >
-          <View>
-          <Pressable style={styles.data_container} onPress={() => Linking.openURL('https://chat.whatsapp.com/BiUjxsVh68hG9jgCKnjwXy')}>
+          <View style={styles.data_container}>
+          <Pressable style={styles.pressable_container} onPress={() => Linking.openURL('https://chat.whatsapp.com/BiUjxsVh68hG9jgCKnjwXy')}>
             <FontAwesome style={styles.icon_fb} name="whatsapp" color='white'  />
             <Text style={styles.text}>  Restez informé des mises à jour</Text>
           </Pressable>
           </View>
-          <View>
-          <Pressable style={styles.data_container} onPress={onShare}>
+          <View style={styles.data_container}>
+          <Pressable style={styles.pressable_container} onPress={onShare}>
             <AntDesign style={styles.icon_fb} name="sharealt" color='white'  />
             <Text style={styles.text}>  Partagez l'application</Text>
           </Pressable>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 
@@ -106,6 +115,10 @@ function OthersScreen({navigation}) {
       borderBottomColor:'white',
       padding: 10
     },
+    pressable_container: {
+      flexDirection: 'row',
+    },
+
     title: {
       fontSize: 18,
       fontWeight: 'bold',

@@ -17,7 +17,7 @@ import { child, get } from "firebase/database";
   const [loading, setLoading] = useState(true)
 
   // Define an array with the head label
-  const tableHead =['#','Date', 'Lieu', 'Adversaire', 'Score', 'Stats', 'Recap']
+  const tableHead =['#','Date', 'Lieu', 'Adversaire', 'Score', 'Recap']
 
 
   // Declare game = match in order to correspond with the gameItem2.js file when we navigate to the GameStatsScreen
@@ -83,7 +83,7 @@ import { child, get } from "firebase/database";
   const flexArr=[0.75, 2.5, 1.5, 4, 2, 1.5, 1.5]
 
   // Set an array with the data that will be read for the table
-  const tableData= calendarData.map((row) => [row.match,row.date + ' ' + row.heure, lieu(row),adversaire(row), highlighWin(row), feuilleMatch(row), recapMatch(row)])
+  const tableData= calendarData.map((row) => [row.match,row.date + ' ' + row.heure, lieu(row),adversaire(row), highlighWin(row), recapMatch(row)])
 
   
   // Fetch the calendar for the team and the stats for all the game played

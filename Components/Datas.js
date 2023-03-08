@@ -1,8 +1,7 @@
 // Data used in team screen
 
-// export const teamList = ['SM1','SM2','SM3','SF1','SF2','SF3','MU17_phase1','MU17_phase2','MU17_2_phase1','MU17_2_phase2','FU18_phase1','FU18_phase2','MU15_phase1',
-// 'MU15_phase2','MU15_2_phase1','MU15_2_phase2','MU15_3_phase1','FU15_phase1','FU15_phase2','FU15_2_phase1','FU15_2_phase2','MU13_phase1','MU13_phase2',
-// 'MU13_2_phase1','MU13_2_phase2','FU13_phase1','FU13_phase2','FU11_phase1','FU11_phase2']
+export const teamList = ['SM1','SM2','SM3','SF1','SF2','SF3','MU17','MU17_2','FU18','MU15','MU15_2','MU15_3','FU15','FU15_2','MU13',
+'MU13_2','FU13','FU11']
 
 // Defini team per category
 const seniorMasculin = [{'team': 'SM1', 'label': 'SM1','level' : 'Pré régionale', 'group':'(Poule A)'},{'team': 'SM2', 'label': 'SM2', 'level': 'Division 3','group':'(Poule B)'},{'team': 'SM3', 'label': 'SM3', 'level': 'Division 5','group':'(Poule C)'}]
@@ -22,4 +21,6 @@ const U11Feminin = [{'team':'FU11_phase1', 'label': 'U11', 'level': 'Divison 2' 
 export const teamCat = [{'cat': 'Senior Masculin', 'teamList': seniorMasculin}, {'cat': 'Senior Feminine', 'teamList': seniorFeminin}, {'cat': 'U17 Masculin', 'teamList': U17Masculin},
 {'cat': "U18 Feminin", 'teamList': U18Feminin}, {'cat': "U15 Masculin", 'teamList': U15Masculin}, {'cat': "U15 Feminin", 'teamList': U15Feminin}, {'cat': "U13 Masculin", 'teamList': U13Masculin},
 {'cat': "U13 Feminin", 'teamList': U13Feminin}, {'cat': "U11 Feminin", 'teamList': U11Feminin}]
+
+
 
