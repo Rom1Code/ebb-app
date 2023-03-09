@@ -32,7 +32,7 @@ function HomeScreen() {
   const arrayActu = actu.map((item)=> item.link)
   // Create an array from the affiche data
   const arrayAffiche= affiche.map((item)=> item.link)
-  const affiche2 = [{link:require('../Ressources/tournoi.jpg')}]
+  const affiche2 = [{link:require('../Ressources/affiche_N3.jpg')}]
 
   const actu2 = [{link:require('../Ressources/annee_80.jpg')}, {link:require('../Ressources/annonce.jpg')}, {link:require('../Ressources/label_or.jpg')}]
 
