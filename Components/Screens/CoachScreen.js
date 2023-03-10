@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Octicons from 'react-native-vector-icons/Octicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import ConnexionComponent from './ConnexionComponent'
+import ConnexionComponent from '../ConnexionComponent'
 
 function CoachScreen({navigation}) {
     const [isPasswordOk, setIsPasswordOk] = useState(true)
@@ -41,7 +41,7 @@ function CoachScreen({navigation}) {
             <>
               <View style={styles.title_container}>
                 <Text  style={styles.title}>Bievenue dans l'espace coach</Text>
-                <Image style={styles.image} source={require('../Ressources/Coach_vert_2.png')}/>
+                <Image style={styles.image} source={require('../../Ressources/Coach_vert_2.png')}/>
               </View>
               <View style={styles.container} >
               <View style={styles.data_container} >

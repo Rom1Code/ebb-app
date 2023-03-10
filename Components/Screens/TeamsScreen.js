@@ -1,6 +1,6 @@
 import { StyleSheet, View, FlatList } from 'react-native';
-import { teamCat } from './Datas';
-import TeamItem from './TeamItem'
+import { teamCat } from '../Datas';
+import TeamItem from '../TeamItem'
 
 // List all the teams present in the club
 function TeamsScreen({navigation}) {

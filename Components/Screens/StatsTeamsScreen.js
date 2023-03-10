@@ -1,12 +1,10 @@
-import { StyleSheet, View, FlatList, Text, Image, ActivityIndicator } from 'react-native';
-import { teamCat, teamListDD } from './Datas';
-import TeamItem from './TeamItem'
+import { StyleSheet, View, FlatList, Text, Image } from 'react-native';
+import { teamListDD } from '../Datas';
 import { Dropdown } from 'react-native-element-dropdown';
 import { useState, useEffect } from 'react';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import { dbRef }  from './GetData'
+import { dbRef }  from '../GetData'
 import { child, get } from "firebase/database";
-import GameItem2 from './GameItem2';
+import GameItem2 from '../GameItem2';
 
 // List all the teams present in the club
 function StatsTeamsScreen({navigation}) {
@@ -15,13 +13,12 @@ function StatsTeamsScreen({navigation}) {
   const [loading, setLoading] = useState(true)
   const [calendarTeam, setCalendarTeam] = useState([])
 
-
   const renderItem = item => {
     return (  
       <View style={styles.item}>
         <Text style={styles.textItem}>{item.label}</Text>
         {item.value === value && (
-          <Image style={{width:30, height:30}} source={require('../Ressources/ebb-logo.png')} />
+          <Image style={{width:30, height:30}} source={require('../../Ressources/ebb-logo.png')} />
         )}
       </View>
     );
@@ -34,8 +31,8 @@ function StatsTeamsScreen({navigation}) {
         get(child(dbRef, 'calendrier/'+value)).then((snapshot) => {
           if (snapshot.exists()) {
             const result = snapshot.val()
-            const resultArray = result.filter((item)=>item.score!='-')
-            
+            const resultArray = result.filter((item)=>item.lien_stats_match!='')
+            console.log(resultArray)
             setCalendarTeam(resultArray);
             setLoading(false)
           } else {
@@ -45,12 +42,9 @@ function StatsTeamsScreen({navigation}) {
           });
       }, [value]);
   
-
-  console.log(value)
-  console.log(calendarTeam)
     return (
       <>
-<Dropdown
+      <Dropdown
         style={styles.dropdown}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
@@ -61,24 +55,26 @@ function StatsTeamsScreen({navigation}) {
         maxHeight={300}
         labelField="label"
         valueField="value"
-        placeholder="Select item"
-        searchPlaceholder="Search..."
+        placeholder="Selectionnez une équipe"
+        searchPlaceholder="Recherche..."
         value={value}
         onChange={item => {
           setValue(item.value);
         }}
         renderLeftIcon={() => (
-          <Image style={{width:30, height:30, marginRight: 5}} source={require('../Ressources/ebb-logo.png')} />
+          <Image style={{width:30, height:30, marginRight: 5}} source={require('../../Ressources/ebb-logo.png')} />
         )}
         renderItem={renderItem}
       />
       { loading  ? 
-      <ActivityIndicator size='large' color='#0bb049' style={{ marginTop: 50}}/>
+      <View style={{flex:1, justifyContent: 'center'}}>
+        <Text style={styles.text}>Aucune équipe de sélectionné</Text>
+      </View>
     :
         <FlatList
           data={calendarTeam}
           keyExtractor={(item,index)=>index}
-          ListEmptyComponent={()=> <Text style={styles.noGame}>Pas de match</Text>}
+          ListEmptyComponent={()=> <Text style={styles.text}>Pas de feuille de match</Text>}
           refreshing={false}
           onRefresh={()=> setLoading(true)}
           renderItem={({item}) =>
@@ -97,6 +93,10 @@ function StatsTeamsScreen({navigation}) {
       width: '100%', 
       flex: 1
     }, 
+    text :{
+      textAlign: 'center', 
+      fontSize: 16
+    },
     dropdown: {
       margin: 16,
       height: 50,

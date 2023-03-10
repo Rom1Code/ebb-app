@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Image, Dimensions, Pressable, ActivityIndicator, FlatList } from 'react-native';
 import { useState, useEffect } from 'react';
-import ModalComponent from './ModalComponent';
+import ModalComponent from '../ModalComponent';
 import Carousel from 'react-native-reanimated-carousel';
-import { dbRef }  from './GetData'
+import { dbRef }  from '../GetData'
 import { child, get } from "firebase/database";
 import { ScrollView } from 'react-native-gesture-handler';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -32,9 +32,9 @@ function HomeScreen() {
   const arrayActu = actu.map((item)=> item.link)
   // Create an array from the affiche data
   const arrayAffiche= affiche.map((item)=> item.link)
-  const affiche2 = [{link:require('../Ressources/affiche_N3.jpg')}]
+  const affiche2 = [{link:require('../../Ressources/affiche_N3.jpg')}]
 
-  const actu2 = [{link:require('../Ressources/annee_80.jpg')}, {link:require('../Ressources/annonce.jpg')}, {link:require('../Ressources/label_or.jpg')}]
+  const actu2 = [{link:require('../../Ressources/annee_80.jpg')}, {link:require('../..//Ressources/annonce.jpg')}, {link:require('../../Ressources/label_or.jpg')}]
 
   // Function called in the modalstatsComponent in order to hide the modal
   const modalVisibleTrigger = () => {
@@ -73,7 +73,7 @@ function HomeScreen() {
 
         <Image
           style={styles.icon}
-          source={require('../Ressources/5ebb-logo.png')}
+          source={require('../../Ressources/5ebb-logo.png')}
         />
 
         { loading2  ? 

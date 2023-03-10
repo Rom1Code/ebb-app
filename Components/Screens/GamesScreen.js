@@ -1,11 +1,11 @@
 import { StyleSheet, FlatList, Text, View, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect } from 'react';
-import { getWeekEnd } from './getDate';
-import GameItem2 from './GameItem2';
-import GameDateBar from './GameDateBar';
+import { getWeekEnd } from '../getDate';
+import GameItem2 from '../GameItem2';
+import GameDateBar from '../GameDateBar';
 import { child, get } from "firebase/database";
-import { dbRef }  from './GetData'
+import { dbRef }  from '../GetData'
 
 // Screen that display the GameDateBar componenet and list the game in function of date selected
 function GamesScreen({navigation}) {

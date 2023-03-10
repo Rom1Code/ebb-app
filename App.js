@@ -1,6 +1,6 @@
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import  Navigation from './Components/Navigation/';
+import  Navigation from './Components/Navigation/Navigation/';
 import React from "react";
 
 export default function App() {

@@ -11,6 +11,8 @@ import { Table, Row, Rows } from 'react-native-table-component';
 // feuilleDataMatch : data from the game  on which the user has clicked
 function GameRecapScreen({route}) {
     const game = route.params.match.game
+    const uri = route.params.match.game.lien_video_match
+
     const feuilleDataMatch = route.params.match.feuilleDataMatch
 
   // Get the width and height of the phone used
@@ -31,7 +33,7 @@ function GameRecapScreen({route}) {
 
     return(
         <View style={{flex:1}}>       
-        <Image
+        {/*<Image
           style={{opacity:0.1,  alignSelf:'center' , position:'absolute', top:-100}}
           source={require('../Ressources/ebb-logo.png')}
         />
@@ -53,12 +55,11 @@ function GameRecapScreen({route}) {
                 <Text style={styles.gameDetailsText}>{feuilleDataMatch[0].equipe_dom_3PTS}</Text><Text style={styles.gameDetailsLabel}>3 PTS</Text><Text style={styles.gameDetailsText}>{feuilleDataMatch[0].equipe_dom_3PTS}</Text>
             </View>
             <View style={styles.teamWinContainer}>{teamWin()}</View>
-          </View>
+    </View>*/}
 
-          {feuilleDataMatch[0].url_video !='' ? <Text style={styles.title}>Résumé du match</Text> : null}
         <View style={{flex:1 }}>
         <WebView 
-        source={{uri: feuilleDataMatch[0].url_video}}
+        source={{uri: uri}}
         style={{ height:200 }}
         />
         </View>

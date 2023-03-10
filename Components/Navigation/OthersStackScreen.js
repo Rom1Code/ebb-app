@@ -1,13 +1,12 @@
 import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
-import OthersScreen from './OthersScreen';
-import TrainingPlanningScreen from './TrainingPlanningScreen';
-import CoachScreen from './CoachScreen';
-import LicenceScreen from './LicenceScreen';
-import StatsTeamsScreen from './StatsTeamsScreen';
-import StatsGamesScreen from './StatsGamesScreen';
-import GameStatsScreen from './GameStatsScreen';
-import GameRecapScreen from './GameRecapScreen';
+import OthersScreen from '../Screens/OthersScreen';
+import TrainingPlanningScreen from '../Screens/TrainingPlanningScreen';
+import CoachScreen from '../Screens/CoachScreen';
+import LicenceScreen from '../Screens/LicenceScreen';
+import StatsTeamsScreen from '../Screens/StatsTeamsScreen';
+import GameStatsPDFScreen from '../Screens/GameStatsPDFScreen';
+import GameRecapScreen from '../Screens/GameRecapScreen';
 
 const Stack = createStackNavigator();
 
@@ -35,15 +34,11 @@ export default function OthersStackScreen () {
             headerTintColor:'#0bb049',
             headerShown:true,
           }}/>
-          <Stack.Screen name="Stats équipes" component={StatsGamesScreen} options={{
-            headerTintColor:'#0bb049',
-            headerShown:true,
-          }}/>
-            <Stack.Screen name="Stats Match" component={GameStatsScreen} options={{
+            <Stack.Screen name="Stats Match" component={GameStatsPDFScreen} options={{
               headerTintColor:'#0bb049',
               headerShown:true,
             }}/>     
-            <Stack.Screen name="Recap Match" component={GameRecapScreen} options={{
+            <Stack.Screen name="Résumé Match" component={GameRecapScreen} options={{
               headerTintColor:'#0bb049',
               headerShown:true,
             }}/>             

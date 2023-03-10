@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Pressable, Text, View, ScrollView } from 'react-native';
-import TeamCalendarComponent from './TeamCalendarComponent'
-import TeamClassementComponent from './TeamClassementComponent'
+import TeamCalendarComponent from '../TeamCalendarComponent'
+import TeamClassementComponent from '../TeamClassementComponent'
 
 // Display calendar and classement component in function of the team the user clicked in teamScreen
 // We get the team name with the route props

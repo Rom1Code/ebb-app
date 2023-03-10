@@ -8,9 +8,6 @@ import { teamCat } from './Datas';
 // 1 props is passed
 // game : data for the game that came for the calendar
 function GameItem2({ navigation, game, route }) {
-  console.log(route)
-  // Keep track if the user click on the game item in order to display game details
-  //const [displayDetailsGame, setDisplayDetailsGame] = useState(false)
   // Save of all the data game for all team
   const [feuilleListData, setFeuilleListData] = useState([])
   // Save classement data for the team
@@ -37,7 +34,6 @@ function GameItem2({ navigation, game, route }) {
       return <><Text style={{color:'red'}}>{score_dom}-{score_ext}</Text></>
     }
   }
-
 
   // Fetch the data (level, group) for the team
   const dataTeam = teamCat.map((item)=> item.teamList.filter((item)=>item.team==game.equipe)).filter((item)=>item.length!=0)[0]
@@ -74,7 +70,6 @@ function GameItem2({ navigation, game, route }) {
         }).catch((error) => {
         });
     }, []);
-    
     // In order to render presable component if necessary, the code is doubled
     return (
       <>
@@ -84,7 +79,9 @@ function GameItem2({ navigation, game, route }) {
       <>
         <View style={styles.gameContainer}>
         <View style={styles.gameContainerTop}>
-            <View><Text style={styles.team}>{game.equipe.substring(0,4)} - {teamLevel} - {teamGroup} </Text></View>
+            <View>
+              <Text style={styles.team}>{route=='statsScreen'? game.date + " - match " + game.match : game.equipe.substring(0,4)} - {teamLevel} - {teamGroup}  </Text>
+              </View>
         </View>
             <View style={styles.gameContainerBottom}>
 
@@ -92,11 +89,11 @@ function GameItem2({ navigation, game, route }) {
               {game.dom.includes("ECKBOLSHEIM") ?  
               <View style={styles.logoContainer}>
                 <Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} />
-               <Text style={{textAlign:'center', fontSize:10, flex:1}}>{data_dom_team[0].place}{data_dom_team[0].place==1 ? 'er':'ème'} ({data_dom_team[0].victoire}V - {data_dom_team[0].defaite}D)</Text>
+               <Text style={{textAlign:'center', fontSize:11, flex:1}}>{data_dom_team[0].place}{data_dom_team[0].place==1 ? 'er':'ème'} ({data_dom_team[0].victoire}V - {data_dom_team[0].defaite}D)</Text>
               </View>
               : <View> 
                 <Text style={styles.game}> {game.dom} </Text>
-                <Text style={{textAlign:'center', fontSize:10}}>{data_dom_team[0].place}{data_dom_team[0].place==1 ? 'er':'ème'} ({data_dom_team[0].victoire}V - {data_dom_team[0].defaite}D)</Text>
+                <Text style={{textAlign:'center', fontSize:11}}>{data_dom_team[0].place}{data_dom_team[0].place==1 ? 'er':'ème'} ({data_dom_team[0].victoire}V - {data_dom_team[0].defaite}D)</Text>
                 </View>}
               
               </View>
@@ -107,25 +104,26 @@ function GameItem2({ navigation, game, route }) {
               {game.ext.includes("ECKBOLSHEIM") ?  
               <View style={styles.logoContainer}>
                   <Image source={require('../Ressources/ebb-logo.png')} style={styles.logo} />
-                  <Text style={{textAlign:'center', fontSize:10, flex:1}}>{data_ext_team[0].place}{data_ext_team[0].place==1 ? 'er':'ème'} ({data_ext_team[0].victoire}V - {data_ext_team[0].defaite}D)</Text>
+                  <Text style={{textAlign:'center', fontSize:11, flex:1}}>{data_ext_team[0].place}{data_ext_team[0].place==1 ? 'er':'ème'} ({data_ext_team[0].victoire}V - {data_ext_team[0].defaite}D)</Text>
               </View>
             : <View><Text style={styles.game}> {game.ext} </Text>
-               <Text style={{textAlign:'center', fontSize:10}}>{data_ext_team[0].place}{data_ext_team[0].place==1 ? 'er':'ème'} ({data_ext_team[0].victoire}V - {data_dom_team[0].defaite}D)</Text>
+               <Text style={{textAlign:'center', fontSize:11}}>{data_ext_team[0].place}{data_ext_team[0].place==1 ? 'er':'ème'} ({data_ext_team[0].victoire}V - {data_dom_team[0].defaite}D)</Text>
               </View>}
               </View> 
             </View>
 
         </View>
-        {feuilleDataMatch.length != 0 ?
+        { game.lien_video_match != '' || (game.lien_stats_match != '' && route=='statsScreen')?
         <View style={styles.statsContainer}>
-            <Pressable style={styles.statsDataContainerLeft} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Recap Match', {match: {game, feuilleDataMatch}})}>
+        { game.lien_video_match != '' ?
+            <Pressable style={styles.statsDataContainerLeft} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Résumé Match', {match: {game, feuilleDataMatch}})}>
                 <View >
-                    <Text>Stats match</Text>
+                    <Text>Résumé du match</Text>
                 </View>
-            </Pressable>
-            {route=='statsScreen'? 
+            </Pressable> : null}
+            {route=='statsScreen' && game.lien_stats_match != ''? 
             <Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch, game}})}>
-            <View >
+           <View >
                 <Text>Feuille de match</Text>
             </View>
             </Pressable>
@@ -144,7 +142,7 @@ const styles = StyleSheet.create({
       flex:1,
       backgroundColor: 'white',
       elevation: 24,
-      height: 110,
+      height: 120,
       marginTop: 15,
     },
     gameContainerTop: {

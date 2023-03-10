@@ -1,7 +1,5 @@
 import { StyleSheet, Text, View, Linking, Image, Share, Pressable, ScrollView } from 'react-native';
-import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Octicons from 'react-native-vector-icons/Octicons';
 import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -69,13 +67,13 @@ function OthersScreen({navigation}) {
           </View>
           <View style={styles.data_container}>
             <Pressable style={styles.pressable_container} onPress={() => Linking.openURL('https://www.facebook.com/EBB.EckbolsheimBasketBall')}>
-              <Image style={styles.image} source={require('../Ressources/facebook.png')} />
+              <Image style={styles.image} source={require('../../Ressources/facebook.png')} />
               <Text style={styles.text}>  Suivez nous sur Facebook</Text>
             </Pressable>
           </View>
           <View style={styles.data_container}>
             <Pressable style={styles.pressable_container} onPress={() => Linking.openURL('https://www.instagram.com/eckbolsheim_basket_ball')}>
-              <Image style={styles.image} source={require('../Ressources/Instagram.png')} />
+              <Image style={styles.image} source={require('../../Ressources/Instagram.png')} />
               <Text style={styles.text}>  Suivez nous sur Instagram</Text>
             </Pressable>
           </View>

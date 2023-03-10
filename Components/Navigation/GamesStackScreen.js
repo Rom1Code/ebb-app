@@ -1,8 +1,8 @@
 import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
-import GameStatsScreen from './GameStatsScreen';
-import GamesScreen from './GamesScreen';
-import GameRecapScreen from './GameRecapScreen';
+import GameStatsScreen from '../Screens/GameStatsScreen';
+import GamesScreen from '../Screens/GamesScreen';
+import GameRecapScreen from '../Screens/GameRecapScreen';
 
 const Stack = createStackNavigator();
 

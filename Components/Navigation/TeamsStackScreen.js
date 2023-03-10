@@ -1,9 +1,9 @@
 import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
-import TeamDataScreen from './TeamDataScreen';
-import TeamsScreen from './TeamsScreen';
-import GameStatsScreen from './GameStatsScreen';
-import GameRecapScreen from './GameRecapScreen';
+import TeamDataScreen from '../Screens/TeamDataScreen';
+import TeamsScreen from '../Screens/TeamsScreen';
+import GameStatsScreen from '../Screens/GameStatsScreen';
+import GameRecapScreen from '../Screens/GameRecapScreen';
 
 const Stack = createStackNavigator();
 
