@@ -28,6 +28,7 @@
     "firebase": "^9.17.1",
     "react": "18.1.0",
     "react-native": "0.70.5",
+    "react-native-element-dropdown": "^2.8.0",
     "react-native-gesture-handler": "~2.8.0",
     "react-native-image-modal": "^1.0.16",
     "react-native-image-pan-zoom": "^2.1.12",

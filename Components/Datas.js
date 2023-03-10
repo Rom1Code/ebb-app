@@ -1,5 +1,8 @@
 // Data used in team screen
 
+export const MasculinTeamList = ['SM1','SM2','SM3','MU17','MU17_2','MU15','MU15_2','MU15_3','MU13','MU13_2']
+export const FemininTeamList = ['SF1','SF2','SF3','FU18','FU15','FU15_2','FU13','FU11']
+
 export const teamList = ['SM1','SM2','SM3','SF1','SF2','SF3','MU17','MU17_2','FU18','MU15','MU15_2','MU15_3','FU15','FU15_2','MU13',
 'MU13_2','FU13','FU11']
 
@@ -24,3 +27,23 @@ export const teamCat = [{'cat': 'Senior Masculin', 'teamList': seniorMasculin}, 
 
 
 
+export const teamListDD = [
+    { label: 'SM1', value: 'SM1' },
+    { label: 'SM2', value: 'SM2' },
+    { label: 'SM3', value: 'SM3' },
+    { label: 'SF1', value: 'SF1' },
+    { label: 'SF2', value: 'SF2' },
+    { label: 'SF3', value: 'SF3' },
+    { label: 'FU18', value: 'FU18' },
+    { label: 'MU17', value: 'MU17' },
+    { label: 'MU17_2', value: 'MU17_2' },
+    { label: 'MU15', value: 'MU15' },
+    { label: 'MU15_2', value: 'MU15_2' },
+    { label: 'MU15_3', value: 'MU15_3' },
+    { label: 'FU15', value: 'FU15' },
+    { label: 'FU15_2', value: 'FU15_2' },
+    { label: 'MU13', value: 'MU13' },
+    { label: 'MU13_2', value: 'MU13_2' },
+    { label: 'FU13', value: 'FU13' },
+    { label: 'FU11', value: 'FU11' },
+  ];

@@ -10,7 +10,7 @@ function TeamsScreen({navigation}) {
         data={teamCat}
         keyExtractor={(item, index)=> index}
         renderItem={({item})=>
-          <TeamItem navigation={navigation} title={item.cat} data={item.teamList} />
+          <TeamItem navigation={navigation} title={item.cat} data={item.teamList}/>
       } />
     );
   }

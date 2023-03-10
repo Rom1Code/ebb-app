@@ -1,6 +1,6 @@
-import { StyleSheet, View, FlatList, Text } from 'react-native';
+import { StyleSheet, View, FlatList, Text, Image } from 'react-native';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
-import { teamList } from './Datas';
+import { teamList, MasculinTeamList, FemininTeamList } from './Datas';
 import TeamItem from './TeamItem'
 import ModalLicenceComponent from './ModalLicenceComponent';
 import { useState, useEffect } from 'react';
@@ -21,20 +21,29 @@ function LicenceScreen({navigation}) {
     return (
         <>
         <ModalLicenceComponent visible={modalVisible}  modalVisibleTrigger={modalVisibleTrigger}/>
-        <View style={styles.container}>
             <FlatList style={styles.flatListContainer}
             data={teamList}
             keyExtractor={(item, index)=> index}
             renderItem={({item})=>
-            <View style={styles.itemContainer}>
-                <Pressable style={{width:'100%', alignItems:'center'}}onPress={() => setModalVisible(!modalVisible)} >
-                    <Text style={styles.text}>{item}</Text>
-                </Pressable>
-                
+            <View style={styles.container}>
+            <Pressable style={styles.pressableContainer} onPress={() => setModalVisible(!modalVisible)} >
+              <View style={styles.itemContainer}>
+                <View style={styles.topContainer}>
+                  <Text style={styles.textTopContainer}>Licence</Text>
+                </View>
+                <View style={styles.bottomContainer}>
+                <View style={styles.imageContainer}>
+                  <Image  style={{ width: 70, height: 70, resizeMode:'contain'}} source={require('../Ressources/team.png')} />
+                </View>
+                <View style={styles.nameContainer}>
+                  <Text style={styles.textTeam}>{item}</Text>
+                  <Text style={styles.text}>Année : 2022/2023</Text>
+                  </View>
+                </View>
+              </View>
+            </Pressable>
             </View>
-
             } />
-        </View>
 
         </>
       );
@@ -44,24 +53,63 @@ function LicenceScreen({navigation}) {
   
     const styles = StyleSheet.create({
       container: {
-        flex: 1,
         alignItems: 'center',
         marginTop: 10,
-    },
-    flatListContainer: {
-    },
+      },
+      pressableContainer: {
+        elevation: 10,
+        backgroundColor:'white',
+        borderRadius:5,
+        overflow:'hidden'
+      },
+      topContainer: {
+        flex:1,
+        backgroundColor: '#0bb049',
+        justifyContent: 'center',
+        width: '100%',
+
+      },
+      bottomContainer: {
+        flex:2,
+        flexDirection: 'row'
+      },
+      imageContainer: {
+        flex: 1,
+        borderRightWidth: 0.5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 5
+      },
+      nameContainer: {
+        flex: 2,
+        justifyContent: 'center',
+        paddingLeft: 5
+      },
       itemContainer: {
-        borderWidth:1,
+        borderWidth:0.5,
         borderRadius: 5,
         alignItems:'center',
-        marginVertical: 5,
-        width: 100,
-        backgroundColor: '#0bb049'
+        width: 220,
+        height: 110,
       }, 
     text : {
-        color: 'white',
-        fontSize: 24
-    }
+        color: 'black',
+        fontSize: 14,
+    },
+    textTeam : {
+      color: '#0bb049',
+      fontSize: 16,
+      textAlign: 'center',
+      marginBottom: 5,
+      fontWeight: '600'
+
+    },
+    textTopContainer: {
+        color:'white',
+        textAlign: 'center',
+        fontWeight:'600',
+        fontSize: 18,
+      }
     });
   
   

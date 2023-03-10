@@ -7,7 +7,8 @@ import { teamCat } from './Datas';
 // Game item component used in the GameScreen
 // 1 props is passed
 // game : data for the game that came for the calendar
-function GameItem2({ navigation, game }) {
+function GameItem2({ navigation, game, route }) {
+  console.log(route)
   // Keep track if the user click on the game item in order to display game details
   //const [displayDetailsGame, setDisplayDetailsGame] = useState(false)
   // Save of all the data game for all team
@@ -122,11 +123,14 @@ function GameItem2({ navigation, game }) {
                     <Text>Stats match</Text>
                 </View>
             </Pressable>
-            {/*<Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch, game}})}>
+            {route=='statsScreen'? 
+            <Pressable style={styles.statsDataContainerRight} android_ripple={{ color: '#0bb049' }} onPress={() => navigation.navigate('Stats Match', {match: {feuilleDataMatch, game}})}>
             <View >
                 <Text>Feuille de match</Text>
             </View>
-            </Pressable>*/}
+            </Pressable>
+            :
+            null}
         </View>
         : null}
         </>

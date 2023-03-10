@@ -117,7 +117,7 @@ function GamesScreen({navigation}) {
           refreshing={false}
           onRefresh={()=> setLoading(true)}
           renderItem={({item}) =>
-          <GameItem2 navigation={navigation} game={item}/>}
+          <GameItem2 navigation={navigation} game={item} route={''}/>}
         />      
         }
     </SafeAreaView>

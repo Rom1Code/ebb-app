@@ -1,24 +1,30 @@
 import { StyleSheet, Text, View, Image, TextInput, Pressable, Alert } from 'react-native';
 import { useState, useEffect } from 'react';
-import { dbRef }  from './GetData'
-import { child, get } from "firebase/database";
 import Entypo from 'react-native-vector-icons/Entypo';
 import Octicons from 'react-native-vector-icons/Octicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ConnexionComponent from './ConnexionComponent'
-import LicenceScreen from './LicenceScreen'
 
 function CoachScreen({navigation}) {
-    const [isPasswordOk, setIsPasswordOk] = useState(false)
+    const [isPasswordOk, setIsPasswordOk] = useState(true)
+    const [userValue, setUserValue] = useState('')
+    const [password, setPassword] = useState('')
 
       // Fetch one time all the data for all game
   useEffect(() => {
+    console.log('userValue',userValue)
+
+    if(userValue!='' && password!=''){
+        userValue == password ? setIsPasswordOk(true) : setIsPasswordOk(false)
+    } 
     console.log('useeffect isPasswordOk',isPasswordOk)
 
     }, []);
 
     const triggerCheckPassword = (password, userValue) => {
         console.log('triggerCheckPassword',password)
+        setUserValue(userValue)
+        setPassword(password)
         if(userValue == password) {
             setIsPasswordOk(true)
         }
@@ -52,7 +58,7 @@ function CoachScreen({navigation}) {
                     </Pressable>
                 </View>
                 <View style={styles.line_container}>
-                        <Pressable style={styles.pressable_container}>
+                        <Pressable style={styles.pressable_container} onPress={() => navigation.navigate('Equipes')}>
                         <Octicons style={styles.icon} name="graph" color='black' />
                         <Text style={styles.text}>  Statistiques</Text>
                         </Pressable>

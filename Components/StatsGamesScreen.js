@@ -2,35 +2,11 @@ import { Text, View, TouchableOpacity, Pressable, Image, StyleSheet } from 'reac
 import { FlatList } from 'react-native-gesture-handler';
 
 // Display one item
-function TeamItem({navigation, title, data}) {
+function StatsGamesScreen({navigation, title, data}) {
     return (
       <>
-      <Text style={styles.title}>{title}</Text>
-      <FlatList
-        horizontal={true}
-        style={styles.container}
-        keyExtractor={(item)=>item.team}
-        data={data}
-        renderItem={({item})=> 
-              <View style={styles.teamContainer}>
-                <Pressable android_ripple={{ color: '#0bb049' }} style={styles.touch} onPress={() => navigation.navigate('Infos equipes', {team: {item}})}>
-                <View style={styles.teamContainerTop}> 
-                  <View style={styles.imageContainer}>
-                    <Image style={styles.logo} source={require('../Ressources/ebb-logo.png')} />
-                  </View>
-                  <View style={styles.textContainer}>
-                    <Text style={styles.item}>{item.label}</Text>
-                  </View>
-                </View>
-                <View style={styles.teamContainerBottom}> 
-                    <Text style={styles.item2}>{item.level}</Text>
-                    <Text style={styles.item2}>{item.group}</Text>
-                </View>
-                </Pressable>
-              </View>
-              }   
-      />
-</>
+      <Text style={styles.title}>stats</Text>
+    </>
     )
 }
 
@@ -93,9 +69,7 @@ const styles = StyleSheet.create({
       //borderRadius:10,
       textAlign: 'center',
     },
-
-  
   });
 
 
-export default TeamItem
+export default StatsGamesScreen
