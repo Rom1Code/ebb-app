@@ -1,9 +1,8 @@
 import { StyleSheet, View, FlatList, Text, Image } from 'react-native';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
-import { teamList, MasculinTeamList, FemininTeamList } from '../Datas';
-import TeamItem from '../TeamItem'
+import { teamList } from '../Datas';
 import ModalLicenceComponent from '../ModalLicenceComponent';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 //import DeviceInfo from 'react-native-device-info';
 
@@ -16,8 +15,6 @@ function LicenceScreen({navigation}) {
   const modalVisibleTrigger = () => {
     setModalVisible(!modalVisible)
     }
-    //const source = {require('./assets/SM1_2022-2023.pdf')};
-//console.log(source.uri)
     return (
         <>
         <ModalLicenceComponent visible={modalVisible}  modalVisibleTrigger={modalVisibleTrigger}/>
@@ -33,7 +30,7 @@ function LicenceScreen({navigation}) {
                 </View>
                 <View style={styles.bottomContainer}>
                 <View style={styles.imageContainer}>
-                  <Image  style={{ width: 70, height: 70, resizeMode:'contain'}} source={require('../../Ressources/team.png')} />
+                  <Image  style={styles.image} source={require('../../Ressources/team.png')} />
                 </View>
                 <View style={styles.nameContainer}>
                   <Text style={styles.textTeam}>{item}</Text>
@@ -109,7 +106,12 @@ function LicenceScreen({navigation}) {
         textAlign: 'center',
         fontWeight:'600',
         fontSize: 18,
-      }
+    },
+    image: {
+      width: 70, 
+      height: 70, 
+      resizeMode:'contain'
+    }
     });
   
   

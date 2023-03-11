@@ -34,7 +34,7 @@ import { child, get } from "firebase/database";
   const recapMatch = (game) => {
     const feuilleDataMatch = feuilleListData.filter((item2) => item2.match == game.match )
     if(feuilleDataMatch.length == 1) {
-      return <TouchableOpacity onPress={() => navigation.navigate('Recap Match', {match: {game, feuilleDataMatch}})}>
+      return <TouchableOpacity onPress={() => navigation.navigate('Résumé Match', {match: {game, feuilleDataMatch}})}>
             <Entypo name="check" color='green' size={20} style={{textAlign:'center'}}/>
         </TouchableOpacity>
     }

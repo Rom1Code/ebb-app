@@ -10,7 +10,7 @@ import GameRecapScreen from '../Screens/GameRecapScreen';
 
 const Stack = createStackNavigator();
 
-// Used in order to navigate between TeamsScreen, TeamDataScreen and TeamDataScreen
+// Used in order to navigate between CoachScreen, TrainingPlanningScreen and TeamDataScreen
 export default function OthersStackScreen () {
     return (
         <Stack.Navigator>

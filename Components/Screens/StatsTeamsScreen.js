@@ -8,11 +8,14 @@ import GameItem2 from '../GameItem2';
 
 // List all the teams present in the club
 function StatsTeamsScreen({navigation}) {
+  // Keep track on the value choose in the dropdown list
   const [value, setValue] = useState(null);
   // Keep track if the datas are loading
   const [loading, setLoading] = useState(true)
+  // Keep track on the calendar in function of the team choosen
   const [calendarTeam, setCalendarTeam] = useState([])
 
+  // Render item of the dropdown list
   const renderItem = item => {
     return (  
       <View style={styles.item}>
@@ -27,12 +30,11 @@ function StatsTeamsScreen({navigation}) {
     // Fetch one time all the data for all game
     useEffect(() => {
       console.log("useeffect", value)
-      // get the data from the 'feuille_match' node in the Firebase realtimebase and save it to feuilleListData variable
+      // get the data from the 'calendrier' node in the Firebase realtimebase and save it to calendarTeam variable
         get(child(dbRef, 'calendrier/'+value)).then((snapshot) => {
           if (snapshot.exists()) {
             const result = snapshot.val()
             const resultArray = result.filter((item)=>item.lien_stats_match!='')
-            console.log(resultArray)
             setCalendarTeam(resultArray);
             setLoading(false)
           } else {

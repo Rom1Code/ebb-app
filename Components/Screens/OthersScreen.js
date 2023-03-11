@@ -7,6 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 // Contact Screen- information about the club
 function OthersScreen({navigation}) {
 
+    // Trigger when user clicked on the share menu
     const onShare = async () => {
       try {
         const result = await Share.share({

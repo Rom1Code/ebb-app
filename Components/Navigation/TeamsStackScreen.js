@@ -22,11 +22,11 @@ export default function TeamsStackScreen () {
             headerTintColor:'#0bb049',
             headerShown:true,
           }}/>
-          <Stack.Screen name="Stats Match" component={GameStatsScreen} options={{
+          {/*<Stack.Screen name="Stats Match" component={GameStatsScreen} options={{
             headerTintColor:'#0bb049',
             headerShown:true,
-          }}/>   
-          <Stack.Screen name="Recap Match" component={GameRecapScreen} options={{
+          }}/>*/}
+          <Stack.Screen name="Résumé Match" component={GameRecapScreen} options={{
             headerTintColor:'#0bb049',
             headerShown:true,
           }}/>             

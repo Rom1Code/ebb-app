@@ -1,7 +1,6 @@
 import { StyleSheet, FlatList, Text, View, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect } from 'react';
-import { getWeekEnd } from '../getDate';
 import GameItem2 from '../GameItem2';
 import GameDateBar from '../GameDateBar';
 import { child, get } from "firebase/database";

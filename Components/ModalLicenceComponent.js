@@ -2,9 +2,8 @@ import { Dimensions,  Modal, Text, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 // Modal component used in order to zoom in the photos showed in the homeScreen
-// 3 props are passed
+// 2 props are passed
 // visible : boolean in order to display the modal
-// image : the image on which the user has clicked
 // modalVisibleTrigger : function used in order to hide the modal
 function ModalLicenceComponent({visible, modalVisibleTrigger}) {
 

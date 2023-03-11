@@ -6,8 +6,11 @@ import TeamClassementComponent from '../TeamClassementComponent'
 // Display calendar and classement component in function of the team the user clicked in teamScreen
 // We get the team name with the route props
  function TeamDataScreen({navigation, route}) {
+  // Keep track on which the user pressed (classement or calendrier)
   const [tabPressed, setTabPressed] = useState(1);
+  // Get the data from the route navigation
   const team = route.params.team.item.team
+  
     return (
       <View style={{ flex: 1, backgroundColor:'white' }}>
         <View  style={styles.tabContainer}> 

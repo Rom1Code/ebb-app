@@ -6,25 +6,11 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import ConnexionComponent from '../ConnexionComponent'
 
 function CoachScreen({navigation}) {
+    // Compare password and user value
     const [isPasswordOk, setIsPasswordOk] = useState(true)
-    const [userValue, setUserValue] = useState('')
-    const [password, setPassword] = useState('')
 
-      // Fetch one time all the data for all game
-  useEffect(() => {
-    console.log('userValue',userValue)
-
-    if(userValue!='' && password!=''){
-        userValue == password ? setIsPasswordOk(true) : setIsPasswordOk(false)
-    } 
-    console.log('useeffect isPasswordOk',isPasswordOk)
-
-    }, []);
-
+    // Trigger when user press the validation button after entered the password
     const triggerCheckPassword = (password, userValue) => {
-        console.log('triggerCheckPassword',password)
-        setUserValue(userValue)
-        setPassword(password)
         if(userValue == password) {
             setIsPasswordOk(true)
         }
@@ -34,7 +20,6 @@ function CoachScreen({navigation}) {
         }
     }
 
-    console.log('isPasswordOk',isPasswordOk)
     return (
       <View style={{flex:1}}>
         {isPasswordOk ? 
@@ -66,7 +51,6 @@ function CoachScreen({navigation}) {
              </View>
              </View>
             </>
-
         :
         <>
             <ConnexionComponent triggerCheckPassword={triggerCheckPassword}/>
@@ -75,9 +59,6 @@ function CoachScreen({navigation}) {
       </View>
     );
   }
-
-  export default CoachScreen; 
-
 
   const styles = StyleSheet.create({
     container: {
@@ -119,7 +100,7 @@ function CoachScreen({navigation}) {
         fontSize:20 
       },
     icon: {
-      fontSize:20,
+        fontSize:20,
     },
     image: {
         marginTop:10,
@@ -129,5 +110,6 @@ function CoachScreen({navigation}) {
         resizeMode:'contain',
         zIndex: 1
     }
-
     })
+
+export default CoachScreen; 

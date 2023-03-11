@@ -11,7 +11,7 @@ import { WebView } from 'react-native-webview';
     // Keep track of the tab the user select
     const uri = route.params.match.game.lien_stats_match
     return(
-        <View style={{flex:1}}>
+        <View style={styles.container}>
             <WebView 
             style={{alignSelf:'center', width:width, height: height}}
             source={{uri: uri}}
@@ -22,7 +22,9 @@ import { WebView } from 'react-native-webview';
 
 
 const styles = StyleSheet.create({
-
+    container: {
+        flex: 1
+    }
 })
 
 export default GameStatsPDFScreen

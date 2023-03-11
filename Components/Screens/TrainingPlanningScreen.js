@@ -1,37 +1,36 @@
 import { StyleSheet, Text, View, SectionList, Image, Share, Pressable } from 'react-native';
-
 //import DeviceInfo from 'react-native-device-info';
 
 // Contact Screen- information about the club
 function TrainingPlanningScreen({}) {
-    const DATA = [
-        {
-          day: 'Lundi',
-          data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
-        },
-        {
-          day: 'Mardi',
-          data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
-        },
-        {
-          day: 'Mercredi',
-          data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
-        },
-        {
-          day: 'Jeudi',
-          data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
-        },
-        {
-          day: 'Vendredi',
-          data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
-          },
-  
-      ];
 
+  const trainingPlaning = [
+    {
+      day: 'Lundi',
+      data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
+    },
+    {
+      day: 'Mardi',
+      data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
+    },
+    {
+      day: 'Mercredi',
+      data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
+    },
+    {
+      day: 'Jeudi',
+      data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
+    },
+    {
+      day: 'Vendredi',
+      data: [{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'},{heure:'18h30', lieu:'Sammel', equipe:'SM1'}]
+      },
+
+  ];
     return (
       <View style={styles.container}>
         <SectionList
-          sections={DATA}
+          sections={trainingPlaning}
           keyExtractor={(item, index) => item + index}
           renderItem={({item}) => (
             <View>
