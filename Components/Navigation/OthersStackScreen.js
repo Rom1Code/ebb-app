@@ -7,6 +7,7 @@ import LicenceScreen from '../Screens/LicenceScreen';
 import StatsTeamsScreen from '../Screens/StatsTeamsScreen';
 import GameStatsPDFScreen from '../Screens/GameStatsPDFScreen';
 import GameRecapScreen from '../Screens/GameRecapScreen';
+import LicencesTeamScreen from '../Screens/LicencesTeamScreen';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,10 @@ export default function OthersStackScreen () {
             headerShown:true,
           }}/>
           <Stack.Screen name="Licences" component={LicenceScreen} options={{
+            headerTintColor:'#0bb049',
+            headerShown:true,
+          }}/>
+          <Stack.Screen name="Licences équipe" component={LicencesTeamScreen} options={{
             headerTintColor:'#0bb049',
             headerShown:true,
           }}/>

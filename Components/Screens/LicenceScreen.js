@@ -1,29 +1,19 @@
 import { StyleSheet, View, FlatList, Text, Image } from 'react-native';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import { teamList } from '../Datas';
-import ModalLicenceComponent from '../ModalLicenceComponent';
-import { useState } from 'react';
 
 //import DeviceInfo from 'react-native-device-info';
 
 // Contact Screen- information about the club
 function LicenceScreen({navigation}) {
-  // Keep track if the modal component is visible or not
-  const [modalVisible, setModalVisible] = useState(false);
-
-  // Function called in the modalstatsComponent in order to hide the modal
-  const modalVisibleTrigger = () => {
-    setModalVisible(!modalVisible)
-    }
     return (
         <>
-        <ModalLicenceComponent visible={modalVisible}  modalVisibleTrigger={modalVisibleTrigger}/>
             <FlatList style={styles.flatListContainer}
             data={teamList}
             keyExtractor={(item, index)=> index}
             renderItem={({item})=>
             <View style={styles.container}>
-            <Pressable style={styles.pressableContainer} onPress={() => setModalVisible(!modalVisible)} >
+            <Pressable style={styles.pressableContainer} onPress={() => navigation.navigate('Licences équipe')} >
               <View style={styles.itemContainer}>
                 <View style={styles.topContainer}>
                   <Text style={styles.textTopContainer}>Licence</Text>
@@ -41,7 +31,6 @@ function LicenceScreen({navigation}) {
             </Pressable>
             </View>
             } />
-
         </>
       );
     }
